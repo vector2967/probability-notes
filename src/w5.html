@@ -1,0 +1,213 @@
+<section class="week" id="w5">
+<h2>5주차 · 3.2 확률의 덧셈정리</h2>
+<p>동전 2개에서 '적어도 한 개 뒷면' → (H,T),(T,H),(T,T) 3가지라 $\frac{3}{4}$. 하지만 동전이 많아지면 일일이 세기 불편 → <b>합사건의 확률</b>과 <b>여사건의 확률</b>로 간단히 구한다.</p>
+
+<h3 id="s3-2-1">3.2.1 합사건의 확률</h3>
+<p>사건 $A$ 또는 $B$가 일어날 확률 = 합사건의 확률 $P(A\cup B)$ (= $A$, $B$ 중 적어도 하나가 일어날 확률). 각각 더한 뒤 두 번 더해진 교집합 $P(A\cap B)$를 한 번 빼면 된다.</p>
+<p><b>예 1 (교집합 있음)</b> $S=\{x\mid x$는 15 이하의 자연수$\}$, $A$: 2의 배수 $=\{2,4,6,8,10,12,14\}$, $B$: 10의 약수 $=\{1,2,5,10\}$, $A\cap B=\{2,10\}$.</p>
+<p class="fig">[그림 3-5] 2의 배수와 10의 약수 — 벤다이어그램: $A$만 4, 6, 8, 12, 14 / $A\cap B$ 2, 10 / $B$만 1, 5 / 바깥 3, 7, 9, 11, 13, 15</p>
+<p>$$P(A\cup B)=\frac{7}{15}+\frac{4}{15}-\frac{2}{15}=\frac{9}{15}$$ 실제로 $A\cup B=\{1,2,4,5,6,8,10,12,14\}$, 9개로 확인.</p>
+<p><b>예 2 (배반사건)</b> 같은 $S$에서 $A$: 7의 배수 $=\{7,14\}$, $B$: 3의 배수 $=\{3,6,9,12,15\}$ → $A\cap B=\varnothing$이므로 그냥 더한다.</p>
+<p class="fig">[그림 3-6] 7의 배수와 3의 배수 — $S$ 안에 떨어진 두 원 $A$(7, 14), $B$(3, 6, 9, 12, 15), 바깥 1, 2, 4, 5, 8, 10, 11, 13</p>
+<p>$P(A)=\frac{2}{15}$, 3의 배수일 확률 $P(B)=\frac{5}{15}$, $P(A\cap B)=0$ → $$P(A\cup B)=\frac{2}{15}+\frac{5}{15}=\frac{7}{15}$$ ($A\cup B=\{3,6,7,9,12,14,15\}$) <span class="fix">※ 책 오탈자 수정: 원문 "10의 소수인 확률", "7의 배수이자 10의 소수인 확률 $P(A\cap B)=\phi$" → 3의 배수, 그리고 확률은 공집합 기호가 아니라 0</span></p>
+
+<div class="box def"><div class="lbl">정리 3-4 · 덧셈정리</div>
+<ul>
+<li>두 사건 $A$, $B$에 대한 합사건의 확률 $$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$</li>
+<li>두 사건 $A$, $B$가 배반사건인 경우 합사건의 확률 $$P(A\cup B)=P(A)+P(B)$$</li>
+</ul></div>
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>"또는" → 합사건. 먼저 교집합이 있는지(배반인지) 확인.</li>
+<li>배반이면 $P(A\cap B)=0$이라 빼는 항이 사라진다. 서로 다른 '합이 9', '합이 10'처럼 겹칠 수 없는 경우를 쪼개 더할 때 자주 씀.</li>
+<li>드모르간: $P(A^c\cap B^c)=P((A\cup B)^c)=1-P(A\cup B)$.</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 3-16</span> 주사위 한 개를 던질 때, 짝수 또는 3 이상의 눈이 나올 확률을 구하라.</summary>
+<div class="sol">
+<p>$S=\{1,2,3,4,5,6\}$, 짝수 $A=\{2,4,6\}$, 3 이상 $B=\{3,4,5,6\}$.</p>
+<p>$A\cup B=\{2,3,4,5,6\}$, $A\cap B=\{4,6\}$ → $n(A\cup B)=5$, $n(A\cap B)=2$.</p>
+<p>$$P(A\cup B)=\frac{5}{6},\ P(A)=\frac{3}{6},\ P(B)=\frac{4}{6},\ P(A\cap B)=\frac{2}{6}$$</p>
+<p>덧셈정리: $$P(A\cup B)=P(A)+P(B)-P(A\cap B)=\frac{3}{6}+\frac{4}{6}-\frac{2}{6}=\frac{5}{6}$$</p>
+<p class="ans">답: $\frac{5}{6}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-17</span> 다음 표는 정보통신공학과 학생 100명의 혈액형을 나타낸 것이다. 이 학생 중에서 임의로 한 명을 뽑을 때, O형 또는 A형일 확률을 구하라.
+<table><tr><th>혈액형</th><th>O형</th><th>A형</th><th>B형</th><th>AB형</th><th>합계</th></tr>
+<tr><td>학생 수(명)</td><td>29</td><td>41</td><td>18</td><td>12</td><td>100</td></tr></table></summary>
+<div class="sol">
+<p>O형이 뽑히는 사건 $X$, A형이 뽑히는 사건 $Y$ → 동시에 일어날 수 없으므로 배반사건.</p>
+<p>$$P(X\cup Y)=P(X)+P(Y)=\frac{29}{100}+\frac{41}{100}=\frac{70}{100}=\frac{7}{10}$$</p>
+<p class="ans">답: $\frac{7}{10}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-18</span> 주머니 속에 흰 공 5개, 검은 공 4개가 들어 있다. 이 주머니에서 공 2개를 꺼낼 때, 모두 흰 공 또는 모두 검은 공일 확률을 구하라.</summary>
+<div class="sol">
+<p>흰 공 2개를 꺼내는 사건 $A$, 검은 공 2개를 꺼내는 사건 $B$: $n(A)={}_5C_2$, $n(B)={}_4C_2$ (서로 배반).</p>
+<p>$$P(A\cup B)=P(A)+P(B)=\frac{{}_5C_2}{{}_9C_2}+\frac{{}_4C_2}{{}_9C_2}=\frac{5}{18}+\frac{3}{18}=\frac{4}{9}$$</p>
+<p class="ans">답: $\frac{4}{9}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-19</span> 표본공간 $S$의 부분집합인 두 사건 $A$, $B$에 대하여 $P(A)=\frac{1}{2}$, $P(B)=\frac{1}{3}$, $P(A^c\cap B^c)=\frac{1}{4}$일 때, $P(A\cap B)$의 값을 구하라.</summary>
+<div class="sol">
+<p>$P(A^c\cap B^c)=1-P(A\cup B)$이므로 $\frac{1}{4}=1-P(A\cup B)$, $P(A\cup B)=\frac{3}{4}$.</p>
+<p>$$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$ $$\frac{3}{4}=\frac{1}{2}+\frac{1}{3}-P(A\cap B)=\frac{5}{6}-P(A\cap B)$$</p>
+<p>$P(A\cap B)=\frac{5}{6}-\frac{3}{4}=\frac{1}{12}$</p>
+<p class="ans">답: $\frac{1}{12}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-20</span> 서로 다른 주사위 두 개를 던질 때 나오는 두 눈의 수의 합이 9 이상일 확률을 구하라.</summary>
+<div class="sol">
+<p>합이 9, 10, 11, 12인 사건을 각각 $A$, $B$, $C$, $D$라 하면</p>
+<p>$A=\{(4,5),(5,4),(6,3),(3,6)\}$, $B=\{(4,6),(5,5),(6,4)\}$, $C=\{(5,6),(6,5)\}$, $D=\{(6,6)\}$</p>
+<p>모두 배반사건이므로 $$P(A\cup B\cup C\cup D)=\frac{4}{36}+\frac{3}{36}+\frac{2}{36}+\frac{1}{36}=\frac{10}{36}=\frac{5}{18}$$</p>
+<p class="ans">답: $\frac{5}{18}$</p></div></details>
+
+<h3 id="s3-2-2">3.2.2 여사건의 확률</h3>
+<p>$A$가 일어나지 않을 확률 = 여사건의 확률 $P(A^c)$. $A\cap A^c=\varnothing$이므로 덧셈정리로 $P(A)+P(A^c)=P(A\cup A^c)=P(S)=1$.</p>
+<div class="box def"><div class="lbl">여사건의 확률</div>
+$$P(A^c)=1-P(A)$$</div>
+<p><b>예</b> 제비 10개 중 당첨 3개, 2개 뽑기. 둘 다 당첨($A$): $P(A)=\frac{{}_3C_2}{{}_{10}C_2}=\frac{1}{15}$ → 둘 다 당첨 아님: $P(A^c)=1-\frac{1}{15}=\frac{14}{15}$.</p>
+<p><b>'적어도'</b>가 나오면 여사건으로: (적어도 하나) = 1 − (하나도 없음).</p>
+<p><b>예</b> 안경 쓴 사람 4명, 안 쓴 사람 3명 중 2명 선택. '적어도 1명 안경'을 직접 세면 (2명 모두 안경)+(1명만 안경)으로 번거로움. 2명 모두 안경을 안 쓴 사건을 $A$라 하면</p>
+<p class="fig">[그림 3-7] '적어도' 안경을 쓴 사람이 1명인 경우 — 안경 쓴 사람 A, B, C, D / 안 쓴 사람 E, F, G. 2명 모두 안경을 안 쓴 경우 $A$: (E,F), (E,G), (F,G) 3가지, 나머지가 '적어도 1명은 안경을 쓴 경우' <span class="fix">※ 책 오탈자 수정: 그림 원문 안경 안 쓴 사람 "E, F, D" → E, F, G</span></p>
+<p>$$P(A)=\frac{{}_3C_2}{{}_7C_2}=\frac{1}{7},\qquad P(A^c)=1-\frac{1}{7}=\frac{6}{7}$$</p>
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>'적어도 하나', '한 개 이상', '서로 다른' → 반대(하나도 없음 / 모두 같음)가 훨씬 세기 쉬움.</li>
+<li>여사건을 무엇으로 잡는지 문장으로 먼저 적어 두면 실수가 줄어든다.</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 3-21</span> 주사위 2개를 동시에 던질 때, 서로 다른 눈이 나올 확률을 구하라.</summary>
+<div class="sol">
+<p>같은 눈이 나오는 사건 $A=\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6)\}$, $n(A)=6$, $P(A)=\frac{6}{36}=\frac{1}{6}$.</p>
+<p>$$P(A^c)=1-P(A)=1-\frac{1}{6}=\frac{5}{6}$$</p>
+<p class="ans">답: $\frac{5}{6}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-22</span> 어느 자동차 부품 공장에서는 생산한 제품 20개 중에서 16개가 합격품이다. 20개의 제품 중에서 3개를 꺼낼 때, 적어도 한 개가 합격품일 확률을 구하라.</summary>
+<div class="sol">
+<p>적어도 한 개 합격품 $=A$, 합격품이 하나도 없음(불합격품 4개 중 3개) $=A^c$.</p>
+<p>$P(A^c)=\frac{{}_4C_3}{{}_{20}C_3}=\frac{4}{1140}=\frac{1}{285}$</p>
+<p>$$P(A)=1-\frac{1}{285}=\frac{284}{285}$$</p>
+<p class="ans">답: $\frac{284}{285}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-23</span> 동전 4개를 동시에 던질 때, 적어도 한 개는 뒷면이 나올 확률을 구하라.</summary>
+<div class="sol">
+<p>4개 모두 앞면인 사건 $A$: $P(A)=\frac{1}{2^4}=\frac{1}{16}$.</p>
+<p>$$P(A^c)=1-\frac{1}{16}=\frac{15}{16}$$</p>
+<p class="ans">답: $\frac{15}{16}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-24</span> 각각 1부터 8까지의 숫자가 적힌 8장의 카드가 있다. 이 중에서 2장을 뽑을 때, 적어도 한 장은 소수가 적힌 카드일 확률을 구하라.</summary>
+<div class="sol">
+<p>소수는 2, 3, 5, 7. 2장 모두 소수가 아닌 사건 $A$ — 소수가 아닌 카드 $\{1,4,6,8\}$에서 2장.</p>
+<p>$P(A)=\frac{{}_4C_2}{{}_8C_2}=\frac{6}{28}=\frac{3}{14}$</p>
+<p>$$P(A^c)=1-\frac{3}{14}=\frac{11}{14}$$</p>
+<p class="ans">답: $\frac{11}{14}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-25</span> 7개의 제비 중 2개가 당첨 제비인 상자에서 3개를 꺼낼 때, 적어도 한 개가 당첨 제비일 확률을 구하라.</summary>
+<div class="sol">
+<p>'적어도 한 개 당첨'은 '3개 모두 꽝'의 여사건. 3개 모두 꽝인 사건 $A$: $P(A)=\frac{{}_5C_3}{{}_7C_3}=\frac{10}{35}=\frac{2}{7}$.</p>
+<p>$$P(A^c)=1-\frac{2}{7}=\frac{5}{7}$$</p>
+<p class="ans">답: $\frac{5}{7}$</p></div></details>
+
+<h3 id="w5-drill">연습문제</h3>
+
+<details class="ex drill"><summary><span class="tag">A1</span> $P(A)=\frac{1}{3}$, $P(B)=\frac{1}{4}$, $P(A\cap B)=\frac{1}{5}$일 때 $P(A\cup B)$를 구하라.</summary>
+<div class="sol">
+<p>$$P(A\cup B)=\frac{1}{3}+\frac{1}{4}-\frac{1}{5}=\frac{20+15-12}{60}=\frac{23}{60}$$</p>
+<p class="ans">답: $\frac{23}{60}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A2</span> 빨간 공이 3개, 흰 공이 2개, 파란 공이 4개가 들어 있는 상자에서 공 하나를 꺼낼 때, 빨간 공 또는 파란 공이 나올 확률을 구하라.</summary>
+<div class="sol">
+<p>빨간 공 $A$: $P(A)=\frac{{}_3C_1}{{}_9C_1}$, 파란 공 $B$: $P(B)=\frac{{}_4C_1}{{}_9C_1}$. 배반사건이므로 $P(A\cap B)=0$.</p>
+<p>$$P(A\cup B)=\frac{3}{9}+\frac{4}{9}=\frac{7}{9}$$ <span class="fix">※ 책 표기 수정: 원문 "$P(A)+P(B)-\phi$" → 빼는 항은 확률 0</span></p>
+<p class="ans">답: $\frac{7}{9}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A3</span> 상자 속에 모양과 크기가 같은 흰 돌 4개와 검은 돌 5개가 들어 있다. 이 상자에서 임의로 3개의 돌을 꺼낼 때, 모두 같은 색의 돌을 꺼낼 확률을 구하라. ① $\frac{1}{3}$ ② $\frac{1}{4}$ ③ $\frac{1}{5}$ ④ $\frac{1}{6}$ ⑤ $\frac{5}{12}$</summary>
+<div class="sol">
+<p class="fig">[그림] 위에 구멍이 뚫린 정육면체 상자 안에 돌 9개</p>
+<p>모두 흰 돌 $A$, 모두 검은 돌 $B$ (배반): $P(A)=\frac{{}_4C_3}{{}_9C_3}=\frac{4}{84}=\frac{1}{21}$, $P(B)=\frac{{}_5C_3}{{}_9C_3}=\frac{10}{84}=\frac{5}{42}$</p>
+<p>$$P(A\cup B)=\frac{1}{21}+\frac{5}{42}=\frac{7}{42}=\frac{1}{6}$$</p>
+<p class="ans">답: ④ $\frac{1}{6}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A4</span> 흰 공 4개, 빨간 공 3개, 검은 공 2개가 들어 있는 주머니에서 공 두 개를 꺼낼 때, 같은 색이 나올 확률을 구하라. ① $\frac{5}{18}$ ② $\frac{1}{3}$ ③ $\frac{7}{18}$ ④ $\frac{4}{9}$ ⑤ $\frac{1}{2}$</summary>
+<div class="sol">
+<p>전체 ${}_9C_2=36$. 2개 모두 흰/빨강/검정인 사건 $A$, $B$, $C$ (배반): $P(A)=\frac{{}_4C_2}{36}$, $P(B)=\frac{{}_3C_2}{36}$, $P(C)=\frac{{}_2C_2}{36}$</p>
+<p>$$P(A\cup B\cup C)=\frac{6}{36}+\frac{3}{36}+\frac{1}{36}=\frac{10}{36}=\frac{5}{18}$$</p>
+<p class="ans">답: ① $\frac{5}{18}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A5</span> 어느 전자 부품 공장에서 제품 5개를 생산하면 불량품이 1개 나온다고 한다. 이 공장의 제품 15개 중에서 3개를 뽑을 때, 불량품이 1개 이하로 나올 확률을 구하라.</summary>
+<div class="sol">
+<p>15개 중 불량품 3개, 정상품 12개. '1개 이하' = 불량 1개 또는 0개 (배반).</p>
+<p>불량 1개: $\frac{{}_3C_1\times{}_{12}C_2}{{}_{15}C_3}=\frac{3\times66}{455}=\frac{198}{455}$, 불량 0개: $\frac{{}_{12}C_3}{{}_{15}C_3}=\frac{220}{455}$</p>
+<p>$$\frac{198}{455}+\frac{220}{455}=\frac{418}{455}$$</p>
+<p class="ans">답: $\frac{418}{455}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A6</span> 남학생 6명, 여학생 4명 중에서 대표 5명을 뽑을 때, 여학생이 한 명 이상 포함될 확률을 구하라.</summary>
+<div class="sol">
+<p>여학생 한 명 이상 $=A$, 5명 모두 남학생 $=A^c$: $$P(A^c)=\frac{{}_6C_5}{{}_{10}C_5}=\frac{6}{252}=\frac{1}{42}$$</p>
+<p>$$P(A)=1-\frac{1}{42}=\frac{41}{42}$$</p>
+<p class="ans">답: $\frac{41}{42}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A7</span> 7개의 제비 중에 2개의 당첨 제비가 들어 있는 상자에서 제비 3개를 꺼낼 때, 적어도 한 개가 당첨 제비일 확률을 구하라. ① $\frac{2}{7}$ ② $\frac{3}{7}$ ③ $\frac{4}{7}$ ④ $\frac{5}{7}$ ⑤ $\frac{6}{7}$</summary>
+<div class="sol">
+<p>(예제 3-25와 같은 문제) 3개 모두 꽝인 사건 $A$: $P(A)=\frac{{}_5C_3}{{}_7C_3}=\frac{2}{7}$</p>
+<p>$$P(A^c)=1-\frac{2}{7}=\frac{5}{7}$$</p>
+<p class="ans">답: ④ $\frac{5}{7}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A8</span> 3번, 4번, 5번 세 야구선수의 타율이 각각 0.3, 0.4, 0.2일 때, 적어도 한 명이 안타를 칠 확률을 구하라. ① 0.542 ② 0.613 ③ 0.664 ④ 0.692 ⑤ 0.732</summary>
+<div class="sol">
+<p>세 선수 모두 안타를 못 치는 사건 $A$ (각 선수의 결과는 서로 영향 없다고 보고 곱함 — 독립사건, 3.3절):</p>
+<p>$$P(A)=(1-0.3)(1-0.4)(1-0.2)=0.7\times0.6\times0.8=0.336$$</p>
+<p>$$P(A^c)=1-0.336=0.664$$</p>
+<p class="ans">답: ③ 0.664</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A9</span> 딸기맛 사탕이 3개, 포도맛 사탕이 3개 들어 있는 주머니에서 사탕 2개를 동시에 꺼낼 때, 포도맛 사탕이 적어도 하나 포함될 확률을 구하라.</summary>
+<div class="sol">
+<p>포도맛 적어도 하나 $=A$, 모두 딸기맛 $=A^c$: $P(A^c)=\frac{{}_3C_2}{{}_6C_2}=\frac{3}{15}=\frac{1}{5}$</p>
+<p>$$P(A)=1-\frac{1}{5}=\frac{4}{5}$$</p>
+<p class="ans">답: $\frac{4}{5}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A10</span> 서랍에 흰 봉투 3장, 검은 봉투 4장이 들어 있다. 봉투 2장을 동시에 꺼낼 때, 같은 색의 봉투가 나올 확률을 구하라.</summary>
+<div class="sol">
+<p>모두 흰 봉투 $A$, 모두 검은 봉투 $B$ (배반): $P(A)=\frac{{}_3C_2}{{}_7C_2}=\frac{3}{21}=\frac{1}{7}$, $P(B)=\frac{{}_4C_2}{{}_7C_2}=\frac{6}{21}=\frac{2}{7}$</p>
+<p>$$P(A\cup B)=\frac{1}{7}+\frac{2}{7}=\frac{3}{7}$$</p>
+<p class="ans">답: $\frac{3}{7}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A11</span> 두 개의 주사위를 던질 때 나오는 눈의 수의 합이 3의 배수일 확률을 구하라.</summary>
+<div class="sol">
+<p>합이 3, 6, 9, 12인 사건 $A$, $B$, $C$, $D$:</p>
+<p>$A=\{(1,2),(2,1)\}$, $P(A)=\frac{2}{36}$<br>
+$B=\{(1,5),(5,1),(2,4),(4,2),(3,3)\}$, $P(B)=\frac{5}{36}$<br>
+$C=\{(3,6),(6,3),(4,5),(5,4)\}$, $P(C)=\frac{4}{36}$<br>
+$D=\{(6,6)\}$, $P(D)=\frac{1}{36}$</p>
+<p>배반사건이므로 $$P(A\cup B\cup C\cup D)=\frac{2+5+4+1}{36}=\frac{12}{36}=\frac{1}{3}$$</p>
+<p class="ans">답: $\frac{1}{3}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A12</span> 자연수 1에서 11까지 숫자가 하나씩 적힌 카드가 각각 한 장씩 모두 11장이 있다. 이 중에서 2장을 선택할 때, 카드에 적힌 수의 곱이 2 또는 3의 배수일 확률을 구하라.</summary>
+<div class="sol">
+<p>곱이 2 또는 3의 배수인 사건 $A$. 여사건 $A^c$: 곱이 2의 배수도 3의 배수도 아님 ⇔ 두 장 모두 $\{1,5,7,11\}$에서 나옴.</p>
+<p>$P(A^c)=\frac{{}_4C_2}{{}_{11}C_2}=\frac{6}{55}$</p>
+<p>$$P(A)=1-\frac{6}{55}=\frac{49}{55}$$</p>
+<p class="ans">답: $\frac{49}{55}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A13</span> 동전 6개를 던질 때, 적어도 한 개가 뒷면이 나올 확률을 구하라.</summary>
+<div class="sol">
+<p>모두 앞면 $=A^c$: $P(A^c)=\frac{1}{2^6}=\frac{1}{64}$</p>
+<p>$$P(A)=1-\frac{1}{64}=\frac{63}{64}$$</p>
+<p class="ans">답: $\frac{63}{64}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A14</span> 0, 1, 2, 3, 4, 5의 숫자가 적힌 6장의 카드로 두 자리의 정수를 만들 때, 짝수일 확률을 구하라.</summary>
+<div class="sol">
+<p>두 자리 정수: 십의 자리 0 제외 5가지 × 일의 자리 나머지 5가지 $=25$.</p>
+<p>일의 자리가 0, 2, 4인 사건 $A$, $B$, $C$: $A$는 십의 자리 5가지, $B$·$C$는 0과 자기 자신 제외 4가지.</p>
+<p>$P(A)=\frac{5}{25}$, $P(B)=\frac{4}{25}$, $P(C)=\frac{4}{25}$, 배반사건이므로</p>
+<p>$$P(A\cup B\cup C)=\frac{5}{25}+\frac{4}{25}+\frac{4}{25}=\frac{13}{25}$$ <span class="fix">※ 책 오탈자 수정: 원문 마지막 식 셋째 항 "$\frac{5}{25}$" → $\frac{4}{25}$ (답 $\frac{13}{25}$는 맞음)</span></p>
+<p class="ans">답: $\frac{13}{25}$</p></div></details>
+
+<div class="box sum"><div class="lbl">5주차 한눈에 보기</div>
+<ul>
+<li>덧셈정리(정리 3-4): $P(A\cup B)=P(A)+P(B)-P(A\cap B)$</li>
+<li>배반($A\cap B=\varnothing$): $P(A\cup B)=P(A)+P(B)$ — 여러 개도 그냥 합</li>
+<li>여사건: $P(A^c)=1-P(A)$, $P(A)+P(A^c)=1$</li>
+<li>드모르간 활용: $P(A^c\cap B^c)=1-P(A\cup B)$</li>
+<li>'적어도 하나' $=1-$ '하나도 없음'; 예) 동전 $n$개 적어도 한 개 뒷면 $=1-\frac{1}{2^n}$</li>
+<li>'같은 색' 문제 = 색별 '모두 ○색' 사건(배반)들의 합: $\sum\frac{{}_{k_i}C_r}{{}_nC_r}$</li>
+</ul></div>
+</section>

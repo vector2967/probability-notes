@@ -1,0 +1,386 @@
+<section class="week" id="w3">
+<h2>3주차 · 2.3 조합 · 2.4 이항정리</h2>
+
+<p><b>2.3 조합</b>: 순서를 생각하지 않고 골라내는 것. 순열에서 "같은 묶음의 나열 수"만큼 나눠 준다고 생각하면 된다.</p>
+
+<h3 id="s2-3-1">2.3.1 조합</h3>
+<p>서로 다른 $n$개에서 중복 없이 $r$개를 순서 무시하고 고르는 것 → ${}_nC_r$. 예: 1, 2, 3, 4에서 2개를 고르면 순열은 ${}_4P_2=12$가지지만 (1,2)와 (2,1)을 같은 것으로 보면 조합은 $12\div 2!=6$가지.</p>
+<p class="fig">[그림 2-13] 조합의 정의: 순열 12쌍 (1,2)(1,3)(1,4)(2,1)(2,3)(2,4)(3,1)(3,2)(3,4)(4,1)(4,2)(4,3) 가운데, 순서만 다른 쌍을 하나로 묶으면 조합 6개 (1,2)(1,3)(1,4)(2,3)(2,4)(3,4)가 남는다. ${}_4C_2=\dfrac{{}_4P_2}{2!}=6$</p>
+
+<div class="box def"><div class="lbl">정리 2-11 · 조합</div>
+서로 다른 $n$개에서 중복되지 않게 $r$개를 선택하는 경우의 수
+$$ {}_nC_r=\frac{{}_nP_r}{r!}=\frac{n!}{r!\,(n-r)!}\quad(\text{단, } 0\le r\le n)$$
+</div>
+
+<div class="box def"><div class="lbl">정리 2-12 · 조합의 성질</div>
+<ul>
+<li>${}_nC_r={}_nC_{n-r}$</li>
+<li>${}_nC_r={}_{n-1}C_{r-1}+{}_{n-1}C_r$</li>
+<li>${}_nC_0=1,\ {}_nC_n=1,\ {}_nC_1=n$</li>
+</ul>
+예: ${}_5C_0=1,\ {}_5C_1=5,\ {}_5C_2=\dfrac{5\times4}{2\times1}=10,\ {}_5C_3=\dfrac{5\times4\times3}{3\times2\times1}=10$
+</div>
+
+<p>[표 2-2] 순열과 조합 비교 (A, B, C 세 사람)</p>
+<table>
+<tr><th>대표·부대표 1명씩 (순서 있음 → 순열)</th><th>대표 2명 (순서 없음 → 조합)</th></tr>
+<tr><td>(A, B) (A, C) (B, C)<br>(B, A) (C, A) (C, B)</td><td>(A, B) (A, C) (B, C)</td></tr>
+<tr><td>${}_3P_2=6$가지</td><td>${}_3C_2=3$가지</td></tr>
+</table>
+
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>"직책·자리·순서가 있다" → 순열, "그냥 뽑는다·팀·모임" → 조합.</li>
+<li>$r$이 $n/2$보다 크면 ${}_nC_r={}_nC_{n-r}$로 바꿔서 계산하는 게 빠르다.</li>
+<li>"특정한 $k$명이 반드시 포함" → 그 $k$명은 이미 뽑았다고 보고 나머지 $n-k$명에서 $r-k$명을 뽑는다.</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 2-27</span> ${}_{100}C_{98}$의 값을 구하라.</summary>
+<div class="sol">
+<p>${}_nC_r={}_nC_{n-r}$이므로</p>
+$${}_{100}C_{98}={}_{100}C_2=\frac{100\times99}{2\times1}=4950$$
+<p class="ans">답: 4950</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-28</span> $12\times{}_nC_3-6\times{}_nP_2={}_nP_3$을 만족하는 $n$의 값을 구하라.</summary>
+<div class="sol">
+$$12\times\frac{n(n-1)(n-2)}{3\times2\times1}-6n(n-1)=n(n-1)(n-2)$$
+<p>$n\ge3$이므로 양변을 $n(n-1)$로 나누면</p>
+<p>$2(n-2)-6=n-2$ → $2n-4-6=n-2$ → $n=10-2=8$</p>
+<p>검산: $12\times56-6\times56=336={}_8P_3$ ✔</p>
+<p class="ans">답: $n=8$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-29</span> 10개의 축구팀이 리그전을 할 때, 전체 시합의 수를 구하라.</summary>
+<div class="sol">
+<p>시합하는 두 팀을 뽑는 데 순서는 상관없으므로</p>
+$${}_{10}C_2=\frac{10\times9}{2\times1}=45$$
+<p class="ans">답: 45</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-30</span> 후보 10명에서 대표 5명을 선출하려고 한다. 이때 특정한 2명이 뽑히는 경우의 수를 구하라.</summary>
+<div class="sol">
+<p>특정한 2명은 이미 뽑았다고 보고, 나머지 후보 8명에서 대표 3명을 선출한다.</p>
+$${}_8C_3=\frac{8\times7\times6}{3\times2\times1}=56$$
+<p class="ans">답: 56</p></div></details>
+
+<h3 id="s2-3-2">2.3.2 중복조합</h3>
+<p>서로 다른 $n$개에서 <b>중복을 허락</b>하여 $r$개를 고르는 조합 → ${}_nH_r$.</p>
+
+<div class="box def"><div class="lbl">정리 2-13 · 중복조합</div>
+서로 다른 $n$개 중에서 중복을 허락하여 $r$개를 선택하는 조합의 수
+$${}_nH_r={}_{n+r-1}C_r$$
+</div>
+
+<p>[표 2-3] 순열과 조합 정리 (1, 2, 3, 4에서 2개 선택)</p>
+<table>
+<tr><th>종류</th><th>전개</th><th>계산식</th></tr>
+<tr><td>순열</td><td>(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)<br>(2,1),(3,1),(4,1),(3,2),(4,2),(4,3)</td><td>${}_4P_2=12$가지</td></tr>
+<tr><td>중복순열</td><td>순열 12개 + (1,1),(2,2),(3,3),(4,4)</td><td>${}_4\Pi_2=16$가지</td></tr>
+<tr><td>조합</td><td>(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)</td><td>${}_4C_2=6$가지</td></tr>
+<tr><td>중복조합</td><td>조합 6개 + (1,1),(2,2),(3,3),(4,4)</td><td>${}_4H_2=10$가지</td></tr>
+</table>
+
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>중복조합의 대표 유형: ① 구별 안 되는 물건 $r$개를 $n$명(칸)에 나누기 ② $x_1+\cdots+x_n=r$의 음이 아닌 정수해 개수 ③ $(x_1+\cdots+x_n)^r$ 전개식의 항의 개수 → 모두 ${}_nH_r$.</li>
+<li>기명투표(누가 누구 찍었나 구분) = 중복순열 ${}_n\Pi_r=n^r$, 무기명투표(표 수만 셈) = 중복조합 ${}_nH_r$.</li>
+<li>$n$과 $r$ 위치 주의: ${}_nH_r$에서 $n$ = 고를 <b>종류</b> 수, $r$ = 고르는 <b>개수</b>. 중복조합에서는 $r&gt;n$이어도 된다.</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 2-31</span> 유권자 10명이 입후보자 3명에게 투표할 때, 기명투표를 하는 경우와 무기명투표를 하는 경우의 수를 각각 구하라. (단, 입후보자 1명에게만 투표를 할 수 있으며 기권이나 무효표는 없다고 가정한다.)</summary>
+<div class="sol">
+<p>기명투표는 중복순열이므로 ${}_3\Pi_{10}=3^{10}$</p>
+<p>무기명투표는 중복조합이므로</p>
+$${}_3H_{10}={}_{3+10-1}C_{10}={}_{12}C_2=66$$
+<p class="ans">답: 기명투표 $3^{10}$ (=59049), 무기명투표 66</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-32</span> $(x+y+z)^6$의 전개식에서 항의 총 수를 구하라.</summary>
+<div class="sol">
+<p>각 항은 $x^py^qz^r$ ($p+q+r=6$) 꼴 → $x, y, z$ 중에서 중복을 허락해 6개를 고르는 것과 같다.</p>
+$${}_3H_6={}_{3+6-1}C_6={}_8C_6={}_8C_2=\frac{8\times7}{2\times1}=28$$
+<p class="ans">답: 28</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-33</span> 다음 방정식을 만족하는 음이 아닌 정수해는 몇 쌍인지 구하라. $$x+y+z=10$$</summary>
+<div class="sol">
+$${}_3H_{10}={}_{3+10-1}C_{10}={}_{12}C_{10}={}_{12}C_2=\frac{12\times11}{2\times1}=66$$
+<p class="ans">답: 66쌍</p></div></details>
+
+<h3 id="s2-3-3">2.3.3 분할과 분배</h3>
+<p>서로 다른 $n$개를 <b>나누는 것 = 분할</b>, 나눈 묶음을 사람에게 <b>나누어 주는 것 = 분배</b>. 예: 9명 $\{a,b,c,d,e,f,g,h,i\}$를 세 조로 나누기 <span class="fix">※ 책 오탈자 수정: 원문 "$\{a, b, c, d, e, f, g, h, g\}$가 지 총 9명"</span></p>
+<ul>
+<li><b>2명, 3명, 4명 (인원이 모두 다름)</b>: ${}_9C_2\times{}_7C_3\times{}_4C_4=36\times35\times1=1260$</li>
+<li><b>2명, 2명, 5명 (두 조 인원이 같음)</b>: $\{(a,b),(c,d),(e,f,g,h,i)\}$와 $\{(c,d),(a,b),(e,f,g,h,i)\}$는 같은 분할이므로 $2!$로 나눈다.<br>
+${}_9C_2\times{}_7C_2\times{}_5C_5\times\dfrac{1}{2!}=36\times21\times\dfrac12=378$</li>
+<li><b>3명, 3명, 3명 (세 조 인원이 같음)</b>: 세 조끼리 자리를 바꿔도 같으므로 $3!$로 나눈다.<br>
+${}_9C_3\times{}_6C_3\times{}_3C_3\times\dfrac{1}{3!}=84\times20\times\dfrac16=280$</li>
+</ul>
+<p>분배 = 분할한 경우의 수 × 묶음을 사람에게 나눠주는 수 (3묶음 → 3명이면 $3!$, 4묶음 → 4명이면 $4!$).</p>
+
+<div class="box def"><div class="lbl">정리 2-14 · 분할 경우의 수</div>
+서로 다른 $n$개를 $p$개, $q$개, $r$개의 3묶음으로 나누는 경우의 수
+<ul>
+<li>$p,q,r$이 모두 다른 경우 : ${}_nC_p\times{}_{n-p}C_q\times{}_rC_r$</li>
+<li>$p,q,r$ 중 2묶음의 수가 같은 경우 : ${}_nC_p\times{}_{n-p}C_q\times{}_rC_r\times\dfrac{1}{2!}$</li>
+<li>$p,q,r$ 중 3묶음의 수가 모두 같은 경우 : ${}_nC_p\times{}_{n-p}C_q\times{}_rC_r\times\dfrac{1}{3!}$</li>
+</ul></div>
+
+<div class="box def"><div class="lbl">정리 2-15 · 분배 경우의 수</div>
+$p$개, $q$개, $r$개씩 나누어 세 사람에게 나누어 주는 경우의 수
+$$(\text{분할하는 방법의 수})\times3!$$
+</div>
+
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>크기가 같은 묶음이 $k$개면 $k!$로 나눈다 (묶음끼리 이름표가 없으니까). 크기가 다른 묶음끼리는 나누지 않는다.</li>
+<li>"조로 나눈다" = 분할 (나누기만), "○명에게 나누어 준다" = 분배 (분할 × 묶음 수!).</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 2-34</span> 인턴 10명을 4명과 6명의 두 조로 나누는 방법은 몇 가지인지 구하라.</summary>
+<div class="sol">
+<p>10명 중 4명을 먼저 뽑고, 나머지에서 6명을 뽑는다 (인원이 달라 나눌 필요 없음).</p>
+$${}_{10}C_4\times{}_6C_6=210\times1=210$$
+<p class="ans">답: 210가지</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-35</span> 아르바이트생 10명을 5명씩 두 조로 나누는 방법은 몇 가지인지 구하라.</summary>
+<div class="sol">
+<p>두 조의 인원이 같으므로 $2!$로 나눈다.</p>
+$${}_{10}C_5\times{}_5C_5\times\frac{1}{2!}=252\times1\times\frac12=126$$
+<p class="ans">답: 126가지</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-36</span> 서로 다른 15종류의 꽃이 있다. 5송이씩 세 다발로 나누는 방법은 몇 가지인지 구하라.</summary>
+<div class="sol">
+<p>세 다발의 크기가 모두 같으므로 $3!$로 나눈다.</p>
+$${}_{15}C_5\times{}_{10}C_5\times{}_5C_5\times\frac{1}{3!}=3003\times252\times1\times\frac16=126126$$
+<p class="ans">답: 126,126가지</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-37</span> 서로 다른 15종류의 꽃이 있다. 5송이씩 세 사람에게 나누어 주는 방법은 몇 가지인지 구하라.</summary>
+<div class="sol">
+<p>15종류의 꽃을 5송이씩 분할하는 방법은</p>
+$${}_{15}C_5\times{}_{10}C_5\times{}_5C_5\times\frac{1}{3!}$$
+<p>3다발을 세 사람에게 나누어 주는 방법은 ${}_3P_3=3!$. 따라서</p>
+$${}_{15}C_5\times{}_{10}C_5\times{}_5C_5\times\frac{1}{3!}\times3!=126126\times6=756756$$
+<p class="ans">답: 756,756가지</p></div></details>
+
+<h3 id="s2-4">2.4 이항정리</h3>
+<p>다항식 거듭제곱의 계수에 관한 정리. $(a+b)^n$을 전개했을 때 나오는 계수는 파스칼의 삼각형의 $n$번째 줄과 같다. 예: $(a+b)^2=a^2+2ab+b^2$의 계수 1, 2, 1.</p>
+<p class="fig">[그림 2-14] 파스칼의 삼각형: 1 1 / 1 2 1 / 1 3 3 1 / 1 4 6 4 1 … 이 수들은 각각 ${}_1C_0\ {}_1C_1$ / ${}_2C_0\ {}_2C_1\ {}_2C_2$ / … 와 같고, 위 두 수의 합이 아래 수가 된다: ${}_nC_r={}_{n-1}C_{r-1}+{}_{n-1}C_r$.</p>
+<p>$(a+b)^2=a^2b^0+2a^1b^1+a^0b^2$<br>
+$(a+b)^3=a^3b^0+3a^2b^1+3a^1b^2+a^0b^3$<br>
+$(a+b)^4=a^4b^0+4a^3b^1+6a^2b^2+4a^1b^3+a^0b^4$<br>
+$(a+b)^5=a^5b^0+5a^4b^1+10a^3b^2+10a^2b^3+5a^1b^4+a^0b^5$</p>
+
+<div class="box def"><div class="lbl">정리 2-16 · 이항정리</div>
+$n$이 양의 정수일 때,
+$$(a+b)^n={}_nC_0a^nb^0+{}_nC_1a^{n-1}b^1+{}_nC_2a^{n-2}b^2+\cdots+{}_nC_na^0b^n=\sum_{r=0}^{n}{}_nC_ra^{n-r}b^r$$
+</div>
+
+<p>2개 항의 전개 = 이항정리, $(a+b+c)^n$처럼 3개 항 = 삼항정리, 일반적으로 삼항 이상을 다항정리라 한다.</p>
+
+<div class="box def"><div class="lbl">정리 2-17 · 다항정리</div>
+$$(a+b+c)^n=\sum\frac{n!}{p!\,q!\,r!}a^pb^qc^r\quad(\text{단, } p+q+r=n\text{이고 } p,q,r\ge0)$$
+<span class="fix">※ 책 오탈자 수정: 원문은 $\sum$ 없이 "$(a+b+c)^n=\dfrac{n!}{p!\,q!\,r!}a^pb^qc^r$"로 인쇄됨 — 우변은 일반항이므로 모든 $(p,q,r)$에 대해 더해야 한다.</span>
+</div>
+
+<div class="box def"><div class="lbl">정리 2-18 · 이항계수의 성질</div>
+<ul>
+<li>${}_nC_0+{}_nC_1+{}_nC_2+{}_nC_3+{}_nC_4+\cdots+{}_nC_n=2^n$<br>
+${}_nC_0-{}_nC_1+{}_nC_2-{}_nC_3+{}_nC_4-\cdots+(-1)^n\,{}_nC_n=0$</li>
+<li>${}_nC_0+{}_nC_2+{}_nC_4+{}_nC_6+\cdots=2^{n-1}$<br>
+${}_nC_1+{}_nC_3+{}_nC_5+{}_nC_7+\cdots=2^{n-1}$</li>
+<li>$1\times{}_nC_1+2\times{}_nC_2+3\times{}_nC_3+4\times{}_nC_4+\cdots+n\times{}_nC_n=n\times2^{n-1}$<br>
+$1\times{}_nC_1-2\times{}_nC_2+3\times{}_nC_3-4\times{}_nC_4+\cdots=0$ (단, $n\ge2$)</li>
+</ul></div>
+<p><b>증명 (앞의 두 줄)</b>: $(1+x)^n={}_nC_0x^0+{}_nC_1x^1+{}_nC_2x^2+\cdots+{}_nC_nx^n$에서</p>
+<ul>
+<li>$x=1$: ${}_nC_0+{}_nC_1+{}_nC_2+\cdots+{}_nC_n=2^n$</li>
+<li>$x=-1$: ${}_nC_0-{}_nC_1+{}_nC_2-\cdots+(-1)^n{}_nC_n=0$</li>
+<li>두 식을 더하면 $2\{{}_nC_0+{}_nC_2+{}_nC_4+\cdots\}=2^n$ → ${}_nC_0+{}_nC_2+\cdots=2^{n-1}$</li>
+<li>두 식을 빼면 $2\{{}_nC_1+{}_nC_3+{}_nC_5+\cdots\}=2^n$ → ${}_nC_1+{}_nC_3+\cdots=2^{n-1}$</li>
+</ul>
+<p>즉 짝수 번째·홀수 번째 이항계수의 합은 각각 $2^{n-1}$. (셋째 줄은 $(1+x)^n$을 미분한 $n(1+x)^{n-1}=\sum r\,{}_nC_rx^{r-1}$에 $x=1,\,-1$을 넣으면 나온다.)</p>
+
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>특정 항의 계수: 일반항 ${}_nC_r\,a^{n-r}b^r$을 쓰고, $x$의 지수를 $r$에 대한 식으로 정리 → 원하는 지수와 같게 놓아 $r$을 구한 뒤 계수에 대입.</li>
+<li>$b$에 음수가 있으면 부호 $(-1)^r$을 빠뜨리지 말 것.</li>
+<li>${}_rC_r+{}_{r+1}C_r+\cdots+{}_nC_r={}_{n+1}C_{r+1}$ (파스칼 삼각형 "하키스틱" — 첫 항을 ${}_{r+1}C_{r+1}$로 바꿔서 차례로 합친다).</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 2-38</span> $(2a-b)^4$을 전개하라.</summary>
+<div class="sol">
+$$(2a-b)^4=1(2a)^4(-b)^0+4(2a)^3(-b)^1+6(2a)^2(-b)^2+4(2a)^1(-b)^3+1(2a)^0(-b)^4$$
+<p class="ans">답: $16a^4-32a^3b+24a^2b^2-8ab^3+b^4$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-39</span> $(2x^2-3x)^4$의 전개식에서 $x^7$의 계수를 구하라.</summary>
+<div class="sol">
+<p>일반항은</p>
+$${}_4C_r(2x^2)^{4-r}(-3x)^r={}_4C_r2^{4-r}(-3)^rx^{8-2r}x^r={}_4C_r2^{4-r}(-3)^rx^{8-r}$$
+<p>$x^7$이려면 $8-r=7$, $r=1$. 계수에 대입하면</p>
+$${}_4C_1\,2^3(-3)^1=4\times8\times(-3)=-96$$
+<p class="ans">답: $-96$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-40</span> 파스칼의 삼각형을 이용하여 ${}_3C_2+{}_4C_2+{}_5C_2+{}_6C_2$의 값을 구하라.</summary>
+<div class="sol">
+<p class="fig">[그림] 조합 기호로 쓴 파스칼의 삼각형 (${}_1C_0\ {}_1C_1$ / ${}_2C_0\ {}_2C_1\ {}_2C_2$ / … / ${}_4C_0 \cdots {}_4C_4$), 위 두 항이 선으로 아래 항에 연결됨.</p>
+<p>${}_{n}C_2+{}_{n}C_3={}_{n+1}C_3$를 차례로 쓰면</p>
+$${}_3C_2+{}_3C_3={}_4C_3,\quad {}_4C_2+{}_4C_3={}_5C_3,\quad {}_5C_2+{}_5C_3={}_6C_3,\quad {}_6C_2+{}_6C_3={}_7C_3$$
+<p>모든 식을 더하면 양변의 ${}_4C_3, {}_5C_3, {}_6C_3$이 지워져 ${}_3C_2+{}_4C_2+{}_5C_2+{}_6C_2+{}_3C_3={}_7C_3$. 따라서</p>
+$${}_7C_3-{}_3C_3=\frac{7\times6\times5}{3\times2\times1}-1=35-1=34$$
+<p>검산: $3+6+10+15=34$ ✔</p>
+<p class="ans">답: 34</p></div></details>
+
+<h3 id="w3-drill">연습문제</h3>
+
+<p><b>Section 2.3 연습문제</b></p>
+
+<details class="ex drill"><summary><span class="tag">A1</span> ${}_nP_2+4{}_nC_3={}_nP_3$을 만족하는 $n$의 값을 구하라. ① 9 ② 8 ③ 7 ④ 6 ⑤ 5</summary>
+<div class="sol">
+<p>${}_nP_3$이므로 $n\ge3$.</p>
+$$n(n-1)+4\times\frac{n(n-1)(n-2)}{3\times2\times1}=n(n-1)(n-2)$$
+<p>양변을 $n(n-1)$로 나누면 $1+\dfrac{2(n-2)}{3}=n-2$. 양변에 3을 곱하면 $3+2(n-2)=3(n-2)$ → $n-2=3$ → $n=5$.</p>
+<p>검산: $20+4\times10=60={}_5P_3$ ✔</p>
+<p class="ans">답: ⑤ 5</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A2</span> ${}_nP_r=120$, ${}_nC_r=20$일 때, $n+r$의 값을 구하라. ① 6 ② 7 ③ 8 ④ 9 ⑤ 10</summary>
+<div class="sol">
+<p>${}_nC_r=\dfrac{{}_nP_r}{r!}$이므로 ${}_nP_r={}_nC_r\times r!$ → $120=20\times r!$ → $r!=6$, $r=3$.</p>
+<p>${}_nP_3=n(n-1)(n-2)=120=6\times5\times4$ → $n=6$.</p>
+<p>따라서 $n+r=6+3=9$</p>
+<p class="ans">답: ④ 9</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A3</span> ${}_nC_3={}_nC_5$을 만족하는 $n$의 값을 구하라. ① 5 ② 6 ③ 7 ④ 8 ⑤ 9</summary>
+<div class="sol">
+<p>${}_nC_5$이므로 $n\ge5$.</p>
+$$\frac{n(n-1)(n-2)}{3!}=\frac{n(n-1)(n-2)(n-3)(n-4)}{5!}$$
+<p>양변을 $n(n-1)(n-2)$로 나누면 $(n-3)(n-4)=5\times4$, $n-3=5$ → $n=8$.</p>
+<p>(빠른 풀이: ${}_nC_r={}_nC_{n-r}$에서 $3+5=n$ → $n=8$)</p>
+<p class="ans">답: ④ 8</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A4</span> ${}_{12}C_r={}_{12}C_{r-4}$를 만족하는 $r$의 값을 구하라. ① 5 ② 6 ③ 7 ④ 8 ⑤ 9</summary>
+<div class="sol">
+<p>$r=r-4$를 만족하는 $r$은 없으므로 ${}_{12}C_r={}_{12}C_{12-r}$로 바꾸면</p>
+$${}_{12}C_{12-r}={}_{12}C_{r-4}\ \Rightarrow\ 12-r=r-4\ \Rightarrow\ 2r=16$$
+<p class="ans">답: ④ $r=8$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A5</span> $A=\{a,b,c\}$에서 $B=\{1,2,3,4,5\}$로의 함수 $f$ 중에서 (a) $f(a)&lt;f(b)&lt;f(c)$를 만족하는 $f$의 개수를 구하라. (b) $f(a)\le f(b)\le f(c)$를 만족하는 $f$의 개수를 구하라.</summary>
+<div class="sol">
+<p>(a) $B$에서 서로 다른 원소 3개를 고르면 크기 순서대로 $f(a), f(b), f(c)$가 정해지므로 ${}_5C_3=10$</p>
+<p>(b) 중복을 허락해 3개를 고르면 크기 순서대로 하나로 정해지므로 ${}_5H_3={}_7C_3=35$</p>
+<p class="ans">답: (a) 10, (b) 35</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A6</span> $x+y+z+w=10$을 만족시키는 음이 아닌 정수해는 몇 쌍인지 구하라. ① 152 ② 512 ③ 286 ④ 143 ⑤ 72</summary>
+<div class="sol">
+$${}_4H_{10}={}_{4+10-1}C_{10}={}_{13}C_3=286$$
+<p class="ans">답: ③ 286</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A7</span> 탁구동호회 회원 10명이 모여 있다. 2명이 한 팀을 이루어, 두 팀끼리 시합을 하기로 한다. 이때 시합하는 방법은 몇 가지인지 구하라.</summary>
+<div class="sol">
+<p>2명씩 5팀으로 나누는 방법 (크기 같은 묶음 5개 → $5!$로 나눔):</p>
+$${}_{10}C_2\times{}_8C_2\times{}_6C_2\times{}_4C_2\times{}_2C_2\times\frac{1}{5!}=\frac{45\times28\times15\times6\times1}{120}=945$$
+<p>5팀에서 시합할 2팀을 고르는 경우 ${}_5C_2=10$. 따라서</p>
+$${}_{10}C_2\times{}_8C_2\times{}_6C_2\times{}_4C_2\times{}_2C_2\times\frac{1}{5!}\times{}_5C_2=945\times10=9450$$
+<p>(참고: 바로 "4명 고르고 2:2로 나누기"로 보면 ${}_{10}C_4\times\dfrac{{}_4C_2}{2!}=210\times3=630$. 책은 "나머지도 모두 2명씩 팀을 이룬다"는 전제로 9450을 답함.)</p>
+<p class="ans">답: 9,450가지</p></div></details>
+
+<p><b>Section 2.4 연습문제</b></p>
+
+<details class="ex drill"><summary><span class="tag">A1</span> $\left(x-\dfrac{a}{x}\right)^7$의 전개식에서 $x^3$의 계수가 84일 때, $a^2$의 값을 구하라.</summary>
+<div class="sol">
+$${}_7C_rx^{7-r}\left(-\frac{a}{x}\right)^r=(-a)^r{}_7C_rx^{7-r}x^{-r}=(-a)^r{}_7C_rx^{7-2r}$$
+<p>$x^3$이려면 $7-2r=3$, $r=2$. 계수에 대입하면</p>
+$$(-a)^2{}_7C_2=a^2\left(\frac{7\times6}{2\times1}\right)=21a^2=84$$
+<p class="ans">답: $a^2=4$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A2</span> $\dfrac{{}_5P_1}{1!}+\dfrac{{}_5P_2}{2!}+\dfrac{{}_5P_3}{3!}+\dfrac{{}_5P_4}{4!}+\dfrac{{}_5P_5}{5!}$의 값을 구하라.</summary>
+<div class="sol">
+<p>$\dfrac{{}_nP_r}{r!}={}_nC_r$이므로 주어진 식 $={}_5C_1+{}_5C_2+{}_5C_3+{}_5C_4+{}_5C_5$.</p>
+<p>${}_5C_0$을 더하고 빼면</p>
+$${}_5C_0+{}_5C_1+\cdots+{}_5C_5-{}_5C_0=2({}_5C_0+{}_5C_1+{}_5C_2)-{}_5C_0=2(1+5+10)-1=31$$
+<p>(또는 $2^5-1=31$)</p>
+<p class="ans">답: 31</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A3</span> $\displaystyle\sum_{k=0}^{\infty}{}_nC_k=1024$일 때, $n$의 값을 구하라. <br>Hint 조합의 성질: ${}_nC_0+{}_nC_2+{}_nC_4+\cdots=2^{n-1}$, ${}_nC_1+{}_nC_3+{}_nC_5+\cdots=2^{n-1}$</summary>
+<div class="sol">
+<p>($k&gt;n$이면 ${}_nC_k=0$으로 보므로 합은 ${}_nC_0+\cdots+{}_nC_n$.) 짝수항과 홀수항으로 나누면</p>
+$$({}_nC_0+{}_nC_2+{}_nC_4+\cdots)+({}_nC_1+{}_nC_3+{}_nC_5+\cdots)=2^{n-1}+2^{n-1}=2^n$$
+<p>$2^n=1024=2^{10}$ → $n=10$</p>
+<p><span class="fix">※ 책 오탈자 수정: 풀이에 "$\sum_{k=0}^{100}$"으로 인쇄됨 (문제는 $\sum_{k=0}^{\infty}$)</span></p>
+<p class="ans">답: 10</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A4</span> ${}_{2n}C_1+{}_{2n}C_3+\cdots+{}_{2n}C_{2n-1}=2048$을 만족하는 자연수 $n$의 값을 구하라.</summary>
+<div class="sol">
+<p>홀수 번째 이항계수의 합이므로 $2^{2n-1}=2048=2^{11}$ → $2n-1=11$ → $2n=12$</p>
+<p class="ans">답: $n=6$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A5</span> $(1+x)+(1+x)^2+(1+x)^3+\cdots+(1+x)^{10}$의 전개식에서 $x^3$의 계수를 구하라.</summary>
+<div class="sol">
+<p>$(1+x)$, $(1+x)^2$에는 $x^3$항이 없다. $(1+x)^k$ ($k\ge3$)의 전개식에서 $x^3$의 계수는 ${}_kC_3$.
+<span class="fix">※ 책 오탈자 수정: 원문 "$(1+x)^4$의 전개식에서 $x^4$의 계수", "$x^5$의 계수", …, "$x^{10}$의 계수" → 모두 $x^3$의 계수</span></p>
+<p>전체 합: ${}_3C_3+{}_4C_3+{}_5C_3+\cdots+{}_{10}C_3$. ${}_3C_3$을 ${}_4C_4$로 바꾸고 파스칼의 삼각형으로 차례로 합치면</p>
+$${}_4C_4+{}_4C_3={}_5C_4,\quad {}_5C_4+{}_5C_3={}_6C_4,\quad\cdots,\quad {}_{10}C_4+{}_{10}C_3={}_{11}C_4$$
+<p>따라서 ${}_{11}C_4=\dfrac{11\times10\times9\times8}{24}=330$</p>
+<p class="ans">답: 330</p></div></details>
+
+<p><b>Chapter 02 연습문제 (B) — 2.3 · 2.4</b></p>
+
+<details class="ex drill"><summary><span class="tag">B24</span> ${}_{n+1}C_{n-2}+{}_{n+1}C_{n-1}=35$를 만족하는 $n$의 값을 구하라. ① 2 ② 3 ③ 4 ④ 5 ⑤ 6</summary>
+<div class="sol">
+<p>${}_nC_r={}_nC_{n-r}$을 이용하면 ${}_{n+1}C_3+{}_{n+1}C_2=35$.</p>
+$$\frac{(n+1)n(n-1)}{6}+\frac{(n+1)n}{2}=\frac{(n+1)n}{2}\left(\frac{n-1}{3}+1\right)=\frac{n(n+1)(n+2)}{6}=35$$
+<p>$n(n+1)(n+2)=210=5\times6\times7$ → $n=5$ (사실 좌변 $={}_{n+2}C_3$이므로 ${}_{7}C_3=35$)</p>
+<p class="ans">답: ④ 5</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B25</span> 학생 10명에서 5명을 뽑아 일렬로 세우려고 할 때, 학생 $A$와 $B$가 모두 뽑혀 인접해 있는 경우의 수를 구하라. ① 1344 ② 1855 ③ 2688 ④ 3244 ⑤ 5376</summary>
+<div class="sol">
+<p>$A$, $B$는 이미 뽑혔다고 보고 나머지 8명에서 3명: ${}_8C_3$</p>
+<p>$A$와 $B$를 하나로 묶어 4개를 일렬로: $4!$, 묶음 안에서 $A$, $B$ 자리 바꾸기: 2</p>
+$${}_8C_3\times4!\times2=56\times24\times2=2688$$
+<p class="ans">답: ③ 2688</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B26</span> 토마토 12개를 3접시에 나눠 담아서 갑, 을, 병에게 나누어 주는 경우의 수를 구하라. ① 182 ② 364 ③ 546 ④ 628 ⑤ 720</summary>
+<div class="sol">
+<p>토마토는 구별할 수 없으므로 중복조합: ${}_3H_{12}={}_{14}C_{12}={}_{14}C_2=91$</p>
+<p>세 사람에게 분배하므로 ${}_{14}C_2\times3!=546$</p>
+<p><span class="fix">※ 책 오탈자 수정: 원문 "구하는 확률은" → 경우의 수. 또한 ${}_3H_{12}$는 이미 "접시 1·2·3에 몇 개씩"을 구별해 센 값이므로, 사람이 받는 토마토 개수만 따지면 91가지이다. 546은 접시 자체도 서로 구별되는 것으로 보고(어느 접시를 누가 받는지까지) 센 값. 책 답 ③ 유지.</span></p>
+<p class="ans">답: ③ 546</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B27</span> 10명을 3명, 3명, 4명의 세 모임으로 나누는 방법의 수는 몇 가지인지 구하라. ① 2000 ② 2050 ③ 2100 ④ 2150 ⑤ 2200</summary>
+<div class="sol">
+<p>두 조의 인원이 같으므로</p>
+$${}_{10}C_3\times{}_7C_3\times{}_4C_4\times\frac{1}{2!}=120\times35\times\frac12=2100$$
+<p class="ans">답: ③ 2100</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B28</span> $\left(x-\dfrac{a}{x}\right)^7$의 전개식에서 $x^3$의 계수가 84일 때, $a^2$의 값을 구하라. ① 1 ② 2 ③ 3 ④ 4 ⑤ 5</summary>
+<div class="sol">
+<p>(2.4 연습문제 A1과 같은 문제)</p>
+$${}_7C_rx^{7-r}\left(-\frac{a}{x}\right)^r=(-a)^r{}_7C_rx^{7-2r},\quad 7-2r=3,\ r=2$$
+$$(-a)^2{}_7C_2=21a^2=84$$
+<p class="ans">답: ④ $a^2=4$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B29</span> $x\left(x^2-\dfrac{a}{x}\right)^6$의 전개식에서 $x^7$의 계수가 240일 때, 양수 $a$의 값을 구하라. ① 1 ② 2 ③ 3 ④ 4 ⑤ 5</summary>
+<div class="sol">
+<p>앞의 $x$ 때문에 $\left(x^2-\dfrac{a}{x}\right)^6$에서 $x^6$의 계수를 구하면 된다.</p>
+$${}_6C_r(x^2)^{6-r}\left(-\frac{a}{x}\right)^r={}_6C_r(-a)^rx^{12-3r}$$
+<p>$12-3r=6$ → $r=2$. $240={}_6C_2(-a)^2=15a^2$ → $a^2=16$, $a=\pm4$. $a&gt;0$이므로 $a=4$.</p>
+<p class="ans">답: ④ 4</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B30</span> $(1+i)^{16}$의 전개식을 이용하여 ${}_{16}C_0-{}_{16}C_2+{}_{16}C_4-{}_{16}C_6+\cdots-{}_{16}C_{14}+{}_{16}C_{16}$의 값을 구하라. (단, $i$는 허수) <br>Hint 복소수 성질: $i^2=-1,\ i^3=-i,\ i^4=1$, $i+i^2+i^3+i^4=0$</summary>
+<div class="sol">
+$$(1+i)^{16}={}_{16}C_0i^0+{}_{16}C_1i^1+{}_{16}C_2i^2+\cdots+{}_{16}C_{16}i^{16}$$
+<p>(좌변) $\{(1+i)^2\}^8=(1+2i-1)^8=(2i)^8=2^8i^8=256(i^2)^4=256$</p>
+<p>(우변) $i^k$가 $1, i, -1, -i$를 반복하므로 실수부는 ${}_{16}C_0-{}_{16}C_2+{}_{16}C_4-\cdots-{}_{16}C_{14}+{}_{16}C_{16}$, 허수부는 ${}_{16}C_1-{}_{16}C_3+\cdots$ 꼴.</p>
+<p>좌변 256은 실수이므로 양변의 실수부를 비교하면 구하는 식 $=256$ (허수부는 0).</p>
+<p class="ans">답: 256</p></div></details>
+
+<div class="box sum"><div class="lbl">3주차 한눈에 보기</div>
+<table>
+<tr><th>개념</th><th>공식</th><th>언제</th></tr>
+<tr><td>조합</td><td>${}_nC_r=\dfrac{{}_nP_r}{r!}=\dfrac{n!}{r!(n-r)!}$</td><td>순서 없이, 중복 없이 $r$개</td></tr>
+<tr><td>조합의 성질</td><td>${}_nC_r={}_nC_{n-r}$, ${}_nC_r={}_{n-1}C_{r-1}+{}_{n-1}C_r$, ${}_nC_0={}_nC_n=1$, ${}_nC_1=n$</td><td>계산 간소화, 파스칼</td></tr>
+<tr><td>중복조합</td><td>${}_nH_r={}_{n+r-1}C_r$</td><td>순서 없이, 중복 허용 / 음이 아닌 정수해 / 항의 개수 / 무기명투표</td></tr>
+<tr><td>분할</td><td>${}_nC_p\times{}_{n-p}C_q\times{}_rC_r\ (\times\tfrac{1}{2!}$ 또는 $\tfrac{1}{3!})$</td><td>같은 크기 묶음 $k$개면 $k!$로 나눔</td></tr>
+<tr><td>분배</td><td>(분할 수) $\times\,3!$</td><td>묶음을 사람에게 나눠 줌</td></tr>
+<tr><td>이항정리</td><td>$(a+b)^n=\sum_{r=0}^{n}{}_nC_ra^{n-r}b^r$</td><td>일반항으로 특정 계수 찾기</td></tr>
+<tr><td>다항정리</td><td>$(a+b+c)^n=\sum\dfrac{n!}{p!q!r!}a^pb^qc^r\ (p+q+r=n)$</td><td>3항 이상 전개</td></tr>
+<tr><td>이항계수 합</td><td>$\sum{}_nC_r=2^n$, $\sum(-1)^r{}_nC_r=0$, 짝수·홀수항 합 $=2^{n-1}$, $\sum r\,{}_nC_r=n2^{n-1}$</td><td>$(1+x)^n$에 $x=\pm1$ 대입</td></tr>
+<tr><td>하키스틱</td><td>${}_rC_r+{}_{r+1}C_r+\cdots+{}_nC_r={}_{n+1}C_{r+1}$</td><td>예제 2-40, 2.4 A5</td></tr>
+</table></div>
+</section>

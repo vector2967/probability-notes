@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기초확률 공부방</title>
+<meta name="description" content="기초 확률과 통계 1~6주차: 개념 노트, 암기 노트, 암기 카드, 문제 풀기">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🎲 기초확률 공부방</h1>
+  <nav class="tabs">
+    <a href="#notes" data-tab="notes">개념 노트</a>
+    <a href="#memo" data-tab="memo">암기 노트</a>
+    <a href="#cards" data-tab="cards">암기 카드</a>
+    <a href="#quiz" data-tab="quiz">문제 풀기</a>
+    <a href="#wrong" data-tab="wrong">오답 노트</a>
+  </nav>
+  <button id="theme" title="테마 전환" aria-label="테마 전환">◐</button>
+  <div class="weeks" id="weeks"></div>
+</header>
+
+<section id="notes" class="tab">
+  <div class="wrap">
+    <nav id="toc"></nav>
+    <main id="notes-main">
+<!--NOTES-->
+    </main>
+  </div>
+</section>
+
+<section id="memo" class="tab"><main class="narrow" id="memo-main"></main></section>
+
+<section id="cards" class="tab"><main class="narrow">
+  <div class="bar">
+    <select id="card-kind"><option value="">모든 종류</option><option>공식</option><option>개념</option><option>비교</option><option>함정</option><option>유형</option></select>
+    <label><input type="checkbox" id="card-unknown"> 모르는 카드만</label>
+    <button id="card-shuffle">섞기</button>
+    <button id="card-reset" class="ghost">기록 초기화</button>
+  </div>
+  <div id="card-stage"></div>
+  <p class="hint">카드 클릭 또는 <kbd>Space</kbd> 뒤집기 · <kbd>←</kbd><kbd>→</kbd> 이동 · <kbd>1</kbd> 알아요 · <kbd>2</kbd> 다시</p>
+</main></section>
+
+<section id="quiz" class="tab"><main class="narrow">
+  <div class="bar">
+    <label><input type="checkbox" class="qtype" value="예제" checked> 예제</label>
+    <label><input type="checkbox" class="qtype" value="A" checked> 연습문제 A</label>
+    <label><input type="checkbox" class="qtype" value="B" checked> 연습문제 B</label>
+    <select id="quiz-filter"><option value="all">전체</option><option value="new">안 푼 문제</option><option value="wrong">틀린 문제</option></select>
+    <label><input type="checkbox" id="quiz-random"> 무작위</label>
+    <button id="quiz-start">시작</button>
+  </div>
+  <div id="quiz-stage"></div>
+</main></section>
+
+<section id="wrong" class="tab"><main class="narrow" id="wrong-main"></main></section>
+
+<script>window.MEMO = /*MEMO*/;</script>
+<script defer src="app.js"></script>
+</body>
+</html>

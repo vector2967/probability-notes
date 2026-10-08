@@ -1,0 +1,6 @@
+*.pdf
+IMG/
+.impeccable/
+.playwright-mcp/
+기초확률_정리노트.html
+__pycache__/

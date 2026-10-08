@@ -1,0 +1,308 @@
+<section class="week" id="w6">
+<h2>6주차 · 3.3 확률의 곱셈정리</h2>
+
+<p>이 절의 목표: 어떤 조건에서 일어나는 확률인 <b>조건부 확률</b>, 그리고 <b>종속사건·독립사건</b>이 곱셈정리에서 어떻게 표현되는지.</p>
+
+<h3 id="s3-3-1">3.3.1 조건부 확률</h3>
+<p>전사건이 일정한 조건을 가진 사건으로 <b>제한되는</b> 확률 = 조건부 확률. 확률이 0이 아닌 두 사건 $A$, $B$에 대해 "$A$가 일어났다는 가정하에 $B$가 일어날 확률"을 $P(B\mid A)$로 나타낸다.</p>
+<p class="fig">[표 3-1] 운송수단에 따른 제주도와 일본 여행객의 수</p>
+<table><tr><th></th><th>일본</th><th>제주도</th><th>합계</th></tr>
+<tr><td>비행기</td><td>128</td><td>84</td><td>212</td></tr>
+<tr><td>배</td><td>72</td><td>16</td><td>88</td></tr>
+<tr><td>합계</td><td>200</td><td>100</td><td>300</td></tr></table>
+<p><span class="fix">※ 책 오탈자 수정: 원문 배·제주도 칸 "168" (합계 88 − 72 = 16, 제주도 합계 100 − 84 = 16)</span></p>
+<ul>
+<li>장소와 상관없이 배를 탈 확률: $\dfrac{88}{300}$</li>
+<li>일본에 가는 여행객 중 배를 탈 확률 (조건: 일본): $\dfrac{72}{200}$</li>
+</ul>
+<p>일본으로 가는 사건 $A$, 배를 타는 사건 $B$라 하면 $P(A)=\dfrac{200}{300}$, $P(A\cap B)=\dfrac{72}{300}$이므로</p>
+$$\frac{P(A\cap B)}{P(A)}=\frac{\frac{72}{300}}{\frac{200}{300}}=\frac{72}{200}$$
+<p>즉 조건부 확률은 조건이 일어난다는 가정하에 구하고자 하는 확률을 구하는 것.</p>
+
+<p>"$A$가 일어났다"는 정보가 주어지면 표본공간이 $S$에서 $A$로 줄어든다. 그래서 분모가 $n(S)$가 아니라 $n(A)$.</p>
+<div class="box def"><div class="lbl">정리 3-5 · 조건부 확률</div>
+두 사건 $A$, $B$에 대해 사건 $A$가 일어났다는 가정하에 사건 $B$가 일어날 확률
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}\quad(\text{단, } P(A)&gt;0,\ P(B)&gt;0)$$
+</div>
+<p>$n(S)=s$, $n(A)=a$, $n(A\cap B)=c$이면 $P(A\cap B)=\dfrac{c}{s}$, $P(B\mid A)=\dfrac{c}{a}$. 조건부 확률은 <b>전사건의 수(분모)</b>가 바뀐다는 점에 주의.</p>
+
+<div class="box def"><div class="lbl">베이즈 정리</div>
+서로 배반인 사건 $E_1, E_2, \cdots, E_n$에서 사건 $A$가 일어났을 때, 그 원인이 $E_i$일 확률
+$$P(E_i\mid A)=\frac{P(E_i)P(A\mid E_i)}{P(E_1)P(A\mid E_1)+\cdots+P(E_n)P(A\mid E_n)}$$
+두 배반사건 $E_1$, $E_2$인 경우: $P(A)=P(A\cap E_1)+P(A\cap E_2)$, $P(A\cap E_i)=P(E_i)P(A\mid E_i)$이므로
+$$P(E_1\mid A)=\frac{P(E_1)P(A\mid E_1)}{P(E_1)P(A\mid E_1)+P(E_2)P(A\mid E_2)}$$
+</div>
+<div class="box tip"><div class="lbl">핵심</div>베이즈 = 아는 조건부 확률 $P(A\mid E_i)$ (원인 → 결과)로 모르는 $P(E_i\mid A)$ (결과 → 원인)를 구하는 것. 분모 = 결과 $A$가 일어나는 모든 경로의 합(전확률).</div>
+
+<p><b>확률의 곱셈정리</b>: 조건부 확률 식의 분모를 넘기면 곱사건 확률이 된다. $P(A\cap B)$ = 두 사건이 동시에 또는 차례로 일어날 확률.</p>
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}\iff P(A\cap B)=P(A)P(B\mid A)$$
+$$P(A\mid B)=\frac{P(A\cap B)}{P(B)}\iff P(A\cap B)=P(B)P(A\mid B)$$
+$$\Rightarrow\ P(A)P(B\mid A)=P(B)P(A\mid B)$$
+<p>예) $P(B\mid A)=0.6$, $P(A)=0.2$, $P(B)=0.4$ → $0.2\times0.6=0.4\times P(A\mid B)$ → $P(A\mid B)=0.3$.</p>
+<div class="box def"><div class="lbl">정리 3-6 · 확률의 곱셈정리</div>
+확률이 0이 아닌 두 사건 $A$, $B$에 대하여
+$$P(A\cap B)=P(A)P(B\mid A)=P(B)P(A\mid B)\quad(\text{단, } P(A)&gt;0,\ P(B)&gt;0)$$
+</div>
+
+<details class="ex"><summary><span class="tag">예제 3-26</span> 상자 속에 1부터 99까지 번호가 붙은 공이 있다. 이 주머니에서 공 하나를 꺼냈을 때, 3의 배수였다면 이 공이 5의 배수일 확률을 구하라.</summary>
+<div class="sol">
+<p>3의 배수를 꺼낼 사건을 $A$, 5의 배수를 꺼낼 사건을 $B$라 하면 $A\cap B$ = 15의 배수를 꺼낼 사건.</p>
+$$P(A)=\frac{33}{99},\quad P(A\cap B)=\frac{6}{99}$$
+<p>이므로 $P(B\mid A)=\dfrac{P(A\cap B)}{P(A)}=\dfrac{6/99}{33/99}=\dfrac{6}{33}=\dfrac{2}{11}$</p>
+<p class="ans">답: $\dfrac{2}{11}$</p>
+</div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-27</span> 주사위 한 개를 두 번 던질 때, 첫 번째 나온 수가 두 번째 나온 수보다 큰 사건을 $A$, 눈의 합이 짝수일 사건을 $B$라 할 때, $P(B\mid A)$의 값을 구하라.</summary>
+<div class="sol">
+<p>사건 $A$: 두 눈을 순서와 상관없이 뽑고 큰 수를 앞에 나열하면 되므로 ${}_6C_2=15$가지.</p>
+$$P(A)=\frac{{}_6C_2}{36}=\frac{15}{36}=\frac{5}{12}$$
+<p>$A\cap B=\{(3,1),(4,2),(5,1),(5,3),(6,2),(6,4)\}$이므로 $n(A\cap B)=6$, $P(A\cap B)=\dfrac{6}{36}=\dfrac{1}{6}$</p>
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}=\frac{\frac{1}{6}}{\frac{5}{12}}=\frac{2}{5}$$
+<p class="ans">답: $\dfrac{2}{5}$</p>
+</div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-28</span> 두 사건 $A$, $B$에 대하여 $P(A)=0.2$, $P(B)=0.3$, $P(A\cup B)=0.4$일 때, $P(A^c\mid B^c)$의 값을 구하라.</summary>
+<div class="sol">
+$$P(A^c\mid B^c)=\frac{P(A^c\cap B^c)}{P(B^c)}=\frac{P\big((A\cup B)^c\big)}{1-P(B)}=\frac{1-P(A\cup B)}{1-P(B)}=\frac{1-0.4}{1-0.3}=\frac{0.6}{0.7}=\frac{6}{7}$$
+<span class="fix">※ 책 오탈자 수정: 원문 "$P(A\cup B)^c$" (드모르간: $A^c\cap B^c=(A\cup B)^c$이므로 $P\big((A\cup B)^c\big)$)</span>
+<p class="ans">답: $\dfrac{6}{7}$</p>
+</div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-29</span> $P(A)=\dfrac{1}{3}$, $P(B)=\dfrac{7}{15}$, $P(B\mid A)=\dfrac{5}{7}$일 때, $P(A\mid B^c)$의 값을 구하라.</summary>
+<div class="sol">
+$$P(A\cap B)=P(A)P(B\mid A)=\frac{1}{3}\times\frac{5}{7}=\frac{5}{21}$$
+$$P(A\cap B^c)=P(A)-P(A\cap B)=\frac{1}{3}-\frac{5}{21}=\frac{2}{21}$$
+$$P(A\mid B^c)=\frac{P(A\cap B^c)}{P(B^c)}=\frac{P(A\cap B^c)}{1-P(B)}=\frac{\frac{2}{21}}{1-\frac{7}{15}}=\frac{\frac{2}{21}}{\frac{8}{15}}=\frac{5}{28}$$
+<p class="ans">답: $\dfrac{5}{28}$</p>
+</div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-30</span> 다음은 A, B 봉사 단체의 남녀 수를 조사한 표이다. 이 중에서 임의로 뽑은 한 명이 여자였을 때, 그 사람이 B 단체일 확률을 구하라.
+<table><tr><th>(단위: 명)</th><th>남자</th><th>여자</th><th>합계</th></tr>
+<tr><td>A 단체</td><td>5</td><td>6</td><td>11</td></tr>
+<tr><td>B 단체</td><td>7</td><td>8</td><td>15</td></tr>
+<tr><td>합계</td><td>12</td><td>14</td><td>26</td></tr></table></summary>
+<div class="sol">
+<p>남자인 사건 $M$, 여자인 사건 $F$. $P(F)=\dfrac{14}{26}$, $P(B\cap F)=\dfrac{8}{26}$</p>
+$$P(B\mid F)=\frac{P(B\cap F)}{P(F)}=\frac{\frac{8}{26}}{\frac{14}{26}}=\frac{8}{14}=\frac{4}{7}$$
+<p class="ans">답: $\dfrac{4}{7}$</p>
+</div></details>
+<div class="box tip"><div class="lbl">핵심</div>표 문제는 확률로 바꿀 필요 없이 "조건에 해당하는 행/열 합계"를 분모로 쓰면 된다: $\frac{8}{14}$.</div>
+
+<h3 id="s3-3-2">3.3.2 종속사건과 독립사건</h3>
+<p><b>종속사건</b>: $A$가 일어나느냐 아니냐에 따라 $B$의 확률이 달라지면 $B$는 $A$에 종속, $A$와 $B$는 서로 종속사건.</p>
+$$P(B\mid A)\neq P(B\mid A^c)$$
+<p>예) 흰 공 3개, 검은 공 4개에서 비복원으로 두 번 꺼냄. $A$ = 첫 번째 흰 공, $B$ = 두 번째 흰 공.</p>
+$$P(A\cap B)=P(A)P(B\mid A)=\frac{3}{7}\times\frac{2}{6}=\frac{1}{7}$$
+<p>첫 공이 검은 공이면 남은 6개 중 흰 공 3개 → $P(B\mid A^c)=\dfrac{3}{6}$. $P(B\mid A)=\frac{2}{6}\neq\frac{3}{6}=P(B\mid A^c)$ 이므로 종속. <span class="fix">※ 책 오탈자 수정: 원문 "$P(B\mid A^c)=\frac{4}{6}$" (흰 공은 3개 남으므로 $\frac{3}{6}$)</span></p>
+
+<p><b>독립사건</b>: $A$가 일어나든 안 일어나든 $B$의 확률이 같으면 서로 독립사건.</p>
+$$P(B\mid A)=P(B\mid A^c)=P(B)$$
+<div class="box def"><div class="lbl">정리 3-7 · 독립사건</div>
+두 사건 $A$, $B$가 독립일 때,
+$$P(A\cap B)=P(A)\times P(B)$$
+</div>
+<p>종속/독립 구별법: $P(A\cap B)$가 $P(A)\times P(B)$와 같은지 확인. 같으면 독립사건, 다르면 종속사건.</p>
+<p>예) 갑, 을, 병의 합격 확률이 $\frac{3}{4}$, $\frac{1}{3}$, $\frac{1}{2}$ (서로 독립)일 때 모두 합격할 확률:</p>
+$$P(A\cap B\cap C)=P(A)\times P(B)\times P(C)=\frac{3}{4}\times\frac{1}{3}\times\frac{1}{2}=\frac{1}{8}$$
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>배반($A\cap B=\varnothing$)과 독립은 다른 개념! 확률이 양수인 두 배반사건은 오히려 종속이다.</li>
+<li>$A$, $B$가 독립이면 $A$와 $B^c$, $A^c$와 $B$, $A^c$와 $B^c$도 모두 독립.</li>
+<li>독립 판정은 $P(A\cap B)\overset{?}{=}P(A)P(B)$를 계산해서 비교.</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 3-31</span> 다음 표는 A, B 버스의 승객 120명을 남녀로 구분한 결과다. 120명에서 한 명을 뽑을 때, $P(M\cap A)$와 $P(M\mid A)$를 구하고, 구한 확률이 무엇을 뜻하는지 설명하라.
+<table><tr><th>(단위: 명)</th><th>남($M$)</th><th>여($W$)</th><th>합계</th></tr>
+<tr><td>$A$ 버스</td><td>34</td><td>30</td><td>64</td></tr>
+<tr><td>$B$ 버스</td><td>32</td><td>24</td><td>56</td></tr>
+<tr><td>합계</td><td>66</td><td>54</td><td>120</td></tr></table></summary>
+<div class="sol">
+<p>$P(M\cap A)=\dfrac{34}{120}$: 뽑은 승객이 <b>전체 승객 중에서</b> $A$ 버스를 타는 남성일 확률.</p>
+<p>$P(M\mid A)=\dfrac{34}{64}$: 뽑은 승객이 <b>$A$ 버스를 타는 승객 중에서</b> 남성일 확률.</p>
+<p class="ans">답: $P(M\cap A)=\dfrac{34}{120}=\dfrac{17}{60}$, $P(M\mid A)=\dfrac{34}{64}=\dfrac{17}{32}$</p>
+</div></details>
+<div class="box tip"><div class="lbl">핵심</div>곱사건 $P(M\cap A)$는 분모가 전체(120), 조건부 $P(M\mid A)$는 분모가 조건 $A$의 합계(64).</div>
+
+<details class="ex"><summary><span class="tag">예제 3-32</span> 불량품이 각각 10%, 20%인 기계 $A$, $B$가 있다. $A$와 $B$에서 만든 제품 40개, 60개를 섞어서 그중 하나를 확인해보니 불량품이었다. 이때 불량품이 $A$에서 만들어졌을 확률을 구하라.</summary>
+<div class="sol">
+<p>$A$, $B$에서 만든 제품의 수와 불량품의 수는 다음 표와 같다.</p>
+<table><tr><th></th><th>제품의 수</th><th>불량품의 수</th></tr>
+<tr><td>$A$ 기계</td><td>40</td><td>$40\times\frac{10}{100}=4$</td></tr>
+<tr><td>$B$ 기계</td><td>60</td><td>$60\times\frac{20}{100}=12$</td></tr>
+<tr><td>합계</td><td>100</td><td>16</td></tr></table>
+<p>불량품이 나오는 사건을 $X$라 하면</p>
+$$n(X)=n(A\cap X)+n(B\cap X)=4+12=16$$
+$$P(A\mid X)=\frac{P(A\cap X)}{P(X)}=\frac{4}{16}=\frac{1}{4}$$
+<p class="ans">답: $\dfrac{1}{4}$</p>
+</div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-33</span> 두 사건 $A$, $B$에 대하여 $P(B\mid A)=0.8$, $P(A)=0.5$, $P(B)=0.6$일 때, $P(A\mid B)$의 값을 구하라.</summary>
+<div class="sol">
+<p>$P(A\cap B)=P(A)P(B\mid A)=P(B)P(A\mid B)$이므로</p>
+$$0.5\times0.8=0.6\times P(A\mid B)$$
+$$P(A\mid B)=\frac{0.5\times0.8}{0.6}=\frac{2}{3}$$
+<p class="ans">답: $\dfrac{2}{3}$</p>
+</div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-34</span> 1부터 10까지의 숫자가 적힌 10장의 카드에서 한 장을 꺼낼 때, 나오는 수가 짝수인 사건을 $A$, 5의 배수인 사건을 $B$라 하자. 이때 $A$와 $B$는 서로 독립인지 종속인지 설명하라.</summary>
+<div class="sol">
+<p>$A=\{2,4,6,8,10\}$, $B=\{5,10\}$, $A\cap B=\{10\}$이므로</p>
+$$P(A\cap B)=\frac{1}{10},\quad P(A)\times P(B)=\frac{5}{10}\times\frac{2}{10}=\frac{1}{10}$$
+<p>$P(A\cap B)=P(A)P(B)$가 성립하므로 $A$와 $B$는 서로 독립이다.</p>
+<p class="ans">답: 독립</p>
+</div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-35</span> 두 사건 $A$, $B$가 다음과 같을 때, 두 사건이 독립인지 종속인지 구하라.<br>(a) $P(A)=0.3$, $P(B)=0.5$, $P(A\cap B)=0.15$<br>(b) $P(A)=0.3$, $P(B)=0.5$, $P(A\cup B)=0.4$</summary>
+<div class="sol">
+<p>(a) $P(A)P(B)=(0.3)(0.5)=0.15$. $P(A\cap B)=P(A)P(B)$이므로 $A$, $B$는 독립이다.</p>
+<p>(b) $P(A\cup B)=P(A)+P(B)-P(A\cap B)$이므로</p>
+$$0.4=0.3+0.5-P(A\cap B),\quad P(A\cap B)=0.4$$
+<span class="fix">※ 책 오탈자 수정: 원문 "$(A\cap B)=0.4$" ($P$ 누락)</span>
+<p>$P(A)P(B)=(0.3)(0.5)=0.15$이므로 $P(A\cap B)\neq P(A)P(B)$. 따라서 $A$, $B$는 서로 종속이다.</p>
+<p class="ans">답: (a) 독립, (b) 종속</p>
+</div></details>
+<div class="box tip"><div class="lbl">핵심</div>$P(A\cup B)$가 주어지면 먼저 덧셈정리로 $P(A\cap B)$를 구한 뒤 $P(A)P(B)$와 비교.</div>
+
+<h3 id="w6-drill">연습문제</h3>
+
+<details class="ex drill"><summary><span class="tag">A1</span> $P(A)=0.4$, $P(B)=0.6$, $P(A\cap B)=0.2$, $P(A^c\cap B)=0.3$일 때, $P(B\mid A^c)$의 확률을 구하라.</summary>
+<div class="sol">
+<p>$P(A^c\cap B)=P(A^c)P(B\mid A^c)$이므로</p>
+$$P(B\mid A^c)=\frac{P(A^c\cap B)}{P(A^c)}=\frac{0.3}{1-P(A)}=\frac{0.3}{0.6}=\frac{1}{2}$$
+<p class="ans">답: $\dfrac{1}{2}$</p>
+<span class="fix">※ 주의: 주어진 값끼리 모순 — $P(B)=P(A\cap B)+P(A^c\cap B)=0.2+0.3=0.5\neq0.6$. 책은 $P(A^c\cap B)=0.3$을 그대로 사용해 $\frac{1}{2}$. ($P(B)=0.6$을 믿으면 $P(A^c\cap B)=0.4$, 답 $\frac{2}{3}$)</span>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A2</span> 회사원인 남자 50명, 여자 20명 중에서 남자 10명과 여자 5명이 안경을 끼고 있다. 한 사람을 뽑았더니 안경을 끼고 있을 때, 이 사람이 여자일 확률을 구하라.<br>① $\frac{1}{14}$　② $\frac{3}{14}$　③ $\frac{1}{10}$　④ $\frac{1}{4}$　⑤ $\frac{1}{3}$</summary>
+<div class="sol">
+<p>안경을 낀 사람이 뽑힐 사건 $A$, 여자가 뽑힐 사건 $B$.</p>
+$$P(A)=\frac{15}{70}=\frac{3}{14},\quad P(A\cap B)=\frac{5}{70}=\frac{1}{14}$$
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}=\frac{\frac{1}{14}}{\frac{3}{14}}=\frac{1}{3}$$
+<span class="fix">※ 책 오탈자 수정: 원문 "$P=(B\mid A)$"</span>
+<p class="ans">답: ⑤ $\dfrac{1}{3}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A3</span> 카드 10장이 뒤집혀 있다. 이 중에는 '꽝'이라고 표시된 카드가 4장 숨어 있는데, 꽝 카드를 뽑으면 벌칙을 받는다고 한다. 갑과 을이 순서대로 한 장씩 카드를 뒤집을 때, 모두 벌칙을 받을 확률을 구하라. (단, 뒤집은 카드는 그대로 둔다.)<br>① $\frac{2}{15}$　② $\frac{1}{3}$　③ $\frac{3}{10}$　④ $\frac{1}{10}$　⑤ $\frac{1}{5}$</summary>
+<div class="sol">
+<p>갑이 벌칙을 받는 사건 $A$, 을이 벌칙을 받는 사건 $B$. $P(A)=\frac{4}{10}$, $P(B\mid A)=\frac{3}{9}$</p>
+$$P(A\cap B)=P(A)P(B\mid A)=\frac{2}{5}\times\frac{1}{3}=\frac{2}{15}$$
+<p class="ans">답: ① $\dfrac{2}{15}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A4</span> 파란 공이 3개, 검은 공이 2개 들어 있는 주머니에서 공을 한 개씩 두 번 꺼내는 시행을 할 때 첫 번째 꺼낸 공이 파란 공일 사건을 $A$, 두 번째 꺼낸 공이 파란 공일 사건을 $B$라고 한다. 이때 $P(B\mid A)$의 값을 구하라. (단, 꺼낸 공은 다시 넣지 않는다.)<br>① $\frac{2}{5}$　② $\frac{1}{2}$　③ $\frac{3}{5}$　④ $\frac{1}{5}$　⑤ $\frac{2}{3}$</summary>
+<div class="sol">
+<p>첫 공이 파란 공이면 남은 공은 파란 공 2개, 검은 공 2개.</p>
+$$P(B\mid A)=\frac{2}{4}=\frac{1}{2}$$
+<p class="ans">답: ② $\dfrac{1}{2}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A5</span> 두 사건 $A$, $B$가 독립사건이다. $P(A)=0.3$, $P(B)=0.5$일 때, $P(A\mid B^c)$을 구하라.</summary>
+<div class="sol">
+<p>$A$와 $B$가 독립이므로 $A$와 $B^c$도 서로 독립. 따라서 $P(A\mid B^c)=P(A)=0.3$</p>
+<p class="ans">답: 0.3</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A6</span> 두 사건 $A$, $B$에 대하여 $P(A)=0.4$, $P(B)=0.5$, $P(A\mid B)=0.3$일 때, $P(A\cap B)$를 구하라.</summary>
+<div class="sol">
+$$P(A\cap B)=P(A)P(B\mid A)=P(B)P(A\mid B)=0.5\times P(A\mid B)=0.5\times0.3=0.15$$
+<span class="fix">※ 책 오탈자 수정: 원문 "$=0.5\times P(B\mid A)$"</span>
+<p class="ans">답: 0.15</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A7</span> 두 사건 $A$, $B$에 대하여 사건 $A$가 일어날 확률이 $\frac{7}{10}$이고, 사건 $A$가 일어났을 때 사건 $B$가 일어날 확률이 $\frac{4}{7}$라고 한다. 사건 $A$와 사건 $B$가 동시에 일어날 확률을 구하라.<br>① $\frac{7}{25}$　② $\frac{2}{7}$　③ $\frac{2}{3}$　④ $\frac{4}{7}$　⑤ $\frac{2}{5}$</summary>
+<div class="sol">
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}=\frac{P(A\cap B)}{\frac{7}{10}}=\frac{4}{7}$$
+<p>따라서 $P(A\cap B)=\frac{4}{7}\times\frac{7}{10}=\frac{2}{5}$</p>
+<p class="ans">답: ⑤ $\dfrac{2}{5}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A8</span> 인터넷 서점 Y, K가 있다. 인터넷을 이용하여 책을 구매하는 성향을 조사한 결과 다음 표와 같은 결과가 나타났다. 임의로 한 사람을 뽑은 결과 10대였을 때, Y 서점을 이용했을 확률을 구하라.
+<table><tr><th>나이 \ 서점</th><th>Y 서점</th><th>K 서점</th></tr>
+<tr><td>20대</td><td>0.36</td><td>0.24</td></tr>
+<tr><td>10대</td><td>0.28</td><td>0.12</td></tr></table>
+① $\frac{3}{10}$　② $\frac{2}{5}$　③ $\frac{3}{5}$　④ $\frac{7}{10}$　⑤ $\frac{4}{5}$</summary>
+<div class="sol">
+<p>10대일 사건 $A$, Y 서점을 이용할 사건 $B$. $P(A)=0.28+0.12=0.4$, $P(A\cap B)=0.28$</p>
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}=\frac{0.28}{0.4}=\frac{7}{10}$$
+<p class="ans">답: ④ $\dfrac{7}{10}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A9</span> 대학생 50명을 대상으로 노트북 보유 여부를 조사하였더니 아래 표와 같았다. 한 명을 뽑았을 때, 그 학생이 노트북을 가지고 있다면 그 학생이 남자일 확률을 구하라.
+<table><tr><th>성별 \ 노트북</th><th>보유한 학생</th><th>보유하지 않은 학생</th><th>합계</th></tr>
+<tr><td>남자</td><td>13</td><td>13</td><td>26</td></tr>
+<tr><td>여자</td><td>10</td><td>14</td><td>24</td></tr>
+<tr><td>합계</td><td>23</td><td>27</td><td>50</td></tr></table>
+① $\frac{13}{23}$　② $\frac{13}{50}$　③ $\frac{13}{25}$　④ $\frac{13}{27}$　⑤ $\frac{10}{23}$</summary>
+<div class="sol">
+<p>노트북 보유 사건 $A$, 남자인 사건 $B$.</p>
+$$P(A)=\frac{23}{50},\quad P(A\cap B)=\frac{13}{50}$$
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}=\frac{\frac{13}{50}}{\frac{23}{50}}=\frac{13}{23}$$
+<p class="ans">답: ① $\dfrac{13}{23}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A10</span> 두 사건 $A$, $B$에 대하여 $P(A)=\frac{3}{10}$, $P(B)=\frac{1}{5}$, $P(A\cup B)=\frac{2}{5}$일 때, $P(B\mid A)$의 값을 구하라.<br>① $\frac{1}{10}$　② $\frac{1}{5}$　③ $\frac{1}{4}$　④ $\frac{1}{3}$　⑤ $\frac{1}{2}$</summary>
+<div class="sol">
+$$P(A\cap B)=P(A)+P(B)-P(A\cup B)=\frac{3}{10}+\frac{1}{5}-\frac{2}{5}=\frac{1}{10}$$
+$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}=\frac{\frac{1}{10}}{\frac{3}{10}}=\frac{1}{3}$$
+<p class="ans">답: ④ $\dfrac{1}{3}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A11</span> 두 사건 $A$, $B$에 대하여 $P(A)=\frac{3}{8}$, $P(B)=\frac{1}{2}$, $P(A\cap B)=\frac{1}{4}$일 때, $P(B^c\mid A^c)$의 값을 구하라.<br>① $\frac{1}{5}$　② $\frac{2}{5}$　③ $\frac{3}{5}$　④ $\frac{3}{4}$　⑤ $\frac{1}{4}$</summary>
+<div class="sol">
+$$P(A\cup B)=P(A)+P(B)-P(A\cap B)=\frac{3}{8}+\frac{1}{2}-\frac{1}{4}=\frac{5}{8}$$
+$$P(B^c\mid A^c)=\frac{P(A^c\cap B^c)}{P(A^c)}=\frac{1-P(A\cup B)}{1-P(A)}=\frac{1-\frac{5}{8}}{1-\frac{3}{8}}=\frac{3}{5}$$
+<p class="ans">답: ③ $\dfrac{3}{5}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A12</span> 100 이하의 자연수에서 임의로 하나의 자연수를 뽑을 때, 그 수가 짝수일 사건을 $A$, 5의 배수일 사건을 $B$라 하자. 이때 $A$와 $B$는 서로 독립인지 종속인지 구하라.</summary>
+<div class="sol">
+$$P(A)=\frac{50}{100}=\frac{1}{2},\quad P(B)=\frac{20}{100}=\frac{1}{5}$$
+<p>$A\cap B$ = 10의 배수를 뽑는 사건: $P(A\cap B)=\frac{10}{100}=\frac{1}{10}=P(A)\times P(B)$</p>
+<p>따라서 $A$와 $B$는 독립.</p>
+<p class="ans">답: 독립</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A13</span> 어느 테니스 선수의 첫 번째 서브 성공률은 75%이고 첫 번째 서브가 들어가면 이길 확률이 80%라고 한다. 또, 두 번째 서브의 성공률은 90%이고, 두 번째 서브가 들어가면 이길 확률이 35%라고 한다. 이 선수가 이겼을 때, 두 번째 서브에 성공하였을 확률을 구하라. (단, 확률은 기약분수로 나타낸다.)</summary>
+<div class="sol">
+<p>첫 번째 서브 성공 $A$, 두 번째 서브 성공 $B$, 이김 $C$.</p>
+<p>$P(A)=0.75$, $P(C\mid A)=0.8$, $P(B)=0.9$, $P(C\mid B)=0.35$</p>
+$$P(A\cap C)=0.75\times0.8=0.6,\quad P(B\cap C)=0.9\times0.35=0.315$$
+$$P(C)=P(A\cap C)+P(B\cap C)=0.6+0.315=0.915$$
+$$P(B\mid C)=\frac{P(B\cap C)}{P(C)}=\frac{0.315}{0.915}=\frac{21}{61}$$
+<p class="ans">답: $\dfrac{21}{61}$</p>
+<span class="fix">※ 참고: 책은 두 서브를 서로 다른 두 경로로 단순 합산. 실제 테니스처럼 "첫 서브 실패(0.25) 후 두 번째 서브"로 보면 $P(B\cap C)=0.25\times0.9\times0.35=0.07875$, $P(C)=0.67875$, 답은 $\frac{21}{181}$. 시험은 책 방식($\frac{21}{61}$) 기준.</span>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A14</span> 상자 A에는 배 2개와 사과 3개, 상자 B에는 배 3개와 사과 1개, 상자 C에는 배 3개와 사과 2개가 들어 있다. 임의로 한 상자를 선택하여 2개의 과일을 꺼내었더니 2개 모두 배라고 할 때, 선택한 상자가 C일 확률을 구하라.<br>① $\frac{1}{4}$　② $\frac{1}{3}$　③ $\frac{2}{5}$　④ $\frac{1}{2}$　⑤ $\frac{3}{5}$</summary>
+<div class="sol">
+<p>배 2개가 나오는 사건 $E$, 상자 A, B, C를 고르는 사건 $A$, $B$, $C$.</p>
+$$P(A\cap E)=P(A)P(E\mid A)=\frac{1}{3}\times\frac{{}_2C_2}{{}_5C_2}=\frac{1}{30}$$
+$$P(B\cap E)=P(B)P(E\mid B)=\frac{1}{3}\times\frac{{}_3C_2}{{}_4C_2}=\frac{1}{6}$$
+$$P(C\cap E)=P(C)P(E\mid C)=\frac{1}{3}\times\frac{{}_3C_2}{{}_5C_2}=\frac{1}{10}$$
+$$P(E)=P(A\cap E)+P(B\cap E)+P(C\cap E)=\frac{1}{30}+\frac{1}{6}+\frac{1}{10}=\frac{3}{10}$$
+<span class="fix">※ 책 오탈자 수정: 원문 "$P(E)=P(E\mid A)+P(E\mid B)+P(E\mid C)$"</span>
+<p>$P(C\mid E)=\dfrac{P(C\cap E)}{P(E)}=\dfrac{\frac{1}{10}}{\frac{3}{10}}=\dfrac{1}{3}$</p>
+<p class="ans">답: ② $\dfrac{1}{3}$</p>
+</div></details>
+
+<details class="ex drill"><summary><span class="tag">A15</span> 주사위 한 개와 동전 한 개를 동시에 던질 때, 앞면이 나오는 사건과 4 이상의 눈이 나오는 사건이 서로 독립인지 종속인지 설명하라.</summary>
+<div class="sol">
+<p>동전 앞면 H, 뒷면 T. $S=\{(H,1),(H,2),\cdots,(H,6),(T,1),(T,2),\cdots,(T,6)\}$ (12가지)</p>
+<p>앞면 사건 $A=\{(H,1),\cdots,(H,6)\}$, 4 이상 사건 $B=\{(H,4),(H,5),(H,6),(T,4),(T,5),(T,6)\}$</p>
+$$P(A)=\frac{1}{2},\quad P(B)=\frac{1}{2}$$
+<p>$A\cap B=\{(H,4),(H,5),(H,6)\}$이므로 $P(A\cap B)=\frac{3}{12}=\frac{1}{4}=P(A)P(B)$ → 서로 독립.</p>
+<p class="ans">답: 독립</p>
+</div></details>
+
+<div class="box sum"><div class="lbl">6주차 한눈에 보기</div>
+<ul>
+<li>조건부 확률: $P(B\mid A)=\dfrac{P(A\cap B)}{P(A)}=\dfrac{n(A\cap B)}{n(A)}$ (분모 = 조건 사건)</li>
+<li>곱셈정리: $P(A\cap B)=P(A)P(B\mid A)=P(B)P(A\mid B)$</li>
+<li>여사건 조건: $P(A\mid B^c)=\dfrac{P(A)-P(A\cap B)}{1-P(B)}$, $P(B^c\mid A^c)=\dfrac{1-P(A\cup B)}{1-P(A)}$</li>
+<li>전확률: $P(A)=P(E_1)P(A\mid E_1)+\cdots+P(E_n)P(A\mid E_n)$ ($E_i$ 서로 배반, 합 = $S$)</li>
+<li>베이즈: $P(E_i\mid A)=\dfrac{P(E_i)P(A\mid E_i)}{\sum_k P(E_k)P(A\mid E_k)}$</li>
+<li>종속: $P(B\mid A)\neq P(B\mid A^c)$ (예: 비복원 추출)</li>
+<li>독립: $P(B\mid A)=P(B\mid A^c)=P(B)$ ⇔ $P(A\cap B)=P(A)P(B)$; 여러 개면 $P(A\cap B\cap C)=P(A)P(B)P(C)$</li>
+<li>독립이면 $A$–$B^c$, $A^c$–$B$, $A^c$–$B^c$도 독립. 배반 ≠ 독립.</li>
+</ul></div>
+</section>

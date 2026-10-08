@@ -1,0 +1,343 @@
+<section class="week" id="w2">
+<h2>2주차 · 2.2 순열</h2>
+<p>순열 = 순서를 생각하여 일렬로 배열하는 것. 중복 허용 여부, 같은 것 포함 여부, 배열 모양(일렬·원·다각형)에 따라 공식이 달라진다.</p>
+
+<h3 id="s2-2-1">2.2.1 순열</h3>
+<p>서로 다른 $n$개에서 $r$개를 골라 <b>순서 있게</b> 배열 → ${}_nP_r$. 순서가 다르면 다른 경우: $\{1,2\}\ne\{2,1\}$.</p>
+<p>예) $\{1,2,3,4\}$에서 2개 배열: $\{1,2\},\{1,3\},\{1,4\},\{2,1\},\{2,3\},\{2,4\},\{3,1\},\{3,2\},\{3,4\},\{4,1\},\{4,2\},\{4,3\}$ → ${}_4P_2=4\times3=12$.<br>
+예) A~F 6문자에서 2개 배열: 첫 자리 6가지 × 둘째 자리 5가지 = 30. 즉 $n$부터 1씩 줄이며 $r$개를 곱한다.</p>
+<div class="box def"><div class="lbl">정리 2-4 · 순열</div>
+(1) 서로 다른 $n$개에서 중복되지 않게 순서를 생각하여 $r$개를 배열하는 경우의 수
+$${}_nP_r = n(n-1)(n-2)\cdots(n-r+1) = \frac{n!}{(n-r)!}\quad (\text{단, } n\ge r)$$
+(2) 순열의 성질 ($!$ : factorial, $n$의 계승)
+<ul><li>${}_nP_n = n(n-1)(n-2)\cdots 3\times 2\times 1 = n!$</li>
+<li>$0! = 1,\ 1! = 1$</li>
+<li>${}_nP_0 = 1,\ {}_nP_1 = n$</li></ul>
+</div>
+<table>
+<tr><th>식</th><th>의미</th></tr>
+<tr><td>${}_4P_1 = 4$</td><td>4개 중 1개만 선택하여 순서 있게 배열</td></tr>
+<tr><td>${}_4P_2 = 4\times 3$</td><td>4개 중 2개만 선택하여 순서 있게 배열</td></tr>
+<tr><td>${}_4P_3 = 4\times 3\times 2$</td><td>4개 중 3개만 선택하여 순서 있게 배열</td></tr>
+<tr><td>${}_4P_4 = 4\times 3\times 2\times 1$</td><td>4개 중 4개를 모두 선택하여 순서 있게 배열</td></tr>
+</table>
+<div class="box def"><div class="lbl">정리 2-5 · 순열 관련 공식</div>
+<ul><li>${}_nP_r = {}_{n-1}P_r + r\times {}_{n-1}P_{r-1}$</li>
+<li>${}_nP_r = n\times {}_{n-1}P_{r-1}$</li></ul>
+</div>
+<p><b>이웃하는 경우</b>: 이웃할 것들을 한 묶음(원소 1개)으로 보고 나열 × 묶음 안에서 나열.</p>
+<p class="fig">[그림 2-6] 남 3 + 여 3을 일렬로, 여자 3명이 이웃: (남,남,남,여자묶음) 나열 $4!$ × 묶음 안 여자 나열 $3!$ → $4!\times3!=144$가지.</p>
+<p><b>이웃하지 않는 경우</b>: 이웃해도 되는 것을 먼저 나열하고, 그 사이·양끝 빈자리에 이웃하면 안 되는 것을 배열.</p>
+<p class="fig">[그림 2-7] _ 남 _ 남 _ 남 _ : 남자 나열 $3!$, 빈자리 4곳 중 3곳에 여자 배열 ${}_4P_3=24$ → $3!\times{}_4P_3=144$가지.</p>
+<div class="box tip"><div class="lbl">핵심</div>이웃 → <b>묶어서</b> (묶음 수)! × (묶음 내부)!. 이웃 X → <b>먼저 세우고 사이에 끼우기</b>: $k$명 세우면 빈자리 $k+1$개.</div>
+
+<details class="ex"><summary><span class="tag">예제 2-11</span> ${}_nP_2 = 90$일 때, 양수 $n$의 값을 구하라.</summary>
+<div class="sol">${}_nP_2=n(n-1)$이므로 $n(n-1)=90$<br>$n^2-n-90=0$, $(n-10)(n+9)=0$, $n=10,\ -9$<br>양수이므로 $n=10$.
+<p class="ans">답: 10</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-12</span> ${}_4P_r\times 5! = 2880\ (r\lt 4)$일 때, $r$의 값을 구하라.</summary>
+<div class="sol">${}_4P_r\times120=2880$ → ${}_4P_r=24$<br>$\dfrac{4!}{(4-r)!}=24$ → $(4-r)!=1$ → $4-r=1$ (※ $4-r=0$도 $0!=1$이지만 $r\lt4$이므로 제외) → $r=3$
+<p class="ans">답: 3</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-13</span> 여학생 3명과 남학생 4명이 일렬로 설 때, 여학생끼리 이웃하게 서는 경우가 몇 가지인지 구하라.</summary>
+<div class="sol">여학생 3명을 한 묶음(묶음 1), 남학생 4명을 각각 묶음 2~5로 보면<br>
+5묶음 배열: ${}_5P_5=5!$, 묶음 안 여학생 자리 바꿈: ${}_3P_3=3!$<br>
+$5!\times3!=120\times6=720$
+<p class="ans">답: 720가지</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-14</span> 여학생 3명과 남학생 4명이 일렬로 설 때, 여학생이 이웃하지 않는 경우가 모두 몇 가지인지 구하라.</summary>
+<div class="sol">남학생 4명 일렬: ${}_4P_4=4!$<br>
+_ 남 _ 남 _ 남 _ 남 _ : 빈자리 5개에 여학생 3명 → ${}_5P_3$<br>
+$4!\times{}_5P_3=24\times60=1440$
+<p class="ans">답: 1,440가지</p></div></details>
+
+<h3 id="s2-2-2">2.2.2 중복순열</h3>
+<p>$\{1,2,3,4\}$에서 2개 배열: 순열 ${}_4P_2=12$ + 중복 허락 $\{1,1\},\{2,2\},\{3,3\},\{4,4\}$ = 16 → <b>중복순열</b> ${}_n\Pi_r$.</p>
+<p class="fig">[그림 2-8] 빵 4개(선택 대상, $r$)를 바구니 3개(중복 대상, $n$)에 나누어 담기 — 한 바구니에 4개 모두, 2·1·1개 등. 경우의 수 ${}_3\Pi_4=81$.</p>
+<div class="box def"><div class="lbl">정리 2-6 · 중복순열</div>
+서로 다른 $n$개에서 중복을 허락하여 $r$개를 선택하여 배열하는 방법의 수
+$${}_n\Pi_r = n^r$$
+</div>
+<div class="box tip"><div class="lbl">핵심</div>${}_nP_r$은 $n\ge r$ 필요, ${}_n\Pi_r$은 $n\lt r$도 가능(중복 허락). <b>"각 대상($r$)이 고르는 선택지 수($n$)"</b> → $n^r$. 편지 4통 → 우체통 3개: 편지마다 3가지 → $3^4$.</div>
+
+<details class="ex"><summary><span class="tag">예제 2-15</span> 숫자 1, 2, 3, 4, 5를 써서 만들 수 있는 세 자리수가 몇 개인지 구하라.</summary>
+<div class="sol">111, 222처럼 중복 허락 → ${}_5\Pi_3=5^3=125$
+<p class="ans">답: 125개</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-16</span> 다음 경우의 수를 구하라. (a) 4통의 편지를 3개의 우체통에 넣는 방법은 몇 가지인지 구하라. (b) 빨간색, 파란색 두 깃발을 네 번씩 올려서 만들 수 있는 신호가 몇 가지인지 구하라.</summary>
+<div class="sol">(a) ${}_3\Pi_4=3^4=81$<br>(b) ${}_2\Pi_4=2^4=16$
+<p class="ans">답: (a) 81가지, (b) 16가지</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-17</span> 집합 $A=\{1, 2, 3, 4\}$, 집합 $B=\{p, q, r, s, t\}$일 때, $A$에서 $B$로 가는 함수의 개수를 구하라.</summary>
+<div class="sol">$A$의 각 원소가 $B$의 원소에 중복하여 갈 수 있으므로 중복순열(수형도: 1,2,3,4 각각에서 5갈래).<br>
+${}_5\Pi_4=5\times5\times5\times5=5^4=625$
+<p class="ans">답: 625</p></div></details>
+
+<div class="box tip"><div class="lbl">Check it up! · 일대일함수의 개수</div>
+일대일함수는 정의역 원소끼리 함숫값이 겹치면 안 됨(중복 X) → $A$($r$개)에서 $B$($n$개)로의 일대일함수 수 $={}_nP_r$.<br>
+<span class="fig">[그림 2-9] $A=\{1,2,3\}$, $B=\{a,b,c,d\}$, $1\to a,\ 2\to b,\ 3\to c$</span> → ${}_4P_3=4\times3\times2=24$.<br>
+함수 전체 수 $=n^r$ (중복순열) vs 일대일함수 수 $={}_nP_r$ (순열).</div>
+
+<h3 id="s2-2-3">2.2.3 같은 것이 있는 순열</h3>
+<p>같은 것이 섞여 있으면 구별해서 센 뒤, 같은 것끼리의 자리 바꿈 수로 나눈다.</p>
+<p class="fig">[그림 2-10] $a,a,b$ 나열: $a_1,a_2$로 구별하면 $3!=6$가지. $a_1a_2b, a_2a_1b\to aab$ / $a_1ba_2, a_2ba_1\to aba$ / $ba_1a_2, ba_2a_1\to baa$ → 3가지 $=\dfrac{3!}{2!\times1!}$. <span class="fix">※ 책 오탈자 수정: 그림 셋째 줄 원문 "aba"</span></p>
+<p>예) $a,a,a,b,b,c$ ($n=3+2+1=6$): $\dfrac{6!}{3!\times2!\times1!}=\dfrac{6\times5\times4\times3\times2\times1}{3\times2\times1\times2\times1\times1}=60$가지.</p>
+<div class="box def"><div class="lbl">정리 2-7 · 같은 것이 있는 순열</div>
+$n$개 중에서 같은 것이 $p$개, $q$개, $r$개, $\cdots$, $s$개가 있을 때, $n$개를 모두 선택하여 일렬로 배열하는 순열의 수
+$$\frac{n!}{p!\times q!\times r!\times\cdots\times s!}\quad(\text{단, } p+q+r+\cdots+s=n)$$
+</div>
+<div class="box tip"><div class="lbl">핵심</div>"순서가 정해진 것들"(예: $a_1$이 $a_2$보다 왼쪽)은 <b>같은 문자로 바꿔</b> 같은 것이 있는 순열로 센다 (B17).</div>
+
+<details class="ex"><summary><span class="tag">예제 2-18</span> 2, 2, 2, 3, 3, 5의 숫자를 나열하는 방법이 몇 가지인지 구하라.</summary>
+<div class="sol">2가 3개, 3이 2개, 5가 1개 →
+$$\frac{6!}{3!\times2!\times1!}=\frac{6\times5\times4\times3\times2\times1}{6\times2\times1}=60$$
+<p class="ans">답: 60가지</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-19</span> SUCCESS를 모두 사용하여 일렬로 배열하는 방법의 수를 구하라.</summary>
+<div class="sol">S 3개, C 2개, U 1개, E 1개 →
+$$\frac{7!}{3!\times2!\times1!\times1!}=\frac{7\times6\times5\times4}{2\times1}=42\times10=420$$
+<p class="ans">답: 420</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-20</span> mathematical를 모두 사용하여 일렬로 배열하는 방법의 수를 구하라.</summary>
+<div class="sol">m-a-t-h-e-m-a-t-i-c-a-l = <b>11글자</b>. m 2개, a 3개, t 2개 (h, e, i, c, l 각 1개) →
+$$\frac{11!}{2!\times3!\times2!}=\frac{39916800}{24}=1663200$$
+<span class="fix">※ 책 오탈자 수정: 원문 "$\frac{12!}{2!\times3!\times2!}=19958400$" — mathematical은 12글자가 아니라 11글자이므로 $11!$을 써야 함</span>
+<p class="ans">답: 1,663,200 (책 인쇄 답 19,958,400)</p></div></details>
+
+<h3 id="s2-2-4">2.2.4 원순열</h3>
+<p>서로 다른 $n$개를 원형으로 배열 = <b>원순열</b>. 회전해서 같으면 같은 배열.</p>
+<table>
+<tr><th>순열</th><td>ABC</td><td>CAB</td><td>BCA</td><td>ACB</td><td>CBA</td><td>BAC</td></tr>
+<tr><th>원순열</th><td colspan="3">회전하면 모두 같음 (1가지)</td><td colspan="3">회전하면 모두 같음 (1가지)</td></tr>
+</table>
+<p class="fig">[표 2-1] 순열과 원순열의 비교 — 일렬 6가지가 원형에서는 회전 방향별로 3개씩 같아져 $3!\times\frac13=2!$ 가지.</p>
+<div class="box def"><div class="lbl">정리 2-8 · 원순열</div>
+서로 다른 $n$개를 원형으로 배열하는 순열의 수
+$$n!\times\frac{1}{n}=(n-1)!$$
+</div>
+<p>뒤집어도 같은 것으로 보는 원순열(염주·목걸이) = <b>염주순열</b>. 뒤집으면 같아지는 것이 2개씩 → 원순열의 $\frac12$.</p>
+<div class="box def"><div class="lbl">정리 2-9 · 염주순열</div>
+서로 다른 $n$개의 구슬을 실로 꿰어서 배열하는 방법의 수
+$$\frac{(n-1)!}{2}$$
+</div>
+<ul><li>일렬로 배열하는 경우의 수 : $n!$</li><li>원형으로 배열하는 경우의 수 : $(n-1)!$</li><li>염주로 만드는 경우의 수 : $\dfrac{(n-1)!}{2}$</li></ul>
+<div class="box tip"><div class="lbl">핵심</div>원순열 = 한 명을 고정하고 나머지 $(n-1)$명을 일렬 배열. 첫 그룹을 원형 $(k-1)!$로 앉힌 뒤에는 자리가 구별되므로 나머지는 <b>일반 순열</b>로 배치.</div>
+
+<details class="ex"><summary><span class="tag">예제 2-21</span> 탁자에 구슬이 5개가 있다. (a) 이 구슬을 일직선으로 늘어놓는 방법의 수를 구하라. (b) 이 구슬을 원형으로 늘어놓는 방법의 수를 구하라. (c) 이 구슬을 실에 꿰어서 목걸이를 만드는 방법의 수를 구하라.</summary>
+<div class="sol">(a) 일직선: $5!=120$<br>(b) 원형: $(5-1)!=4!=24$<br>(c) 염주: $\dfrac{(5-1)!}{2}=\dfrac{4!}{2}=12$
+<p class="ans">답: (a) 120, (b) 24, (c) 12</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-22</span> 남학생 3명과 여학생 3명이 원탁에 둘러앉을 때, 남녀가 교대로 앉는 방법의 수를 구하라.</summary>
+<div class="sol">남학생 3명 원탁: $(3-1)!=2!$<br>남학생 사이 빈자리 3곳(★)에 여학생 3명: ${}_3P_3=3!$<br>$2!\times3!=12$
+<p class="ans">답: 12</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-23</span> 구슬 6개를 원형으로 늘어놓는 방법의 수와 구슬을 꿰어서 목걸이를 만드는 방법의 수를 구하라.</summary>
+<div class="sol">원순열: $(6-1)!=5!=120$<br>염주순열: $\dfrac{(6-1)!}{2!}=\dfrac{5!}{2}=60$
+<p class="ans">답: 120, 60</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-24</span> 아버지와 어머니를 포함한 가족 6명이 원탁에 둘러앉을 때, 아버지와 어머니가 이웃하게 앉는 방법의 수를 구하라.</summary>
+<div class="sol">부모를 한 묶음 → 5명 원탁: $(5-1)!=24$<br>부모 자리 바꿈 2가지 → $24\times2=48$
+<p class="ans">답: 48</p></div></details>
+
+<h3 id="s2-2-5">2.2.5 대칭순열</h3>
+<p>서로 다른 $n$개를 원형이 아닌 <b>다각형</b>(정사각형, 직사각형, 정삼각형 등)에 배열 = <b>대칭순열</b>.</p>
+<p class="fig">[그림 2-11] 정사각형 탁자 네 변에 1명씩 4명 → 원탁에 4명이 앉는 것과 같음: $(4-1)!$.</p>
+<p class="fig">[그림 2-12] 직사각형 탁자에 6명(위 ②①, 왼쪽 ③, 오른쪽 ⑥, 아래 ④⑤). (a) ①A, ②B, ⑥C와 (b) ①A, ②B, ③C처럼 180° 회전시켜 겹치는 배치는 모양이 같다 → 대각선 기준 한쪽 부분에서 고정된 한 사람의 자리만 생각.</p>
+<div class="box def"><div class="lbl">정리 2-10 · 대칭순열</div>
+다각형의 모양에 따라 대칭순열을 나타내면
+<ul><li>정사각형에 $n$명을 앉히는 방법의 수 $(n-1)!\times\dfrac{n}{4}$</li>
+<li>직사각형에 $n$명을 앉히는 방법의 수 $(n-1)!\times\dfrac{n}{2}$</li>
+<li>정삼각형에 $n$명을 앉히는 방법의 수 $(n-1)!\times\dfrac{n}{3}$</li>
+<li>정오각형에 $n$명을 앉히는 방법의 수 $(n-1)!\times\dfrac{n}{5}$</li></ul>
+</div>
+<div class="box tip"><div class="lbl">핵심</div>원순열 $(n-1)!$ × (원형 배열 1개가 만드는 서로 다른 자리 배치 수) = $(n-1)!\times\dfrac{n}{k}$, $k$ = 회전해서 겹치는 횟수(대칭 구간 수). 즉 $\dfrac{n!}{k}$. 대칭이 전혀 없으면(반달 모양 B22) $k=1$ → $n!$.</div>
+
+<details class="ex"><summary><span class="tag">예제 2-25</span> 정삼각형 모양의 탁자에 3명이 앉는 방법의 수를 구하라.</summary>
+<div class="sol">(그림: 각 변에 1명씩) $(3-1)!\times\dfrac{3}{3}=2$
+<p class="ans">답: 2</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-26</span> 가족 6명이 정삼각형 모양의 식탁에 앉는 방법의 수를 구하라.</summary>
+<div class="sol">(그림: 각 변에 2명씩) $(6-1)!\times\dfrac{6}{3}=5!\times2=240$
+<p class="ans">답: 240</p></div></details>
+
+<h3 id="w2-drill">연습문제</h3>
+<p><b>Section 2.2 연습문제</b></p>
+
+<details class="ex drill"><summary><span class="tag">A1</span> 회원 수가 40명인 동호회에서 회장, 부회장을 각각 한 명씩 선출하는 방법의 수를 구하라. ① 50 ② 84 ③ 1200 ④ 1560 ⑤ 2450</summary>
+<div class="sol">40명에서 2명을 순서대로: ${}_{40}P_2=40\times39=1560$
+<p class="ans">답: ④ 1560</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A2</span> ${}_nP_3+3\times{}_nP_2=5\times{}_{n+1}P_2$를 만족하는 자연수 $n$의 값을 구하라. (단, $n\ge3$) ① 6 ② 5 ③ 4 ④ 3 ⑤ 2</summary>
+<div class="sol">$n(n-1)(n-2)+3n(n-1)=5(n+1)n$<br>양변을 $n$으로 나누면 $n^2-3n+2+3n-3=5n+5$<br>$n^2-5n-6=0$, $(n-6)(n+1)=0$, $n=-1,\ 6$<br>$n\ge3$이므로 $n=6$
+<p class="ans">답: ① 6</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A3</span> A, B, C, D, E 다섯 사람 중에서 회장, 부회장, 총무를 각각 한 사람씩 뽑으려고 한다. 이때 A가 반드시 회장에 뽑히는 경우의 수를 구하라. ① 3 ② 6 ③ 12 ④ 24 ⑤ 60</summary>
+<div class="sol">회장 A 고정, B, C, D, E 4명 중 2명을 순서대로: ${}_4P_2=4\times3=12$
+<p class="ans">답: ③ 12</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A4</span> 숫자 0, 1, 2, 3, 4에서 서로 다른 세 개의 숫자를 선택하여 만들 수 있는 세 자리 자연수의 개수를 구하라. ① 48 ② 42 ③ 40 ④ 38 ⑤ 32</summary>
+<div class="sol">첫 자리: 0 제외 1, 2, 3, 4 중 하나(4가지). 나머지 두 자리: 남은 4개 숫자에서 2개 순서대로 ${}_4P_2$<br>$4\times{}_4P_2=4\times4\times3=48$
+<p class="ans">답: ① 48</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A5</span> 과일이 세 종류가 있다. 사과, 배, 오렌지라고 할 때, 중복을 허락하여 접시 4개에 한 개씩 담는 방법의 수를 구하라. ① 27 ② 36 ③ 72 ④ 81 ⑤ 243</summary>
+<div class="sol">접시 4개에 1개씩 → 과일 4개 필요, 세 종류에서 중복하여 4개: ${}_3\Pi_4=3^4=81$
+<p class="ans">답: ④ 81</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A6</span> 학생 6명이 밴드부와 사진부 두 동아리에 가입하는 방법의 수를 구하라. (단, 각각의 학생은 한 동아리에만 가입할 수 있다.) ① 36 ② 40 ③ 52 ④ 64 ⑤ 128</summary>
+<div class="sol">학생마다 2가지 선택(동아리는 중복 선택 가능): ${}_2\Pi_6=2^6=64$
+<p class="ans">답: ④ 64</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A7</span> $X=\{1,2,3\}$, $Y=\{4,5,6,7\}$일 때, $X$에서 $Y$로의 함수의 개수를 구하라. ① 27 ② 36 ③ 64 ④ 81 ⑤ 243</summary>
+<div class="sol">함수의 개수는 중복순열: ${}_4\Pi_3=4^3=64$
+<p class="ans">답: ③ 64</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A8</span> $X=\{1,2,3\}$, $Y=\{4,5,6,7\}$일 때, $X$에서 $Y$로의 일대일함수의 개수를 구하라. ① 81 ② 64 ③ 36 ④ 27 ⑤ 24</summary>
+<div class="sol">일대일함수의 개수는 순열: ${}_4P_3=4\times3\times2=24$
+<p class="ans">답: ⑤ 24</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A9</span> $10001_{(2)}$, $10011_{(2)}$와 같이 이진법으로 다섯 자리를 표현하는 방법의 개수를 구하라. ① 32 ② 28 ③ 24 ④ 20 ⑤ 16</summary>
+<div class="sol">맨 앞자리는 1, 나머지 네 자리는 0 또는 1: ${}_2\Pi_4=2^4=16$
+<p class="ans">답: ⑤ 16</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A10</span> 숫자 1, 2, 3을 사용하여 만들 수 있는 다섯 자리 정수의 개수를 구하라. ① 88 ② 128 ③ 149 ④ 200 ⑤ 243</summary>
+<div class="sol">자리마다 1, 2, 3 중 하나: ${}_3\Pi_5=3^5=243$
+<p class="ans">답: ⑤ 243</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A11</span> TOMORROW를 일렬로 배열할 때, 양 끝에 모음이 오는 경우의 수를 구하라. ① 120 ② 320 ③ 360 ④ 520 ⑤ 720</summary>
+<div class="sol">모음은 O 3개뿐 → 양 끝에 O를 놓으면 O <u>T M R R O W</u> O<br>가운데 6글자: T 1, M 1, R 2, O 1, W 1 →
+$\dfrac{6!}{2!\times1!\times1!\times1!}=360$
+<p class="ans">답: ③ 360</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A12</span> 1, 1, 1, 2, 2, 3의 숫자에서 네 개를 골라 만들 수 있는 네 자리 자연수가 몇 가지인지 구하라.</summary>
+<div class="sol">1이 3개: $1113\to\dfrac{4!}{3!\times1!}=4$, $1112\to\dfrac{4!}{3!\times1!}=4$<br>
+1이 2개: $1122\to\dfrac{4!}{2!\times2!}=6$, $1123\to\dfrac{4!}{2!\times1!\times1!}=12$<br>
+1이 1개: $2231\to\dfrac{4!}{2!\times1!\times1!}=12$<br>
+(1이 0개이면 2, 2, 3 세 개뿐이라 불가)<br>
+$4+4+6+12+12=38$
+<p class="ans">답: 38가지</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A13</span> 남자 5명과 여자 3명이 원탁에 둘러앉을 때, 여자끼리 이웃하지 않는 경우의 수를 구하라.</summary>
+<div class="sol">남자를 먼저 원탁에: $(5-1)!=4!=24$<br>남자 사이 5곳(★)에 여자 3명: ${}_5P_3=5\times4\times3=60$<br>$4!\times{}_5P_3=24\times60=1440$
+<p class="ans">답: 1440</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A14</span> 한국인 4명과 중국인 3명이 원탁에 둘러앉을 때, 중국인끼리는 이웃하지 않는 경우의 수를 구하라. ① 192 ② 180 ③ 168 ④ 156 ⑤ 144</summary>
+<div class="sol">한국인 4명 원탁: $(4-1)!$, 사이 4곳(★)에 중국인 3명: ${}_4P_3=24$<br>$(4-1)!\times{}_4P_3=6\times24=144$
+<p class="ans">답: ⑤ 144</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A15</span> 커플 5쌍이 원탁에 둘러앉을 때, 커플끼리 이웃하여 앉는 방법의 수를 구하라. ① 180 ② 240 ③ 360 ④ 768 ⑤ 720</summary>
+<div class="sol">커플을 한 팀으로: 5팀 원탁 $(5-1)!$, 각 커플 자리 바꿈 $2!$씩<br>$(5-1)!\times2!\times2!\times2!\times2!\times2!=24\times32=768$
+<p class="ans">답: ④ 768</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A16</span> 어른 4명과 아이 4명이 원탁에 둘러앉을 때, 어른과 아이가 교대로 앉는 경우의 수를 구하라. ① 108 ② 144 ③ 180 ④ 216 ⑤ 288</summary>
+<div class="sol">어른 4명 원탁: $(4-1)!=3!=6$<br>사이 4곳(★)에 아이 4명: ${}_4P_4=4!=24$<br>$6\times24=144$
+<p class="ans">답: ② 144</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A17</span> 구슬 6개로 목걸이를 만들 수 있는 개수를 구하라. ① 30 ② 60 ③ 90 ④ 120 ⑤ 150</summary>
+<div class="sol">염주순열 $\dfrac{(n-1)!}{2}$: $(6-1)!\times\dfrac12=60$
+<p class="ans">답: ② 60</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A18</span> 다음 그림과 같은 정삼각형 모양의 탁자에 9명이 둘러앉는 방법의 수를 구하라. [그림: 정삼각형 탁자 각 변에 3명씩 9명] ① 8! ② 8!×2 ③ 8!×3 ④ 9!×2 ⑤ 9!×3</summary>
+<div class="sol">대칭 구간 3개: $(9-1)!\times\dfrac{9}{3}=8!\times3$
+<p class="ans">답: ③ 8!×3</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A19</span> 다음 그림과 같은 직사각형 모양의 탁자에 8명이 둘러앉는 방법의 수를 구하라. [그림: 긴 변에 각 3명, 짧은 변에 각 1명, 총 8명] ① 2520 ② 5040 ③ 20160 ④ 40320 ⑤ 80640</summary>
+<div class="sol">대칭 구간 2개: $(8-1)!\times\dfrac{8}{2}=5040\times4=20160$
+<p class="ans">답: ③ 20160</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A20</span> 다음 그림과 같은 정오각형 모양의 탁자에 10명이 둘러앉는 방법의 수를 구하라. [그림: 각 변에 2명씩 10명] ① 9! ② 9!×2 ③ 9!×3 ④ 9!×5 ⑤ $9!\times{}_5P_2$</summary>
+<div class="sol">대칭 구간 5개: $(10-1)!\times\dfrac{10}{5}=9!\times2$
+<p class="ans">답: ② 9!×2</p></div></details>
+
+<p><b>Chapter 02 연습문제 (2.2.x)</b></p>
+<p><i>2.2.1 순열</i></p>
+
+<details class="ex drill"><summary><span class="tag">B10</span> ${}_nP_2+4\,{}_nP_1=28$을 만족하는 $n$의 값을 구하라. ① 2 ② 3 ③ 4 ④ 5 ⑤ 6</summary>
+<div class="sol">${}_nP_2$가 존재하므로 $n\ge2$.<br>$n(n-1)+4n=28$ → $n^2+3n-28=0$ → $(n+7)(n-4)=0$ → $n=-7,\ 4$<br>따라서 $n=4$
+<p class="ans">답: ③ 4</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B11</span> 0, 1, 2, 3, 4, 5, 6에서 서로 다른 네 숫자를 이용하여 네 자리 정수를 만들 때, 짝수의 개수를 구하라. ① 60 ② 420 ③ 450 ④ 480 ⑤ 510</summary>
+<div class="sol">짝수 ⇔ 일의 자리가 짝수.<br>
+□□□0 꼴: 나머지 6개에서 3자리 → ${}_6P_3=120$<br>
+□□□2, □□□4, □□□6 꼴: 맨 앞자리 0 제외(5가지) × 가운데 두 자리 ${}_5P_2$ → 각 $5\times{}_5P_2=100$<br>
+${}_6P_3+3\times(5\times{}_5P_2)=120+300=420$
+<p class="ans">답: ② 420</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B12</span> 0, 1, 2, 3, 4중에서 서로 다른 세 숫자를 택하여 세 자리 정수를 만들 때, 3의 배수의 개수를 구하라. ① 15 ② 17 ③ 20 ④ 24 ⑤ 27</summary>
+<div class="sol">각 자리 수의 합이 3의 배수: $A(0,1,2)$, $B(0,2,4)$, $C(1,2,3)$, $D(2,3,4)$<br>
+A, B(0 포함): ${}_3P_3-{}_2P_2=6-2=4$ (0이 맨 앞인 경우 제외)<br>
+C, D: ${}_3P_3=3!=6$<br>
+$(4\times2)+(6\times2)=20$
+<p class="ans">답: ③ 20</p></div></details>
+
+<p><i>2.2.2 중복순열</i></p>
+<details class="ex drill"><summary><span class="tag">B13</span> 두 개의 숫자 1, 2로 중복을 허락하여 만들 수 있는 정수를 $K$라 할 때, $99\lt K\lt 10000$을 만족하는 $K$의 개수를 구하라. ① 8 ② 16 ③ 24 ④ 32 ⑤ 64</summary>
+<div class="sol">$K$는 세 자리 또는 네 자리 정수.<br>i) 세 자리: ${}_2\Pi_3=2^3=8$<br>ii) 네 자리: ${}_2\Pi_4=2^4=16$<br>$8+16=24$
+<p class="ans">답: ③ 24</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B14</span> 기호 '∘'와 '—'를 1개 이상, 4개 이하로 사용하여 만들 수 있는 신호의 가짓수를 구하라. ① 16 ② 22 ③ 30 ④ 36 ⑤ 42</summary>
+<div class="sol">$k$개 사용: ${}_2\Pi_k=2^k$ ($k=1,2,3,4$)<br>$2^1+2^2+2^3+2^4=2+4+8+16=30$
+<p class="ans">답: ③ 30</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B15</span> 기호 '∘'와 '—'를 배열하여 전신부호를 만들려고 한다. 100가지 부호를 만들려면 이 기호를 몇 개까지 써야 되는지 구하라. ① 6개 ② 7개 ③ 8개 ④ 9개 ⑤ 10개</summary>
+<div class="sol">${}_2\Pi_1+{}_2\Pi_2+\cdots+{}_2\Pi_n=2^1+2^2+\cdots+2^n=\dfrac{2(2^n-1)}{2-1}\ge100$<br>
+$2^n-1\ge50$, $2^n\ge51$, $n\ge6$ (확인: $n=5$이면 62, $n=6$이면 126)
+<p class="ans">답: ① 6개</p></div></details>
+
+<p><i>2.2.3 같은 것이 있는 순열</i></p>
+<details class="ex drill"><summary><span class="tag">B16</span> 남학생 6명과 여학생 5명의 모임에서 대표 4명을 선출할 때, 적어도 여학생 한명을 포함하는 방법의 수를 구하라. ① 195 ② 220 ③ 280 ④ 315 ⑤ 330</summary>
+<div class="sol">(※ 책에서 2.2.3 아래 실렸지만 풀이는 2.3 조합 ${}_nC_r$와 여사건 사용)<br>
+전체 11명에서 4명 − 남학생만 4명:
+$${}_{11}C_4-{}_6C_4=\frac{11!}{4!\times7!}-\frac{6!}{4!\times2!}=330-15=315$$
+<p class="ans">답: ④ 315</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B17</span> 다섯 개의 문자 $a_1,a_2,a_3,b_1,b_2$를 일렬로 나열할 때, $a_2$는 $a_1$의 오른쪽에, $a_3$는 $a_2$의 오른쪽에, $b_1$는 $b_2$의 왼쪽에 놓이도록 나열하는 방법의 수를 구하라. ① 8 ② 10 ③ 12 ④ 14 ⑤ 16</summary>
+<div class="sol">$a$들은 왼쪽부터 $a_1,a_2,a_3$, $b$들은 왼쪽부터 $b_1,b_2$ 순서로 고정.<br>
+$a\,a\,a\,b\,b$를 일렬로 나열한 뒤 왼쪽부터 $a$에 $a_1,a_2,a_3$, $b$에 $b_1,b_2$를 붙이면 됨:
+$$\frac{5!}{3!\times2!}=10$$
+<p class="ans">답: ② 10</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B18</span> 두 집합 $A=\{1,2,3\}$, $B=\{4,5\}$에 대하여 $A$에서 $B$로의 함수 $f$ 중에서 $f(1)+f(2)+f(3)=14$를 만족하는 함수 $f$의 개수를 구하라. ① 3 ② 4 ③ 5 ④ 6 ⑤ 7</summary>
+<div class="sol">합이 14 → 4가 1번, 5가 2번. 함숫값 $\{4,5,5\}$를 $f(1),f(2),f(3)$에 배열:
+$\dfrac{3!}{2!\times1!}=3$
+<p class="ans">답: ① 3</p></div></details>
+
+<p><i>2.2.4 원순열</i></p>
+<details class="ex drill"><summary><span class="tag">B19</span> 서로 다른 7가지 색을 모두 사용하여 다음 그림과 같은 큰 원 내부의 7칸을 칠하는 방법의 수를 구하라. [그림: 가운데 작은 원 1칸 + 바깥 고리를 6등분한 6칸] ① 210 ② 420 ③ 840 ④ 1280 ⑤ 1680</summary>
+<div class="sol">가운데 원: 7가지. 나머지 6색을 6등분 칸에: 원순열 $(6-1)!$<br>$7\times(6-1)!=7\times5!=840$
+<p class="ans">답: ③ 840</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B20</span> 사람 8명이 원탁에 둘러앉을 때, 특정한 3명이 이웃하여 앉는 방법의 수를 구하라. ① 720 ② 480 ③ 360 ④ 240 ⑤ 120</summary>
+<div class="sol">특정 3명을 묶으면 6개 → $(6-1)!$, 묶음 안 자리 변경 ${}_3P_3=3!$<br>$(6-1)!\times{}_3P_3=5!\times3!=720$
+<p class="ans">답: ① 720</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B21</span> 회장과 부회장을 포함한 8명의 임원이 원형 탁자에 둘러앉아 회의를 할 때, 회장 맞은편에 부회장이 앉는 방법의 수를 구하라. ① 1080 ② 8160 ③ 5040 ④ 1440 ⑤ 720</summary>
+<div class="sol">맞은편의 회장·부회장을 한 사람으로 보고 7명을 원형 배열: $(7-1)!=6!=720$<br>
+(다른 시각: 회장 자리 고정 → 부회장 자리 결정 → 나머지 6명을 남은 6자리에 $6!$)
+<p class="ans">답: ⑤ 720</p></div></details>
+
+<p><i>2.2.5 대칭순열</i></p>
+<details class="ex drill"><summary><span class="tag">B22</span> 그림과 같은 반달 모양의 탁자에 5명이 둘러앉는 방법의 수를 구하라. [그림: 반달 모양 탁자 — 직선(지름) 쪽에 3명, 곡선 쪽 양 끝에 1명씩 총 5명] ① $5!$ ② $5!\times2$ ③ $4!$ ④ $4!\times3$ ⑤ $4!\times5$</summary>
+<div class="sol">원탁 배열: $(5-1)!=4!$<br>
+<span class="fig">[풀이 그림] 같은 원형 배열을 한 칸씩 회전시켜 반달 탁자에 놓은 5가지 배치가 모두 다름.</span><br>
+원형 배열 1가지당 서로 다른 경우 5가지 → $4!\times5$ ($=5!=120$, 대칭 없음)
+<p class="ans">답: ⑤ $4!\times5$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B23</span> 다음 그림과 같이 8명을 정사각형 모양의 탁자에 앉히는 방법의 수를 구하라. [그림: 네 변에 각 2명씩 총 8명] ① 60 ② 120 ③ 720 ④ 5040 ⑤ 10080</summary>
+<div class="sol">대칭 영역 4개: $(8-1)!\times\dfrac{8}{4}=7!\times2=5040\times2=10080$
+<p class="ans">답: ⑤ 10080</p></div></details>
+
+<div class="box sum"><div class="lbl">2주차 한눈에 보기</div>
+<table>
+<tr><th>종류</th><th>공식</th><th>키워드</th></tr>
+<tr><td>순열</td><td>${}_nP_r=\dfrac{n!}{(n-r)!}$, ${}_nP_n=n!$, $0!=1$</td><td>서로 다른 $n$개 중 $r$개, 순서 O, 중복 X</td></tr>
+<tr><td>순열 공식</td><td>${}_nP_r={}_{n-1}P_r+r\,{}_{n-1}P_{r-1}=n\,{}_{n-1}P_{r-1}$</td><td></td></tr>
+<tr><td>이웃 / 이웃 X</td><td>묶음! × 내부! / 먼저 세우고 사이에 ${}_{k+1}P_m$</td><td>일렬 기준</td></tr>
+<tr><td>중복순열</td><td>${}_n\Pi_r=n^r$</td><td>함수 개수, 편지→우체통, 신호</td></tr>
+<tr><td>일대일함수</td><td>${}_nP_r$</td><td>$|A|=r$, $|B|=n$</td></tr>
+<tr><td>같은 것이 있는 순열</td><td>$\dfrac{n!}{p!\,q!\,r!\cdots}$</td><td>순서 고정 문자 → 같은 문자로</td></tr>
+<tr><td>원순열</td><td>$(n-1)!$</td><td>회전 같음</td></tr>
+<tr><td>염주순열</td><td>$\dfrac{(n-1)!}{2}$</td><td>회전+뒤집기 같음</td></tr>
+<tr><td>대칭순열</td><td>$(n-1)!\times\dfrac{n}{k}$ (정사각형 $k=4$, 직사각형 2, 정삼각형 3, 정오각형 5)</td><td>$k$ = 대칭 구간 수</td></tr>
+</table>
+</div>
+</section>

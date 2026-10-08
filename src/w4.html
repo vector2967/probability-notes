@@ -1,0 +1,281 @@
+<section class="week" id="w4">
+<h2>4주차 · 3.1 확률의 정의</h2>
+<p>확률을 다루기 전에 용어(시행·사건·표본공간)를 정리하고, 확률을 세 가지 방식으로 정의한다: 경우의 수의 비(수학적 확률), 상대도수의 극한(통계적 확률), 길이·넓이의 비(기하학적 확률).</p>
+
+<h3 id="s3-1-1">3.1.1 시행과 사건</h3>
+<p>주사위 하나를 던지는 행위가 <b>시행</b>, 그 결과 "짝수의 눈이 나온다"가 <b>사건</b>. 모든 결과의 집합이 <b>표본공간</b> $S$. 주사위라면 $S=\{1,2,3,4,5,6\}$, 짝수 사건 $=\{2,4,6\}$, 근원사건은 $\{1\},\dots,\{6\}$, 전사건은 $S$ 자신, "7의 눈"은 공사건 $\phi$.</p>
+<div class="box def"><div class="lbl">정리 3-1 · 시행과 사건</div>
+<ul>
+<li>시행 : 같은 조건에서 여러 번 반복할 수 있고, 그 결과를 예측할 수 없는 실험이나 관찰</li>
+<li>표본공간 : 어떤 시행에서 일어날 수 있는 모든 가능한 결과의 집합</li>
+<li>사건 : 표본공간의 부분집합</li>
+<li>근원사건 : 표본공간의 부분집합 중에서 한 개의 원소로만 이루어진 집합</li>
+<li>전사건 : 한 시행에서 반드시 일어나는 사건</li>
+<li>공사건 : 절대로 일어나지 않는 사건</li>
+</ul></div>
+<p><b>합사건</b> $A\cup B$ : $A$ 또는(or) $B$가 일어나는 사건. <b>곱사건</b> $A\cap B$ : $A$ 그리고(and) $B$가 동시에 일어나는 사건.</p>
+<p class="fig">[그림 3-1] 합사건과 곱사건 — (a) 표본공간 $S$ 안 두 원 전체 음영($A\cup B$), (b) 두 원이 겹친 부분만 음영($A\cap B$).</p>
+<p>$A\cap B=\phi$이면 $A$, $B$는 서로 <b>배반사건</b>(한쪽이 일어나면 다른 쪽은 일어날 수 없음). 예: 주사위의 홀수 눈 사건과 짝수 눈 사건. $A$가 일어나지 않는 사건이 <b>여사건</b> $A^c$이며, $A$와 $A^c$는 항상 서로 배반.</p>
+<p class="fig">[그림 3-2] 배반사건과 여사건 — (a) $S$ 안에 겹치지 않는 두 원 $A$, $B$, (b) 원 $A$ 바깥 영역 $A^c$ 음영.</p>
+<p>예: 주사위에서 홀수 사건 $A=\{1,3,5\}$, 소수 사건 $B=\{2,3,5\}$ → $A\cup B=\{1,2,3,5\}$, $A\cap B=\{3,5\}$, $A^c=\{2,4,6\}$.</p>
+<p class="fig">[그림 3-3] 주사위에서 홀수와 소수가 나오는 사건 — 벤 다이어그램: $A$에만 1, 겹친 부분 3, 5, $B$에만 2, 바깥($S$)에 4, 6.</p>
+<div class="box def"><div class="lbl">정리 3-2 · 사건</div>
+두 사건 $A$, $B$에 대하여
+<ul>
+<li>합사건 : $A$ 또는 $B$가 일어나는 사건($A\cup B$)</li>
+<li>곱사건 : $A$와 $B$가 동시에 일어나는 사건($A\cap B$)</li>
+<li>배반사건 : $A$와 $B$가 동시에 일어나지 않을 때의 두 사건($A\cap B=\phi$)</li>
+<li>여사건 : $A$가 일어나지 않는 사건($A^c$)</li>
+</ul></div>
+<div class="box tip"><div class="lbl">핵심</div>
+"또는" → $\cup$, "그리고/동시에" → $\cap$, "아니다" → $^c$. 개수 셀 때는 포함배제 $n(A\cup B)=n(A)+n(B)-n(A\cap B)$, "둘 다 아님"은 드모르간 $A^c\cap B^c=(A\cup B)^c$.</div>
+
+<details class="ex"><summary><span class="tag">예제 3-1</span> 1부터 10까지 자연수 중에서 $A$는 2의 배수, $B$는 3의 배수라 할 때, $A$ 또는 $B$가 일어나는 경우의 수를 구하라.</summary>
+<div class="sol"><p>$U=\{1,\dots,10\}$, $A=\{2,4,6,8,10\}$, $B=\{3,6,9\}$, $A\cap B=\{6\}$.</p>
+$$n(A\cup B)=n(A)+n(B)-n(A\cap B)=5+3-1=7$$
+<p class="ans">답: 7</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-2</span> 동전 한 개를 4번 던졌을 때 일어나는 경우의 수를 구하라.</summary>
+<div class="sol"><p>한 번 던질 때 {앞, 뒤} 2가지, 4번 반복 → 곱의 법칙.</p>
+$$2\times2\times2\times2=2^4=16$$
+<p class="ans">답: 16</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-3</span> 바구니에 공이 가득 들어 있다. 공에는 각각 1부터 50까지의 숫자가 적혀 있다. 이 중에서 공 한 개를 뽑았을 때, 10과 서로소인 숫자가 적혀 있을 경우의 수를 구하라. <br>(Hint: 서로소는 공약수가 1뿐인 두 정수. 예: 7과 13은 서로소, 4와 18은 공약수 2가 있어 서로소 아님)</summary>
+<div class="sol"><p>$10=2\times5$이므로 10과 서로소 ⇔ 2의 배수도 아니고 5의 배수도 아님. 2의 배수 사건 $A$ ($n=25$), 5의 배수 사건 $B$ ($n=10$), $A\cap B$ = 10의 배수 ($n=5$).</p>
+$$n(A\cup B)=25+10-5=30$$
+$$n(A^c\cap B^c)=n(U)-n(A\cup B)=50-30=20$$
+<p><span class="fix">※ 책 오탈자 수정: 원문 "$U-n(A\cup B)$"</span></p>
+<p class="ans">답: 20</p></div></details>
+
+<h3 id="s3-1-2">3.1.2 수학적 확률</h3>
+<p>사건 $A$가 일어날 가능성을 수로 나타낸 것이 확률 $P(A)$. 모든 근원사건이 같은 정도로 일어날 때, 전체 경우의 수 대비 $A$의 경우의 수의 비가 <b>수학적 확률</b>.</p>
+<div class="box def"><div class="lbl">정의 · 수학적 확률</div>
+$$P(A)=\frac{\text{사건 }A\text{가 일어나는 경우의 수}}{\text{일어날 수 있는 모든 경우의 수}}=\frac{n(A)}{n(S)}$$</div>
+<p>예: 주사위 두 번, 눈의 합이 10 이상. $n(S)=36$.</p>
+<table>
+<tr><td>합이 10인 경우</td><td>(4, 6), (5, 5), (6, 4)</td></tr>
+<tr><td>합이 11인 경우</td><td>(5, 6), (6, 5)</td></tr>
+<tr><td>합이 12인 경우</td><td>(6, 6)</td></tr>
+</table>
+<p>$n(A)=6$ → $P(A)=\frac{6}{36}=\frac16$. 또 $0\le n(A)\le n(S)$를 $n(S)$로 나누면 $0\le P(A)\le1$.</p>
+<div class="box def"><div class="lbl">정리 3-3 · 확률의 기본성질</div>
+표본공간 $S$에 대하여
+<ul>
+<li>임의의 사건 $A$에 대하여 $\quad 0\le P(A)\le1$</li>
+<li>전사건 $S$에 대하여 $\quad P(S)=1$</li>
+<li>공사건 $\phi$에 대하여 $\quad P(\phi)=0$</li>
+</ul></div>
+<p>예: 동전 하나를 던져 "앞 또는 뒤"가 나올 확률 = $\frac{2}{2}=1$ → 전사건의 확률은 1.</p>
+
+<details class="ex"><summary><span class="tag">예제 3-4</span> 동전 한 개를 두 번 던질 때, 서로 다른 면이 나올 확률을 구하라.</summary>
+<div class="sol"><p>앞면 H, 뒷면 T. $S=\{(H,H),(H,T),(T,H),(T,T)\}$, $n(S)=4$. 서로 다른 면 $A=\{(H,T),(T,H)\}$, $n(A)=2$.</p>
+$$\frac{n(A)}{n(S)}=\frac{2}{4}=\frac12$$
+<p class="ans">답: $\frac12$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-5</span> 선수 10명이 5명씩 두 팀으로 나눠 농구시합을 할 때, 특정한 2명이 같은 팀에서 뛸 확률을 구하라.</summary>
+<div class="sol"><p>전체: 10명 중 5명을 뽑고 나머지 5명은 다른 팀, 두 팀 구분 없으므로 $\frac{1}{2!}$ → ${}_{10}C_5\times{}_5C_5\times\frac{1}{2!}=126$.</p>
+<p>특정 2명이 같은 팀: 나머지 8명 중 5명을 뽑아 한 팀, 남은 3명을 특정 2명과 같은 팀 → ${}_8C_5\times{}_3C_3=56$가지.</p>
+$$\frac{{}_8C_5}{{}_{10}C_5\times\frac{1}{2!}}=\frac{56}{126}=\frac49$$
+<p><span class="fix">※ 책 표현 수정: 원문 "특정한 2명이 같은 팀에서 뛸 확률은 ${}_8C_5\times{}_3C_3$" → 확률이 아니라 경우의 수</span></p>
+<p>검산: 특정 1명의 팀 동료 4자리를 나머지 9명이 균등하게 차지하므로 $\frac49$. ✔</p>
+<p class="ans">답: $\frac49$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-6</span> 1, 2, 3, 4의 숫자가 각각 하나씩 적혀 있는 네 장의 카드가 있다. 이 카드로 네 자리 정수를 만들 때, 이 정수가 짝수일 확률을 구하라.</summary>
+<div class="sol"><p>전체: 4장을 일렬로 → $4!$. 짝수 ⇔ 일의 자리가 2 또는 4 (2가지), 나머지 3장 배열 $3!$ → $2\times3!$.</p>
+$$\frac{2\times3!}{4!}=\frac{2\times3\times2\times1}{4\times3\times2\times1}=\frac12$$
+<p class="ans">답: $\frac12$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-7</span> 주사위 한 개를 던질 때, 4 이상의 눈이 나올 확률을 구하라.</summary>
+<div class="sol"><p>$U=\{1,2,3,4,5,6\}$, $A=\{4,5,6\}$.</p>
+$$P(A)=\frac{n(A)}{n(U)}=\frac36=\frac12$$
+<p class="ans">답: $\frac12$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-8</span> 정의역이 $X=\{1,2,3\}$, 공역이 $Y=\{a,b,c,d\}$일 때, $X$에서 $Y$로의 한 함수가 일대일 함수일 확률을 구하라. <br>(Hint: 일대일 함수는 정의역의 $x_1$, $x_2$에 대하여 $x_1\ne x_2$일 때 $f(x_1)\ne f(x_2)$인 함수이다.)</summary>
+<div class="sol">
+$$\frac{X\text{에서 }Y\text{로의 일대일 함수 개수}}{X\text{에서 }Y\text{로의 함수 개수}}$$
+<p><span class="fix">※ 책 오탈자 수정: 원문 분모 "Y에서 X로의 함수 개수"</span></p>
+<p>$X\to Y$ 함수: 각 원소가 공역 원소를 중복 허용하여 선택 → ${}_4\Pi_3=4^3$. 일대일 함수: 중복 없이 순서대로 → ${}_4P_3$.</p>
+$$\frac{{}_4P_3}{{}_4\Pi_3}=\frac{4\times3\times2}{4\times4\times4}=\frac38$$
+<p class="ans">답: $\frac38$</p></div></details>
+
+<h3 id="s3-1-3">3.1.3 통계적 확률</h3>
+<div class="box def"><div class="lbl">정의 · 통계적 확률</div>
+같은 시행을 $n$번 반복하여 사건 $A$가 일어난 횟수를 $r_n$이라 할 때, $n$을 한없이 크게 하여 상대도수 $\frac{r_n}{n}$이 일정한 값 $p$에 가까워지면 $p$를 사건 $A$의 통계적 확률이라 한다.
+$$\lim_{n\to\infty}\frac{r_n}{n}=p$$</div>
+<div class="box tip"><div class="lbl">핵심 · 수학적 vs 통계적</div>
+<ul>
+<li>수학적 확률 = 이론적 확률. "모든 경우가 같은 정도로 일어난다"는 전제, 실험 없이 계산 (주사위 1의 눈: $\frac16$).</li>
+<li>통계적 확률 = 경험적 확률. 실제 시행의 상대도수. 시행 횟수가 커지면 수학적 확률에 수렴(큰수의 법칙) → 보통은 수학적 확률을 쓴다.</li>
+<li>표(도수)로 주어진 문제는 "해당 도수 / 전체 도수"로 계산.</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 3-9</span> 다음 표는 어느 국가 군대의 군인 수이다. 여군 중에서 임의로 한 사람을 뽑을 때, 장교일 확률을 구하라. (단위 : 명)
+<table><tr><th></th><th>남자</th><th>여자</th></tr>
+<tr><td>장교</td><td>80,091</td><td>8,921</td></tr>
+<tr><td>사병</td><td>606,956</td><td>67,077</td></tr></table></summary>
+<div class="sol"><p>여군 전체 $=8921+67077=75998$명, 그중 장교 8,921명.</p>
+$$\frac{8921}{75998}\approx0.117$$
+<p class="ans">답: 약 0.117</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-10</span> 다음 표는 주요 자동차 생산국들의 자동차 생산량을 나타낸 것이다. 이 중 한 대를 선택했을 때, 그 자동차가 한국에서 생산되었을 확률을 구하라. (단위 : 천 대)
+<table><tr><th>국가</th><th>일본</th><th>미국</th><th>독일</th><th>프랑스</th><th>한국</th><th>합계</th></tr>
+<tr><td>생산량</td><td>11,000</td><td>10,000</td><td>4,000</td><td>3,000</td><td>2,000</td><td>30,000</td></tr></table></summary>
+<div class="sol"><p>전체 30,000, 한국 2,000 (단위 천 대).</p>
+$$\frac{2000}{30000}=\frac{1}{15}$$
+<p class="ans">답: $\frac{1}{15}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-11</span> 다음 표는 한국에서 남녀 각 10만 명에 대해 출생부터 나이에 따라 사망하여 감소한 인원을 나타낸 생명표이다. 이 표에서 20세 남자가 앞으로 40년간 생존할 확률을 구하라. (단위 : 명)
+<table><tr><th>나이</th><th>남자</th><th>여자</th></tr>
+<tr><td>0</td><td>100,000</td><td>100,000</td></tr>
+<tr><td>10</td><td>99,029</td><td>99,127</td></tr>
+<tr><td>20</td><td>98,554</td><td>98,865</td></tr>
+<tr><td>30</td><td>97,546</td><td>98,414</td></tr>
+<tr><td>40</td><td>95,721</td><td>97,640</td></tr>
+<tr><td>50</td><td>91,170</td><td>96,067</td></tr>
+<tr><td>60</td><td>81,895</td><td>92,573</td></tr></table></summary>
+<div class="sol"><p>기준은 20세 남자 98,554명(10만 명이 아님!). 40년 뒤 60세 생존자 81,895명.</p>
+$$\frac{81895}{98554}\approx0.83$$
+<p class="ans">답: 약 0.83</p></div></details>
+
+<h3 id="s3-1-4">3.1.4 기하학적 확률</h3>
+<div class="box def"><div class="lbl">정의 · 기하학적 확률</div>
+$$P(A)=\frac{A\text{가 일어날 수 있는 영역의 크기}}{\text{일어날 수 있는 전체 영역의 크기}}$$
+(영역의 크기 = 길이, 넓이 등)</div>
+<p>예: 반지름 2인 원을 $y=x$로 자르면 한쪽 넓이 $2\pi$, 전체 $4\pi$ → $\frac{2\pi}{4\pi}=\frac12$.</p>
+<p class="fig">[그림 3-4] 전체 원에서 반원이 차지하는 영역 — 원점 중심 반지름 2인 원, 직선 $y=x$가 원을 이등분하고 한쪽 반원이 색칠됨.</p>
+<div class="box tip"><div class="lbl">핵심</div>
+"임의의 점/값" 문제 → 조건을 만족하는 영역을 그림으로 그리고 크기의 비를 구한다. 1변수면 수직선 위 길이의 비, 2변수(점 두 개)면 좌표평면 넓이의 비. 지름 위 원주각 = 직각 → 반원 안은 둔각, 밖은 예각.</div>
+
+<details class="ex"><summary><span class="tag">예제 3-12</span> 한 변의 길이가 10인 정사각형 ABCD가 있다. □ABCD 내부에 한 점 P를 잡을 때, △PBC가 둔각삼각형이 될 확률을 구하라.</summary>
+<div class="sol"><p class="fig">[그림] 정사각형 ABCD(위 A–D, 아래 B–C), 변 BC를 지름으로 하는 반원이 정사각형 내부에 그려짐.</p>
+<p>P가 $\overline{BC}$를 지름으로 하는 반원 위에 있으면 $\angle BPC=90^\circ$ (직각삼각형). 반원 내부에 있으면 $\angle BPC&gt;90^\circ$ → 둔각삼각형. (반원 밖이면 $\angle P$가 예각이고, $\angle B,\angle C$도 정사각형 내부라 예각.)</p>
+$$\frac{\text{반원의 넓이}}{\square\text{ABCD의 넓이}}=\frac{\frac12\times\pi\times5^2}{10\times10}=\frac{\pi}{8}$$
+<p class="ans">답: $\frac{\pi}{8}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-13</span> 한 변의 길이가 2인 정사각형 ABCD가 있다. 정사각형 내부에 한 점 P를 잡을 때, P에서 가장 가까운 꼭짓점까지의 거리가 1 이하일 확률을 구하라.</summary>
+<div class="sol"><p>P가 어느 한 꼭짓점에서 거리 1 이하인 영역에 있으면 된다.</p>
+<p class="fig">[그림] 한 변 2인 정사각형, 네 꼭짓점을 중심으로 반지름 1인 사분원 4개 색칠, 가운데 별 모양이 흰색으로 남음.</p>
+<p>사분원 4개(서로 겹치지 않음) = 반지름 1인 원 하나.</p>
+$$\frac{\pi\times1^2}{2\times2}=\frac{\pi}{4}$$
+<p class="ans">답: $\frac{\pi}{4}$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-14</span> $0\le m\le3$일 때, $4x^2+4mx+m=0$이 실근을 가질 확률을 구하라.</summary>
+<div class="sol"><p>실근 조건: 판별식 $D=b^2-4ac\ge0$.</p>
+$$D=(4m)^2-4\times4\times m=16m^2-16m\ge0$$
+$$m(m-1)\ge0\ \Rightarrow\ m\le0\ \text{또는}\ m\ge1$$
+<p class="fig">[그림] 수직선 위 0, 1, 3 표시. 범위 $[0,3]$ 중 조건을 만족하는 부분은 $m=0$(한 점, 길이 0)과 $[1,3]$(길이 2).</p>
+$$\frac{\text{실근을 가지는 영역}}{\text{주어진 영역}}=\frac{2}{3}$$
+<p class="ans">답: $\frac23$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 3-15</span> 반지름이 10인 원판이 있다. 이 원판 위에 임의의 점 P를 잡을 때, 원판의 중심과 P점 사이의 거리가 $4\le\overline{OP}\le6$이 될 확률을 구하라.</summary>
+<div class="sol"><p class="fig">[그림] 반지름 4, 6, 10인 동심원, 반지름 4와 6 사이 고리 영역 색칠.</p>
+$$\frac{\pi\times6^2-\pi\times4^2}{\pi\times10^2}=\frac{(36-16)\pi}{100\pi}=\frac15$$
+<p class="ans">답: $\frac15$</p></div></details>
+
+<h3 id="w4-drill">연습문제</h3>
+
+<details class="ex drill"><summary><span class="tag">A1</span> 서로 다른 주사위 세 개를 던질 때, 나온 눈이 모두 같거나 눈의 합이 17 이상일 경우의 수를 구하라.</summary>
+<div class="sol"><p>모두 같은 사건 $A=\{(1,1,1),(2,2,2),\dots,(6,6,6)\}$, $n(A)=6$.</p>
+<p>합 17 이상 $B=\{(5,6,6),(6,5,6),(6,6,5),(6,6,6)\}$, $n(B)=4$. $A\cap B=\{(6,6,6)\}$.</p>
+$$n(A\cup B)=6+4-1=9$$
+<p class="ans">답: 9</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A2</span> $A$, $B$, $C$, $D$ 네 사람을 일렬로 세울 때, $A$가 맨 앞에 서 있을 확률을 구하라.</summary>
+<div class="sol"><p>전체 ${}_4P_4=4!=24$, $A$ 맨 앞 고정 후 나머지 ${}_3P_3=3!=6$.</p>
+$$\frac{3!}{4!}=\frac14$$
+<p class="ans">답: $\frac14$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A3</span> 주사위 한 개를 두 번 던질 때, 나오는 두 눈의 합이 5인 확률을 구하라.</summary>
+<div class="sol"><p>$a+b=5$: (1, 4), (4, 1), (2, 3), (3, 2) → 4가지.</p>
+$$\frac{4}{6\times6}=\frac{4}{36}=\frac19$$
+<p class="ans">답: $\frac19$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A4</span> 10개의 제비 중 당첨 제비가 6개 있다. 이 중에서 4개의 제비를 뽑을 때, 모두 당첨 제비일 확률을 구하라.</summary>
+<div class="sol">
+$$\frac{{}_6C_4}{{}_{10}C_4}=\frac{15}{210}=\frac{1}{14}$$
+<p class="ans">답: $\frac{1}{14}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A5</span> 흰 구슬 3개와 푸른 구슬 2개가 들어 있는 주머니에서 구슬 2개를 꺼낼 때, 흰 구슬 1개와 푸른 구슬 1개가 나올 확률을 구하라.</summary>
+<div class="sol">
+$$\frac{{}_3C_1\times{}_2C_1}{{}_5C_2}=\frac{3\times2}{10}=\frac35$$
+<p class="ans">답: $\frac35$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A6</span> 1, 2, 3, 4, 5, 6의 숫자가 각각 하나씩 적힌 6장의 카드를 일렬로 배열할 때, 6이 적힌 카드가 제일 끝에 올 확률을 구하라.</summary>
+<div class="sol"><p>전체 $6!$. 끝자리 6 고정(□□□□□6) → 나머지 5장 배열 $5!$.</p>
+$$\frac{5!}{6!}=\frac16$$
+<p class="ans">답: $\frac16$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A7</span> 남학생 3명과 여학생 2명이 한 줄로 설 때, 여학생 2명이 이웃할 확률을 구하라.</summary>
+<div class="sol"><p>전체 $5!=120$. 여학생 2명을 한 묶음 → $4!$, 묶음 안 자리 바꿈 $2!$ → $4!\times2!=48$.</p>
+$$\frac{48}{120}=\frac25$$
+<p class="ans">답: $\frac25$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A8</span> 다음 표는 어느 야구선수의 통산 기록이다. 이 선수가 안타를 칠 확률을 구하라.
+<table><tr><th>타수</th><th>안타</th><th>삼진</th><th>타점</th></tr>
+<tr><td>1000</td><td>297</td><td>150</td><td>172</td></tr></table></summary>
+<div class="sol">
+$$\frac{297}{1000}=0.297$$
+<p class="ans">답: 0.297</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A9</span> 다음 표는 어느 무역회사의 근무년수를 조사한 것이다. 한 명을 임의로 선출할 때, 10년 미만 근무한 사원일 확률을 구하라.
+<table><tr><th>근무년수</th><th>사원 수(명)</th></tr>
+<tr><td>0 이상 ~ 5 미만</td><td>160</td></tr>
+<tr><td>5 이상 ~ 10 미만</td><td>90</td></tr>
+<tr><td>10 이상 ~ 15 미만</td><td>74</td></tr>
+<tr><td>15 이상 ~ 20 미만</td><td>63</td></tr>
+<tr><td>20 이상 ~ 25 미만</td><td>42</td></tr>
+<tr><td>25 이상 ~ 30 미만</td><td>37</td></tr>
+<tr><td>30 이상 ~ 35 미만</td><td>34</td></tr>
+<tr><td>합계</td><td>500</td></tr></table></summary>
+<div class="sol"><p>10년 미만 $=160+90=250$명.</p>
+$$\frac{250}{500}=\frac12$$
+<p class="ans">답: $\frac12$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A10</span> 경영학부 학생 620명을 대상으로 혈액형을 조사했더니 결과가 다음 표와 같았다. 임의로 한 명을 뽑아 혈액형을 조사할 때, 그 학생의 혈액형이 A형일 확률을 구하라.
+<table><tr><th>혈액형</th><th>A형</th><th>B형</th><th>AB형</th><th>O형</th><th>합계</th></tr>
+<tr><td>학생 수(명)</td><td>210</td><td>186</td><td>89</td><td>135</td><td>620</td></tr></table></summary>
+<div class="sol">
+$$\frac{210}{620}=\frac{21}{62}\approx0.339$$
+<p class="ans">답: 약 0.339</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A11</span> 반지름의 비가 1 : 2 : 3인 동심원으로 이루어진 과녁에 화살을 쏠 때, 반지름이 작은 원부터 각각 3점, 2점, 1점을 얻을 수 있다. 이 과녁에 화살 한 개를 쏠 때, 2점을 얻을 확률을 구하라. (단, 화살은 반드시 과녁에 맞으며, 경계선에 꽂히는 경우는 생각하지 않는다.) <br>[그림: 3중 동심원 과녁, 안쪽부터 3, 2, 1점]</summary>
+<div class="sol"><p>2점 영역 = 반지름 1과 2 사이 고리.</p>
+$$\frac{\pi\times2^2-\pi\times1^2}{\pi\times3^2}=\frac{(4-1)\pi}{9\pi}=\frac13$$
+<p class="ans">답: $\frac13$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A12</span> 한 변의 길이가 $2a$인 정사각형 내부에 임의로 한 점 P를 잡을 때, $\overline{OP}\ge a$일 확률을 구하라. (단, 점 O는 정사각형의 중점이다.)</summary>
+<div class="sol"><p>$\overline{OP}\ge a$ ⇔ P가 내접원(반지름 $a$) 바깥, 네 모서리 부분.</p>
+<p>전체 $4a^2$, 색칠 부분 $4a^2-\pi a^2=(4-\pi)a^2$.</p>
+$$\frac{(4-\pi)a^2}{4a^2}=1-\frac{\pi}{4}$$
+<p class="ans">답: $1-\frac{\pi}{4}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A13</span> 한 변의 길이가 1인 정사각형 ABCD의 내부에 점 P를 잡을 때, △PBC가 예각삼각형일 확률을 구하라. <br>① $\frac{\pi}{8}$　② $1-\frac{\pi}{8}$　③ $\frac38\pi$　④ $\frac{\pi}{4}$　⑤ $1-\frac{\pi}{4}$</summary>
+<div class="sol"><p>$\overline{BC}$를 지름으로 하는 반원 바깥에 P가 있으면 예각삼각형(예제 3-12의 여사건).</p>
+<p>반원 넓이 $=\frac12\pi\left(\frac12\right)^2=\frac{\pi}{8}$.</p>
+$$\frac{\square\text{ABCD}-\text{반원}}{\square\text{ABCD}}=\frac{1-\frac{\pi}{8}}{1}=1-\frac{\pi}{8}$$
+<p class="ans">답: ②</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A14</span> 각각 반지름이 3, 5, 9인 과녁에 화살을 쏠 때, 어두운 부분(반지름 3과 5 사이 고리)의 영역에 들어갈 확률을 구하라.</summary>
+<div class="sol">
+$$\frac{\pi\cdot5^2-\pi\cdot3^2}{\pi\cdot9^2}=\frac{25\pi-9\pi}{81\pi}=\frac{16}{81}$$
+<p class="ans">답: $\frac{16}{81}$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A15</span> 길이가 $a$인 선분 AB가 있다. AB 위에 임의의 두 점 P, Q를 잡고 $\overline{AP}\le\overline{QB}$가 될 확률을 구하라.</summary>
+<div class="sol"><p>$\overline{AP}=x$, $\overline{AQ}=y$ ($0\le x\le a$, $0\le y\le a$). $\overline{QB}=a-y$이므로</p>
+$$x\le a-y\ \Leftrightarrow\ y\le -x+a$$
+<p class="fig">[그림] 한 변 $a$인 정사각형 $[0,a]\times[0,a]$, 직선 $y=-x+a$ 아래 직각삼각형(넓이 $\frac12a^2$) 색칠.</p>
+$$\frac{\frac12a^2}{a\times a}=\frac12$$
+<p class="ans">답: $\frac12$</p></div></details>
+
+<div class="box sum"><div class="lbl">4주차 한눈에 보기</div>
+<ul>
+<li>표본공간 $S$ = 모든 결과, 사건 = $S$의 부분집합, 근원사건 = 원소 1개, 전사건 = $S$, 공사건 = $\phi$</li>
+<li>합사건 $A\cup B$, 곱사건 $A\cap B$, 배반 $A\cap B=\phi$, 여사건 $A^c$</li>
+<li>포함배제: $n(A\cup B)=n(A)+n(B)-n(A\cap B)$, $n(A^c\cap B^c)=n(S)-n(A\cup B)$</li>
+<li>수학적 확률: $P(A)=\dfrac{n(A)}{n(S)}$ (동등 가능성 전제)</li>
+<li>기본성질: $0\le P(A)\le1$, $P(S)=1$, $P(\phi)=0$</li>
+<li>통계적 확률: $\displaystyle\lim_{n\to\infty}\frac{r_n}{n}=p$ (표 문제는 해당 도수/기준 도수)</li>
+<li>기하학적 확률: $P(A)=\dfrac{A\text{ 영역의 크기}}{\text{전체 영역의 크기}}$ (길이·넓이 비)</li>
+<li>자주 쓰는 도구: 묶어 세기($4!\times2!$), 자리 고정($\frac{(n-1)!}{n!}=\frac1n$), 조합 비($\frac{{}_6C_4}{{}_{10}C_4}$), 지름 위 반원(안=둔각, 밖=예각), 두 점 문제는 좌표평면 넓이 비</li>
+</ul></div>
+</section>

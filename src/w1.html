@@ -1,0 +1,263 @@
+<section class="week" id="w1">
+<h2>1주차 · 2.1 경우의 수</h2>
+<p>사건 = 조건을 만족하는 집합. 사건이 일어나는 방법이 $n$가지면 그 $n$이 <b>경우의 수</b>. 이 절은 합사건(또는), 곱사건(그리고/연속), 여사건(아닌 것)으로 경우의 수를 센다.</p>
+
+<h3 id="s2-1-1">2.1.1 합사건</h3>
+<p>$A$ 또는 $B$가 일어나는 사건 = 합사건 $A\cup B$, 경우의 수는 $n(A\cup B)$. 두 사건이 동시에 일어나지 않으면 그냥 $m+n$, 겹치는 부분이 있으면 겹친 만큼($A\cap B$) 한 번 빼 준다.</p>
+<p>예) 30 이하 자연수에서 3의 배수(10개) 또는 5의 배수(6개): 15, 30이 중복 → $10+6-2=14$.</p>
+<div class="box def"><div class="lbl">정리 2-1 · 합사건</div>
+두 사건을 $A$, $B$라고 할 때, 사건 $A$ 또는 사건 $B$가 일어나는 경우의 수
+$$n(A\cup B) = n(A) + n(B) - n(A\cap B)$$
+세 사건이면
+$$n(A\cup B\cup C) = n(A)+n(B)+n(C)-n(A\cap B)-n(B\cap C)-n(C\cap A)+n(A\cap B\cap C)$$
+</div>
+<div class="box tip"><div class="lbl">핵심</div>
+<ul>
+<li>"둘 다 아님" $= n(A^c\cap B^c) = n\big((A\cup B)^c\big) = n(U)-n(A\cup B)$ (드모르간).</li>
+<li>"$A$만" $= n(A\cap B^c) = n(A)-n(A\cap B)$. 차집합: $A-B=A\cap B^c$, $B-A=B\cap A^c$.</li>
+<li>세 집합은 벤 다이어그램 7칸을 안쪽(교집합)부터 채우면 실수가 적다.</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 2-1</span> $n(A)=25$, $n(B)=19$, $n(A\cup B)=40$일 때, $n(A\cap B)$를 구하라.</summary>
+<div class="sol">
+<p>$n(A\cup B)=n(A)+n(B)-n(A\cap B)$이므로 $40=25+19-n(A\cap B)$ → $n(A\cap B)=4$.</p>
+<p class="fig">[벤 다이어그램] $A$만 21, $A\cap B$ 4, $B$만 15.</p>
+<p class="ans">답: 4</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-2</span> 학생 60명에게 두 문제를 풀게 하였다. 1번 문제를 푼 학생은 35명이고, 2번 문제를 푼 학생은 28명, 두 문제를 모두 못 푼 학생은 5명이었다. (a) 두 문제를 모두 푼 학생은 몇 명인지 구하라. (b) 1번 문제만 푼 학생은 몇 명인지 구하라.</summary>
+<div class="sol">
+<p>1번을 푼 학생 $A$, 2번을 푼 학생 $B$: $n(A)=35$, $n(B)=28$.</p>
+<p>(a) 둘 다 못 푼 학생: $n(A^c\cap B^c)=n\big((A\cup B)^c\big)=n(U)-n(A\cup B)$이므로
+$$n(A\cup B)=60-5=55,\qquad n(A\cap B)=35+28-55=8$$</p>
+<p>(b) 1번만 푼 학생 = 2번은 못 푼 학생: $n(A\cap B^c)=n(A)-n(A\cap B)=35-8=27$</p>
+<span class="fix">※ 책 표기 수정: 원문 "$n(A^c\cap B^c)=n(A\cup B)^c=U-n(A\cup B)$" → 여집합 기호는 괄호 안, $U$는 $n(U)$</span>
+<p class="ans">답: (a) 8명, (b) 27명</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-3</span> 직장인 100명을 대상으로 $A$, $B$, $C$ 세 종류의 책 중에서 읽은 책을 조사하였다. $A$를 읽은 사람은 28명, $B$를 읽은 사람은 30명, $C$를 읽은 사람은 42명이었다. 또한 $A$와 $B$를 읽은 사람은 8명, $B$와 $C$를 읽은 사람은 5명, $A$와 $C$를 읽은 사람은 10명, $A$, $B$, $C$를 모두 읽은 사람은 3명이었다. (a) $A$, $B$, $C$ 중 어느 책도 읽지 않은 사람이 몇 명인지 구하라. (b) $A$만 읽은 사람은 몇 명인지 구하라. (c) $B$와 $C$만 읽은 사람은 몇 명인지 구하라.</summary>
+<div class="sol">
+<p>(a) $n(A\cup B\cup C)=28+30+42-8-5-10+3=80$<br>
+$n(A^c\cap B^c\cap C^c)=n(U)-n(A\cup B\cup C)=100-80=20$</p>
+<p>(b) $A$만 $= n(A\cup B\cup C)-n(B\cup C)=80-(30+42-5)=13$</p>
+<p>(c) $B$와 $C$만 $= n(B\cap C)-n(A\cap B\cap C)=5-3=2$</p>
+<table><tr><th>영역</th><th>$A$만</th><th>$B$만</th><th>$C$만</th><th>$A\cap B$만</th><th>$B\cap C$만</th><th>$C\cap A$만</th><th>$A\cap B\cap C$</th><th>어느 것도 X</th></tr>
+<tr><td>인원</td><td>13</td><td>20</td><td>30</td><td>5</td><td>2</td><td>7</td><td>3</td><td>20</td></tr></table>
+<p class="ans">답: (a) 20명, (b) 13명, (c) 2명</p></div></details>
+
+<h3 id="s2-1-2">2.1.2 곱사건</h3>
+<p>$A$가 $m$가지, $B$가 $n$가지로 일어날 때 둘이 동시에(연속적으로) 일어나는 경우 = $m\times n$. 이를 곱사건 $A\cap B$라 하고 경우의 수를 $n(A\cap B)$로 쓴다.</p>
+<p class="fig">[그림 2-1] A→B 길 3개, B→C 길 2개 → A에서 B를 거쳐 C로 가는 방법 $3\times2=6$가지.</p>
+<p class="fig">[그림 2-2] 서울→부산(도보·자전거·승용차·기차 4가지), 부산→제주(군함·잠수함·비행기 3가지) → $4\times3=12$가지.</p>
+<div class="box def"><div class="lbl">정리 2-2 · 곱사건</div>
+두 사건을 $A$, $B$라고 할 때, 사건 $A$와 사건 $B$가 동시에 일어나는 경우의 수
+$$n(A\cap B) = n(A)\times n(B)$$
+</div>
+<div class="box tip"><div class="lbl">핵심</div>
+"그리고/이어서" → 곱, "또는/경우 나눔" → 합. 경로 문제는 경로 유형별로 곱한 뒤 유형끼리 더한다(예제 2-5). 전개식 항의 개수 = 각 괄호 항 수의 곱(서로 다른 문자일 때).</div>
+
+<details class="ex"><summary><span class="tag">예제 2-4</span> 신문 5종류와 주간지 3종류가 있다. 신문에서 하나, 주간지에서 하나를 선택하여 총 두 가지를 구독하려 할 때, 구독하는 방법의 수를 구하라.</summary>
+<div class="sol">
+<p>신문 A~E 각각에서 주간지 X, Y, Z로 3갈래씩(수형도) → $5\times3=15$.</p>
+<p class="ans">답: 15</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-5</span> A, B, C, D 네 지점 사이에 다음 그림과 같은 도로망이 있다. 같은 지점은 한 번 밖에 지나 갈 수 없다고 할 때, A에서 D를 다녀오는 경로의 수를 구하라.</summary>
+<div class="sol">
+<p class="fig">[그림] 도로 수: A–B 3개, A–C 4개, B–C 2개, B–D 2개, C–D 1개.</p>
+<p>같은 지점을 다시 못 지나므로 갈 때와 올 때 다른 중간 지점을 써야 한다.</p>
+<p>i) A→B→D→C→A: $3\times2\times1\times4=24$<br>
+ii) A→C→D→B→A: $4\times1\times2\times3=24$</p>
+<p>합: $24+24=48$</p>
+<p class="ans">답: 48</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-6</span> $(a+b+c)(x+y+z+w)$의 항수를 구하라.</summary>
+<div class="sol">
+<p>첫 괄호 3개, 둘째 괄호 4개 항 → $3\times4=12$.</p>
+<p class="ans">답: 12</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-7</span> 10원, 50원, 100원짜리 동전을 모두 써서 280원을 지불하는 방법의 수를 구하라. 단, 동전은 10개 이내로 사용한다.</summary>
+<div class="sol">
+<p>세 종류 모두 1개 이상 사용.</p>
+<ul>
+<li>100원 2개: 남은 80원 = 50원 1개 + 10원 3개 (총 6개) ✓</li>
+<li>100원 1개: 남은 180원 = 50원 3개 + 10원 3개 (7개) ✓ / 50원 2개+10원 8개(11개) ✗ / 50원 1개+10원 13개(15개) ✗</li>
+</ul>
+<p class="ans">답: 2</p></div></details>
+
+<h3 id="s2-1-3">2.1.3 여사건</h3>
+<p>사건 $A$가 일어나지 않는 사건 = 여사건 $A^c$. 전체 $U$에서 $A$를 뺀 영역. 예) $U=\{a,b,c,d,e\}$, $A=\{a,b\}$ → $A^c=\{c,d,e\}$.</p>
+<div class="box def"><div class="lbl">정리 2-3 · 여사건</div>
+전체 사건 $U$에서 사건 $A$가 일어나지 않는 사건
+$$A^c = U - A$$
+</div>
+<p class="fig">[그림 2-3] 직사각형 $U$ 안의 원 $A$, 원 바깥(음영)이 $A^c$.</p>
+<p><b>'적어도'</b> 문제 = 전체 − (그 일이 전혀 안 일어나는 경우). 예) 남 3, 여 3 중 2명 뽑기에서 적어도 여학생 1명:</p>
+<ul>
+<li>직접: 여 1명 $3\times3=9$ + 여 2명 3 = 12 ([그림 2-4])</li>
+<li>여사건: 전체 15 − 남자만 2명 3 = 12 ([그림 2-5])</li>
+</ul>
+<div class="box tip"><div class="lbl">핵심 · 부분집합 개수</div>
+<ul>
+<li>원소 $n$개 집합의 부분집합: $2^n$개.</li>
+<li>특정 원소 $k$개를 반드시 포함(또는 반드시 제외): $2^{n-k}$개.</li>
+<li>"적어도 하나 포함" $= 2^n - 2^{n-k}$ (전체 − 하나도 포함 안 함).</li>
+</ul></div>
+
+<details class="ex"><summary><span class="tag">예제 2-8</span> 다음 부분집합의 개수를 구하라. (a) $U=\{1, 2, 3, 4, 5\}$의 집합 중 적어도 홀수를 하나 이상 포함한 부분집합 (b) $U=\{1, 2, 3, 4, 5\}$의 집합 중 적어도 짝수를 하나 이상 포함한 부분집합</summary>
+<div class="sol">
+<p>(a) 전체 부분집합 $2^5=32$. 홀수를 하나도 포함하지 않는 것 = 짝수 $\{2,4\}$만의 부분집합 $2^2=4$. → $32-4=28$</p>
+<p>(b) 짝수를 하나도 포함하지 않는 것 = 홀수 $\{1,3,5\}$만의 부분집합 $2^3=8$. → $32-8=24$</p>
+<span class="fix">※ 책 표기 수정: 원문 "$A^c=U-A=2^5-2^2$" → 집합이 아니라 개수이므로 $n(A^c)=n(U)-n(A)$로 읽을 것</span>
+<p class="ans">답: (a) 28, (b) 24</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-9</span> 집합 $A=\{1, 2, 3, \cdots, n\}$의 부분집합 중에서 1, 2를 반드시 포함하는 부분집합의 개수가 16개일 때, $n$의 값을 구하라.</summary>
+<div class="sol">
+<p>1, 2를 고정하면 나머지 $n-2$개의 포함 여부만 결정: $2^{n-2}=16=2^4$ → $n-2=4$.</p>
+<p class="ans">답: $n=6$</p></div></details>
+
+<details class="ex"><summary><span class="tag">예제 2-10</span> 집합 $A=\{1, 2, 3, 4\}$에 대하여 집합 $\{1, 2\}$와 서로소인 부분집합의 개수를 구하라.</summary>
+<div class="sol">
+<p>서로소 = 1, 2를 포함하지 않음 → $\{3,4\}$의 부분집합 $2^2=4$.</p>
+<p class="ans">답: 4</p></div></details>
+
+<h3 id="w1-drill">연습문제</h3>
+<p><b>Section 2.1 연습문제 (A)</b></p>
+
+<details class="ex drill"><summary><span class="tag">A1</span> 다음 벤 다이어그램의 색칠한 부분을 나타낸 집합을 찾아라. [그림: 전체집합 $U$ 안에 세 원 $A$(위), $B$(왼쪽 아래), $C$(오른쪽 아래). 원 $C$ 전체와 $A\cap B$ 영역이 색칠됨] ① $A\cap(B\cup C)$ ② $A\cup(B\cap C)$ ③ $B\cup(A\cap C)$ ④ $B\cap(A\cup C)$ ⑤ $C\cup(A\cap B)$</summary>
+<div class="sol"><p>$C$ 전체가 색칠, $C$ 밖에서는 $A\cap B$만 색칠 → $C\cup(A\cap B)$.</p><p class="ans">답: ⑤</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A2</span> 1부터 100까지 자연수 중 $k$의 배수의 집합을 $A_k$라 할 때, 집합 $A_2\cap(A_3\cup A_4)$의 원소 개수를 구하라.</summary>
+<div class="sol">
+<p>분배법칙: $A_2\cap(A_3\cup A_4)=(A_2\cap A_3)\cup(A_2\cap A_4)=A_6\cup A_4$</p>
+<p>$n(A_4\cup A_6)=n(A_4)+n(A_6)-n(A_{12})=25+16-8=33$</p>
+<p class="ans">답: 33개</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A3</span> 수강생이 40명인 어느 강의에서 교재 $A$, $B$를 사용하는 학생의 수를 조사했더니 각각 24명, 32명이었다. 두 종류의 교재를 모두 사용하는 학생은 최소 몇 명인지 구하라.</summary>
+<div class="sol">
+<p>$n(A\cup B)=24+32-n(A\cap B)\le n(U)=40$ → $n(A\cap B)\ge16$.</p>
+<p class="ans">답: 16명</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A4</span> 서로 다른 동전 2개와 주사위 1개를 동시에 던질 때, 나올 수 있는 모든 경우의 수를 구하라.</summary>
+<div class="sol"><p>동전 A(H/T) → 동전 B(H/T) → 주사위(1~6) 수형도: $2\times2\times6=24$.</p><p class="ans">답: 24</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A5</span> $(x+y+z)(a+b)(u+v)$를 전개할 때 생기는 항의 개수를 구하라. ① 7 ② 8 ③ 9 ④ 10 ⑤ 12</summary>
+<div class="sol"><p>$3\times2\times2=12$.</p><p class="ans">답: ⑤</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A6</span> P에서 Q까지 가는 방법의 수를 구하라. (단, 지나간 길은 다시 지나가지 않는다.) [그림: P에서 Q까지 4구간, 각 구간마다 위·아래 2개의 길] ① 4 ② 8 ③ 16 ④ 32 ⑤ 64</summary>
+<div class="sol"><p>구간마다 2가지, 4구간: $2^4=16$.</p><p class="ans">답: ③</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A7</span> 10원짜리 동전이 5개, 100원짜리 동전이 4개, 1000원짜리 지폐가 1장 있을 때, 이들 전부 또는 일부를 사용하여 지불할 수 있는 금액의 개수를 구하라. (단, 0원을 지불하는 경우는 제외한다.)</summary>
+<div class="sol">
+<p>10원 0~5개(6가지), 100원 0~4개(5가지), 1000원 0~1장(2가지). 10원 5개(50원)&lt;100원, 100원 4개(400원)&lt;1000원이라 금액이 겹치지 않으므로 방법 수 = 금액 수.</p>
+<p>$6\times5\times2-1=59$ (0원 제외)</p>
+<p class="ans">답: 59개</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A8</span> 두 집합 $A=\{x-2,\ x+1,\ x+3\}$, $B=\{1,\ 2,\ x^2-1\}$에 대하여 $A\cap B=\{0, 2\}$일 때, $(A-B)\cup(B-A)$의 모든 원소의 합을 구하라.</summary>
+<div class="sol">
+<p>$0\in B$이므로 $x^2-1=0$, $x=\pm1$.</p>
+<p>i) $x=1$: $A=\{-1,2,4\}$, $A\cap B=\{2\}$ → 부적합.<br>ii) $x=-1$: $A=\{-3,0,2\}$, $B=\{1,2,0\}$, $A\cap B=\{0,2\}$ ✓</p>
+<p>$A-B=\{-3\}$, $B-A=\{1\}$ → 합 $-3+1=-2$.</p>
+<p class="ans">답: $-2$</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A9</span> 집합 $A=\{1, 2, 3\}$이고, $A\cup B=\{1, 2, 3, 4, 5\}$일 때, 집합 $A$와 서로소인 집합 $B$의 모든 원소의 합을 구하라.</summary>
+<div class="sol"><p>서로소이므로 $B=(A\cup B)-A=\{4,5\}$, 합 $9$.</p><p class="ans">답: 9</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A10</span> $A=\{1, 2, 3, 4, 5, 6\}$의 부분집합에서 4의 약수를 포함하지 않는 부분집합의 개수를 구하라.</summary>
+<div class="sol"><p>4의 약수 $\{1,2,4\}$ 제외 → $\{3,5,6\}$의 부분집합 $2^3=8$.</p><p class="ans">답: 8</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A11</span> 집합 $S=\{x \mid x$는 12의 약수$\}$의 부분집합 중 2의 배수를 모두 포함하는 집합의 개수를 구하라.</summary>
+<div class="sol"><p>$S=\{1,2,3,4,6,12\}$, 2의 배수 $\{2,4,6,12\}$ 고정 → $2^{6-4}=4$.</p><p class="ans">답: 4</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A12</span> 집합 $A=\{1, 2, 3, 4, 5, 6\}$의 부분집합 중 $\{4, 5, 6\}$을 반드시 포함하고 $\{3\}$은 포함하지 않는 집합의 개수를 구하라.</summary>
+<div class="sol">
+<p>남는 원소 $\{1,2\}$의 부분집합 $2^2=4$개에 $\{4,5,6\}$을 붙인다:</p>
+<p>$\varnothing\to\{4,5,6\}$, $\{1\}\to\{1,4,5,6\}$, $\{2\}\to\{2,4,5,6\}$, $\{1,2\}\to\{1,2,4,5,6\}$</p>
+<p class="ans">답: 4</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A13</span> 원소가 15개인 전체 집합 $U$의 두 부분집합 $A$, $B$에 대하여 $n(A\cup B)=6$일 때, $n(A^c\cap B^c)$의 값을 구하라.</summary>
+<div class="sol"><p>$A^c\cap B^c=(A\cup B)^c$ → $n(U)-n(A\cup B)=15-6=9$.</p><p class="ans">답: 9</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A14</span> 집합 $A=\{a, b, c, d, e\}$의 부분집합 중에서 $a$ 또는 $b$를 원소로 갖는 부분집합의 개수를 구하라.</summary>
+<div class="sol">
+<p>$a$ 포함 $2^4=16$, $b$ 포함 $2^4=16$, 둘 다 포함 $2^3=8$ → $16+16-8=24$.</p>
+<p>(검산: 여사건 $2^5-2^3=32-8=24$)</p>
+<p class="ans">답: 24</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">A15</span> 50가구가 살고 있는 아파트가 있다. 이 아파트에서는 두 신문 H와 J 중 적어도 한 신문을 본다. 이때 H를 보고 있는 집이 35가구, J를 보고 있는 집이 28가구일 때, 신문 H와 J를 모두 보고 있는 집은 몇 가구인지 구하라.</summary>
+<div class="sol"><p>모든 집이 적어도 하나를 보므로 $n(A\cup B)=50$. $50=35+28-n(A\cap B)$ → $n(A\cap B)=13$.</p><p class="ans">답: 13가구</p></div></details>
+
+<p><b>Chapter 02 연습문제 (B) · 2.1.1 합사건</b></p>
+
+<details class="ex drill"><summary><span class="tag">B1</span> 학생 식당에 있는 학생 전체 40명에게 좋아하는 음식을 조사해 보았다. 피자와 자장면을 좋아하는 학생이 각각 28명, 16명이었다. 피자와 자장면을 모두 좋아하는 학생 수의 최댓값과 최솟값을 각각 $M$, $m$이라 할 때, $M+m$의 값을 구하라. ① 12 ② 14 ③ 16 ④ 18 ⑤ 20</summary>
+<div class="sol">
+<p>$n(U)=40$, $n(A)=28$, $n(B)=16$.</p>
+<p>최댓값: $n(A\cap B)\le n(A)$, $n(A\cap B)\le n(B)$ → $n(A\cap B)\le16$ …①</p>
+<p>최솟값: $n(A\cup B)\le n(U)$ → $28+16-n(A\cap B)\le40$ → $n(A\cap B)\ge4$ …②</p>
+<p>$4\le n(A\cap B)\le16$ → $M=16$, $m=4$, $M+m=20$.</p>
+<p class="ans">답: ⑤</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B2</span> 세 집합 $A,B,C$에 대하여 $A\cap B=\varnothing$, $n(A)=5$, $n(B)=4$, $n(C)=3$, $n(A\cup C)=7$, $n(B\cup C)=5$일 때, $n(A\cup B\cup C)$의 값을 구하라. ① 6 ② 7 ③ 9 ④ 10 ⑤ 12</summary>
+<div class="sol">
+<p>$7=5+3-n(A\cap C)$ → $n(A\cap C)=1$. $5=4+3-n(B\cap C)$ → $n(B\cap C)=2$. $A\cap B=\varnothing$이므로 $n(A\cap B)=n(A\cap B\cap C)=0$.</p>
+<p>$n(A\cup B\cup C)=5+4+3-0-2-1+0=9$</p>
+<p class="fig">[벤 다이어그램] $A$만 4, $A\cap C$ 1, $B$만 2, $B\cap C$ 2, $C$만 0.</p>
+<p class="ans">답: ③</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B3</span> 대학생 50명에게 영어와 중국어 문제를 풀게 하였더니 영어 문제를 푼 학생은 25명, 중국어 문제를 푼 학생은 22명이었다. 영어와 중국어 문제를 모두 풀지 못한 학생이 8명일 때, 모두 푼 학생 수를 구하라. ① 5 ② 6 ③ 7 ④ 8 ⑤ 9</summary>
+<div class="sol">
+<p>$n(A\cup B)=n(U)-n(A^c\cap B^c)=50-8=42$</p>
+<p>$n(A\cap B)=25+22-42=5$</p>
+<p class="ans">답: ①</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B4</span> 전체 집합 $U$의 공집합이 아닌 두 유한집합 $A,B$에 대하여 $n(A\cup B)=n(A)+n(B)$가 성립할 때, 다음 중 $A-B$와 같은 집합을 구하라. ① $\varnothing$ ② $A$ ③ $A\cup B$ ④ $A^c$ ⑤ $B^c$</summary>
+<div class="sol">
+<p>$n(A\cup B)=n(A)+n(B)-n(A\cap B)$와 비교하면 $n(A\cap B)=0$, 즉 $A\cap B=\varnothing$ (서로소, 겹치지 않는 두 원). 따라서 $A-B=A$.</p>
+<span class="fix">※ 책 표기 수정: 원문 "$n(A)+n(B)-\phi$" → $n(A)+n(B)-n(A\cap B)$, $n(A\cap B)=0$</span>
+<p class="ans">답: ②</p></div></details>
+
+<p><b>Chapter 02 연습문제 (B) · 2.1.2 곱사건</b></p>
+
+<details class="ex drill"><summary><span class="tag">B5</span> 다음 그림과 같은 도로망에서 도로 $d$와 $e$는 화살표 방향으로 일방통행만 되고 그 외의 도로는 양쪽 방향으로 통행이 된다고 한다. 이때 A지점에서 출발하여 B지점을 거쳐 C까지 갔다가 다시 B지점을 거쳐 A지점까지 되돌아오는 길의 가짓수를 구하라. [그림: A–B 사이 도로 $a,b,c,d$ ($d$는 A→B 일방), B–C 사이 도로 $e,f,g$ ($e$는 C→B 일방)] ① 12 ② 36 ③ 64 ④ 72 ⑤ 144</summary>
+<div class="sol">
+<p>A→B: $a,b,c,d$ 4가지 / B→C: $f,g$ 2가지 ($e$ 불가) / C→B: $e,f,g$ 3가지 / B→A: $a,b,c$ 3가지 ($d$ 불가)</p>
+<p>$4\times2\times3\times3=72$</p>
+<p class="ans">답: ④</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B6</span> 다음 그림과 같이 도시 A, B, C, D가 연결되어 있다. A를 출발하여 모든 도시를 한 번씩만 거치고 다시 A로 돌아오는 방법의 수를 구하라. [그림: 마름모 꼴 A, B, C, D. 도로 수 A–B 3, B–C 2, C–D 3, D–A 4] ① 14 ② 72 ③ 144 ④ 216 ⑤ 228</summary>
+<div class="sol">
+<p>i) A→B→C→D→A: $3\times2\times3\times4=72$<br>ii) A→D→C→B→A: $4\times3\times2\times3=72$</p>
+<p>$72+72=144$</p>
+<p class="ans">답: ③</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B7</span> 집합 $A=\{1,2,3,4,5\}$이다. 함수 $f:A\to A$에서 $A$의 임의의 원소 $a$에 대하여 다음 조건을 만족하는 함수 $f$를 구하라. (a) $f(a)\ge a$는 몇 개인지 구하라. ① 30개 ② 40개 ③ 90개 ④ 120개 ⑤ 150개 (b) $a+f(a)$가 홀수를 만족하는 것은 몇 개인지 구하라. ① 24개 ② 36개 ③ 48개 ④ 64개 ⑤ 72개</summary>
+<div class="sol">
+<p>(a) $f(1)\in\{1..5\}$ 5가지, $f(2)\in\{2..5\}$ 4, $f(3)$ 3, $f(4)$ 2, $f(5)=5$ 1 → $5\times4\times3\times2\times1=120$</p>
+<p>(b) $a$ 홀수 → $f(a)$ 짝수(2, 4: 2가지), $a$ 짝수 → $f(a)$ 홀수(1, 3, 5: 3가지)</p>
+<table><tr><th>$a$</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>가능한 $f(a)$ 개수</th><td>2</td><td>3</td><td>2</td><td>3</td><td>2</td></tr></table>
+<p>$2\times3\times2\times3\times2=72$</p>
+<p class="ans">답: (a) ④ 120개, (b) ⑤ 72개</p></div></details>
+
+<p><b>Chapter 02 연습문제 (B) · 2.1.3 여사건</b></p>
+
+<details class="ex drill"><summary><span class="tag">B8</span> 두 집합 $A=\{1,2,3\}$, $B=\{3,4,5,6\}$에 대하여 $(A\cap B)\subset X\subset(A\cup B)$를 만족하는 $X$의 개수를 구하라. ① 4 ② 8 ③ 16 ④ 32 ⑤ 64</summary>
+<div class="sol">
+<p>$A\cap B=\{3\}$은 반드시 포함, $A\cup B=\{1,..,6\}$의 부분집합 → 3 고정, 나머지 5개 자유: $2^{6-1}=32$.</p>
+<p class="ans">답: ④</p></div></details>
+
+<details class="ex drill"><summary><span class="tag">B9</span> 전체 집합 $U=\{a,b,c,d,e\}$에 대하여 $\{c,d,e\}\cap X\neq\varnothing$을 만족하는 $U$의 부분집합 $X$의 개수를 구하라. ① 4 ② 8 ③ 16 ④ 28 ⑤ 32</summary>
+<div class="sol">
+<p>$X$는 $c,d,e$ 중 적어도 하나를 포함 → 여사건. $c,d,e$를 하나도 포함하지 않는 것: $2^{5-3}=4$.</p>
+<p>$2^5-4=28$</p>
+<p class="ans">답: ④</p></div></details>
+
+<div class="box sum"><div class="lbl">1주차 한눈에 보기</div>
+<table>
+<tr><th>개념</th><th>공식 / 요령</th></tr>
+<tr><td>합사건 (또는)</td><td>$n(A\cup B)=n(A)+n(B)-n(A\cap B)$</td></tr>
+<tr><td>세 사건</td><td>$n(A\cup B\cup C)=\sum n(A)-\sum n(A\cap B)+n(A\cap B\cap C)$</td></tr>
+<tr><td>둘 다 아님</td><td>$n(A^c\cap B^c)=n(U)-n(A\cup B)$</td></tr>
+<tr><td>$A$만</td><td>$n(A\cap B^c)=n(A)-n(A\cap B)$</td></tr>
+<tr><td>교집합 범위</td><td>$\max(0,\ n(A)+n(B)-n(U))\le n(A\cap B)\le\min(n(A),n(B))$</td></tr>
+<tr><td>곱사건 (그리고/연속)</td><td>$n(A\cap B)=n(A)\times n(B)$; 전개식 항수 = 괄호별 항수의 곱</td></tr>
+<tr><td>여사건</td><td>$A^c=U-A$; "적어도" = 전체 − 전혀 아님</td></tr>
+<tr><td>부분집합 수</td><td>$2^n$; $k$개 반드시 포함/제외: $2^{n-k}$; 적어도 하나 포함: $2^n-2^{n-k}$</td></tr>
+</table></div>
+</section>
