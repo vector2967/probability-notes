@@ -131,7 +131,7 @@ function renderCard() {
   const c = deck[ci];
   stage.innerHTML = `
     <div class="meta"><span>${ci + 1} / ${deck.length}</span><span>알아요 ${k} / ${total}</span></div>
-    <div class="progress"><i style="width:${(k / total * 100).toFixed(1)}%"></i></div>
+    <div class="progress"><i style="transform:scaleX(${(k / total).toFixed(3)})"></i></div>
     <div class="card" tabindex="0" role="button" aria-label="카드 뒤집기">
       <div class="card-in">
         <div class="face front"><span class="k">${c.w}주차 · ${esc(c.kind || '')}${known[c.id] ? ' · ✓' : ''}</span><div>${c.q}</div></div>
@@ -212,7 +212,7 @@ function renderQ() {
   const prev = res[p.id] ? (res[p.id] === 'ok' ? ' · 지난번 ✓' : ' · 지난번 ✗') : '';
   qstage.innerHTML = `
     <div class="meta"><span>${i + 1} / ${list.length}</span><span>${p.w}주차 · ${esc(p.where)}${prev}</span></div>
-    <div class="progress"><i style="width:${(i / list.length * 100).toFixed(1)}%"></i></div>
+    <div class="progress"><i style="transform:scaleX(${(i / list.length).toFixed(3)})"></i></div>
     <div class="qcard">
       <span class="tag">${esc(p.tag)}</span>
       <div class="prob">${probHTML(p)}</div>
