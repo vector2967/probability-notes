@@ -26,9 +26,36 @@ $${}_nP_r = n(n-1)(n-2)\cdots(n-r+1) = \frac{n!}{(n-r)!}\quad (\text{단, } n\ge
 <li>${}_nP_r = n\times {}_{n-1}P_{r-1}$</li></ul>
 </div>
 <p><b>이웃하는 경우</b>: 이웃할 것들을 한 묶음(원소 1개)으로 보고 나열 × 묶음 안에서 나열.</p>
-<p class="fig">[그림 2-6] 남 3 + 여 3을 일렬로, 여자 3명이 이웃: (남,남,남,여자묶음) 나열 $4!$ × 묶음 안 여자 나열 $3!$ → $4!\times3!=144$가지.</p>
+<figure class="fig"><svg width="400" height="120" viewBox="0 0 400 120" role="img" aria-label="여자 3명을 한 묶음으로 보고 남자 3명과 함께 4개를 나열">
+<text x="250" y="20" text-anchor="middle" class="sm acc">묶음 안 나열 3!</text>
+<rect x="186" y="30" width="128" height="50" rx="10" class="ln hl"/>
+<circle cx="40" cy="55" r="17" class="ln"/><text x="40" y="60" text-anchor="middle">남</text>
+<circle cx="90" cy="55" r="17" class="ln"/><text x="90" y="60" text-anchor="middle">남</text>
+<circle cx="140" cy="55" r="17" class="ln"/><text x="140" y="60" text-anchor="middle">남</text>
+<circle cx="210" cy="55" r="17" class="ln"/><text x="210" y="60" text-anchor="middle">여</text>
+<circle cx="250" cy="55" r="17" class="ln"/><text x="250" y="60" text-anchor="middle">여</text>
+<circle cx="290" cy="55" r="17" class="ln"/><text x="290" y="60" text-anchor="middle">여</text>
+<path d="M23,88 v8 H314 v-8" class="ln"/>
+<text x="168" y="114" text-anchor="middle" class="sm">(남, 남, 남, 여자묶음) 4개 나열 4!</text>
+<text x="360" y="50" text-anchor="middle" class="acc">4!×3!</text>
+<text x="360" y="70" text-anchor="middle" class="acc">= 144</text>
+</svg>
+<figcaption>[그림 2-6] 남 3 + 여 3을 일렬로, 여자 3명이 이웃: (남,남,남,여자묶음) 나열 $4!$ × 묶음 안 여자 나열 $3!$ → $4!\times3!=144$가지.</figcaption></figure>
 <p><b>이웃하지 않는 경우</b>: 이웃해도 되는 것을 먼저 나열하고, 그 사이·양끝 빈자리에 이웃하면 안 되는 것을 배열.</p>
-<p class="fig">[그림 2-7] _ 남 _ 남 _ 남 _ : 남자 나열 $3!$, 빈자리 4곳 중 3곳에 여자 배열 ${}_4P_3=24$ → $3!\times{}_4P_3=144$가지.</p>
+<figure class="fig"><svg width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="남자 3명을 세우고 사이와 양끝 빈자리 4곳 중 3곳에 여자 배열">
+<text x="180" y="20" text-anchor="middle" class="sm">남자 나열 3!</text>
+<rect x="14" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="30" y="60" text-anchor="middle" class="sm mu">1</text>
+<circle cx="80" cy="55" r="17" class="ln"/><text x="80" y="60" text-anchor="middle">남</text>
+<rect x="114" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="130" y="60" text-anchor="middle" class="sm mu">2</text>
+<circle cx="180" cy="55" r="17" class="ln"/><text x="180" y="60" text-anchor="middle">남</text>
+<rect x="214" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="230" y="60" text-anchor="middle" class="sm mu">3</text>
+<circle cx="280" cy="55" r="17" class="ln"/><text x="280" y="60" text-anchor="middle">남</text>
+<rect x="314" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="330" y="60" text-anchor="middle" class="sm mu">4</text>
+<text x="180" y="104" text-anchor="middle" class="sm acc">빈자리 4곳 중 3곳에 여자 배열 → ₄P₃ = 24</text>
+<text x="385" y="50" text-anchor="middle" class="acc">3!×₄P₃</text>
+<text x="385" y="70" text-anchor="middle" class="acc">= 144</text>
+</svg>
+<figcaption>[그림 2-7] _ 남 _ 남 _ 남 _ : 남자 나열 $3!$, 빈자리 4곳 중 3곳에 여자 배열 ${}_4P_3=24$ → $3!\times{}_4P_3=144$가지.</figcaption></figure>
 <div class="box tip"><div class="lbl">핵심</div>이웃 → <b>묶어서</b> (묶음 수)! × (묶음 내부)!. 이웃 X → <b>먼저 세우고 사이에 끼우기</b>: $k$명 세우면 빈자리 $k+1$개.</div>
 
 <details class="ex"><summary><span class="tag">예제 2-11</span> ${}_nP_2 = 90$일 때, 양수 $n$의 값을 구하라.</summary>
@@ -53,7 +80,24 @@ $4!\times{}_5P_3=24\times60=1440$
 
 <h3 id="s2-2-2">2.2.2 중복순열</h3>
 <p>$\{1,2,3,4\}$에서 2개 배열: 순열 ${}_4P_2=12$ + 중복 허락 $\{1,1\},\{2,2\},\{3,3\},\{4,4\}$ = 16 → <b>중복순열</b> ${}_n\Pi_r$.</p>
-<p class="fig">[그림 2-8] 빵 4개(선택 대상, $r$)를 바구니 3개(중복 대상, $n$)에 나누어 담기 — 한 바구니에 4개 모두, 2·1·1개 등. 경우의 수 ${}_3\Pi_4=81$.</p>
+<figure class="fig"><svg width="400" height="210" viewBox="0 0 400 210" role="img" aria-label="빵 4개가 각각 바구니 3개 중 하나를 고르는 그림">
+<g class="lt">
+<path d="M125,46 L100,118 M125,46 L200,118 M125,46 L300,118"/>
+<path d="M175,46 L100,118 M175,46 L200,118 M175,46 L300,118"/>
+<path d="M225,46 L100,118 M225,46 L200,118 M225,46 L300,118"/>
+<path d="M275,46 L100,118 M275,46 L200,118 M275,46 L300,118"/>
+</g>
+<circle cx="125" cy="32" r="14" class="ln hl2"/><text x="125" y="37" text-anchor="middle" class="sm">빵1</text>
+<circle cx="175" cy="32" r="14" class="ln hl2"/><text x="175" y="37" text-anchor="middle" class="sm">빵2</text>
+<circle cx="225" cy="32" r="14" class="ln hl2"/><text x="225" y="37" text-anchor="middle" class="sm">빵3</text>
+<circle cx="275" cy="32" r="14" class="ln hl2"/><text x="275" y="37" text-anchor="middle" class="sm">빵4</text>
+<path d="M64,120 H136 L128,155 H72 Z" class="ln"/><text x="100" y="143" text-anchor="middle" class="sm">바구니1</text>
+<path d="M164,120 H236 L228,155 H172 Z" class="ln"/><text x="200" y="143" text-anchor="middle" class="sm">바구니2</text>
+<path d="M264,120 H336 L328,155 H272 Z" class="ln"/><text x="300" y="143" text-anchor="middle" class="sm">바구니3</text>
+<text x="200" y="180" text-anchor="middle" class="sm">빵 4개(r)가 각각 바구니 3개(n) 중 하나를 고름</text>
+<text x="200" y="200" text-anchor="middle" class="sm acc">3×3×3×3 = ₃Π₄ = 81</text>
+</svg>
+<figcaption>[그림 2-8] 빵 4개(선택 대상, $r$)를 바구니 3개(중복 대상, $n$)에 나누어 담기 — 한 바구니에 4개 모두, 2·1·1개 등. 경우의 수 ${}_3\Pi_4=81$.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-6 · 중복순열</div>
 서로 다른 $n$개에서 중복을 허락하여 $r$개를 선택하여 배열하는 방법의 수
 $${}_n\Pi_r = n^r$$
@@ -74,13 +118,46 @@ ${}_5\Pi_4=5\times5\times5\times5=5^4=625$
 <p class="ans">답: 625</p></div></details>
 
 <div class="box tip"><div class="lbl">Check it up! · 일대일함수의 개수</div>
-일대일함수는 정의역 원소끼리 함숫값이 겹치면 안 됨(중복 X) → $A$($r$개)에서 $B$($n$개)로의 일대일함수 수 $={}_nP_r$.<br>
-<span class="fig">[그림 2-9] $A=\{1,2,3\}$, $B=\{a,b,c,d\}$, $1\to a,\ 2\to b,\ 3\to c$</span> → ${}_4P_3=4\times3\times2=24$.<br>
+일대일함수는 정의역 원소끼리 함숫값이 겹치면 안 됨(중복 X) → $A$($r$개)에서 $B$($n$개)로의 일대일함수 수 $={}_nP_r$.
+<figure class="fig"><svg width="320" height="200" viewBox="0 0 320 200" role="img" aria-label="집합 A의 1, 2, 3이 집합 B의 a, b, c로 대응하는 일대일함수">
+<defs><marker id="ar-w2-9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="dot"/></marker></defs>
+<text x="80" y="25" text-anchor="middle" class="acc">A</text>
+<ellipse cx="80" cy="105" rx="42" ry="70" class="ln"/>
+<text x="240" y="18" text-anchor="middle" class="acc">B</text>
+<ellipse cx="240" cy="105" rx="42" ry="80" class="ln"/>
+<circle cx="95" cy="65" r="3" class="dot"/><text x="75" y="70" text-anchor="middle">1</text>
+<circle cx="95" cy="105" r="3" class="dot"/><text x="75" y="110" text-anchor="middle">2</text>
+<circle cx="95" cy="145" r="3" class="dot"/><text x="75" y="150" text-anchor="middle">3</text>
+<circle cx="225" cy="50" r="3" class="dot"/><text x="248" y="55" text-anchor="middle">a</text>
+<circle cx="225" cy="85" r="3" class="dot"/><text x="248" y="90" text-anchor="middle">b</text>
+<circle cx="225" cy="120" r="3" class="dot"/><text x="248" y="125" text-anchor="middle">c</text>
+<circle cx="225" cy="155" r="3" class="dot"/><text x="248" y="160" text-anchor="middle">d</text>
+<line x1="99" y1="65" x2="219" y2="50" class="ln" marker-end="url(#ar-w2-9)"/>
+<line x1="99" y1="105" x2="219" y2="85" class="ln" marker-end="url(#ar-w2-9)"/>
+<line x1="99" y1="145" x2="219" y2="120" class="ln" marker-end="url(#ar-w2-9)"/>
+</svg>
+<figcaption>[그림 2-9] $A=\{1,2,3\}$, $B=\{a,b,c,d\}$, $1\to a,\ 2\to b,\ 3\to c$</figcaption></figure>
+1, 2, 3이 서로 다른 원소로 대응하는 방법 → ${}_4P_3=4\times3\times2=24$.<br>
 함수 전체 수 $=n^r$ (중복순열) vs 일대일함수 수 $={}_nP_r$ (순열).</div>
 
 <h3 id="s2-2-3">2.2.3 같은 것이 있는 순열</h3>
 <p>같은 것이 섞여 있으면 구별해서 센 뒤, 같은 것끼리의 자리 바꿈 수로 나눈다.</p>
-<p class="fig">[그림 2-10] $a,a,b$ 나열: $a_1,a_2$로 구별하면 $3!=6$가지. $a_1a_2b, a_2a_1b\to aab$ / $a_1ba_2, a_2ba_1\to aba$ / $ba_1a_2, ba_2a_1\to baa$ → 3가지 $=\dfrac{3!}{2!\times1!}$. <span class="fix">※ 책 오탈자 수정: 그림 셋째 줄 원문 "aba"</span></p>
+<figure class="fig"><svg width="320" height="205" viewBox="0 0 320 205" role="img" aria-label="a1, a2를 구별한 6가지가 2개씩 같아져 aab, aba, baa 3가지">
+<defs><marker id="ar-w2-10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="dot"/></marker></defs>
+<text x="60" y="16" text-anchor="middle" class="sm mu">구별하면 3! = 6</text>
+<text x="245" y="16" text-anchor="middle" class="sm mu">같게 보면 3</text>
+<text x="60" y="45" text-anchor="middle">a₁a₂b</text><text x="60" y="68" text-anchor="middle">a₂a₁b</text>
+<text x="60" y="108" text-anchor="middle">a₁ba₂</text><text x="60" y="131" text-anchor="middle">a₂ba₁</text>
+<text x="60" y="171" text-anchor="middle">ba₁a₂</text><text x="60" y="194" text-anchor="middle">ba₂a₁</text>
+<path d="M100,32 h8 v40 h-8 M100,95 h8 v40 h-8 M100,158 h8 v40 h-8" class="ln"/>
+<line x1="112" y1="52" x2="205" y2="52" class="ln" marker-end="url(#ar-w2-10)"/>
+<line x1="112" y1="115" x2="205" y2="115" class="ln" marker-end="url(#ar-w2-10)"/>
+<line x1="112" y1="178" x2="205" y2="178" class="ln" marker-end="url(#ar-w2-10)"/>
+<text x="245" y="57" text-anchor="middle" class="acc">aab</text>
+<text x="245" y="120" text-anchor="middle" class="acc">aba</text>
+<text x="245" y="183" text-anchor="middle" class="acc">baa</text>
+</svg>
+<figcaption>[그림 2-10] $a,a,b$ 나열: $a_1,a_2$로 구별하면 $3!=6$가지. $a_1a_2b, a_2a_1b\to aab$ / $a_1ba_2, a_2ba_1\to aba$ / $ba_1a_2, ba_2a_1\to baa$ → 3가지 $=\dfrac{3!}{2!\times1!}$. <span class="fix">※ 책 오탈자 수정: 그림 셋째 줄 원문 "aba"</span></figcaption></figure>
 <p>예) $a,a,a,b,b,c$ ($n=3+2+1=6$): $\dfrac{6!}{3!\times2!\times1!}=\dfrac{6\times5\times4\times3\times2\times1}{3\times2\times1\times2\times1\times1}=60$가지.</p>
 <div class="box def"><div class="lbl">정리 2-7 · 같은 것이 있는 순열</div>
 $n$개 중에서 같은 것이 $p$개, $q$개, $r$개, $\cdots$, $s$개가 있을 때, $n$개를 모두 선택하여 일렬로 배열하는 순열의 수
@@ -110,7 +187,22 @@ $$\frac{11!}{2!\times3!\times2!}=\frac{39916800}{24}=1663200$$
 <tr><th>순열</th><td>ABC</td><td>CAB</td><td>BCA</td><td>ACB</td><td>CBA</td><td>BAC</td></tr>
 <tr><th>원순열</th><td colspan="3">회전하면 모두 같음 (1가지)</td><td colspan="3">회전하면 모두 같음 (1가지)</td></tr>
 </table>
-<p class="fig">[표 2-1] 순열과 원순열의 비교 — 일렬 6가지가 원형에서는 회전 방향별로 3개씩 같아져 $3!\times\frac13=2!$ 가지.</p>
+<figure class="fig"><svg width="440" height="210" viewBox="0 0 440 210" role="img" aria-label="일렬 배열 3개씩이 원형에서 같은 배열 하나가 됨">
+<path d="M50,30 L104,58 M110,30 L110,58 M170,30 L116,58 M270,30 L324,58 M330,30 L330,58 M390,30 L336,58 M220,15 V200" class="lt"/>
+<text x="50" y="22" text-anchor="middle">ABC</text><text x="110" y="22" text-anchor="middle">CAB</text><text x="170" y="22" text-anchor="middle">BCA</text>
+<text x="270" y="22" text-anchor="middle">ACB</text><text x="330" y="22" text-anchor="middle">CBA</text><text x="390" y="22" text-anchor="middle">BAC</text>
+<circle cx="110" cy="120" r="45" class="ln"/><text x="110" y="125" text-anchor="middle" class="mu">↻</text>
+<circle cx="110" cy="75" r="14" class="ln hl"/><text x="110" y="80" text-anchor="middle">A</text>
+<circle cx="149" cy="142" r="14" class="ln hl"/><text x="149" y="147" text-anchor="middle">B</text>
+<circle cx="71" cy="142" r="14" class="ln hl"/><text x="71" y="147" text-anchor="middle">C</text>
+<circle cx="330" cy="120" r="45" class="ln"/><text x="330" y="125" text-anchor="middle" class="mu">↻</text>
+<circle cx="330" cy="75" r="14" class="ln hl"/><text x="330" y="80" text-anchor="middle">A</text>
+<circle cx="369" cy="142" r="14" class="ln hl"/><text x="369" y="147" text-anchor="middle">C</text>
+<circle cx="291" cy="142" r="14" class="ln hl"/><text x="291" y="147" text-anchor="middle">B</text>
+<text x="110" y="198" text-anchor="middle" class="sm acc">원형 1가지</text>
+<text x="330" y="198" text-anchor="middle" class="sm acc">원형 1가지</text>
+</svg>
+<figcaption>[표 2-1] 순열과 원순열의 비교 — 일렬 6가지가 원형에서는 회전 방향별로 3개씩 같아져 $3!\times\frac13=2!$ 가지.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-8 · 원순열</div>
 서로 다른 $n$개를 원형으로 배열하는 순열의 수
 $$n!\times\frac{1}{n}=(n-1)!$$
@@ -141,8 +233,45 @@ $$\frac{(n-1)!}{2}$$
 
 <h3 id="s2-2-5">2.2.5 대칭순열</h3>
 <p>서로 다른 $n$개를 원형이 아닌 <b>다각형</b>(정사각형, 직사각형, 정삼각형 등)에 배열 = <b>대칭순열</b>.</p>
-<p class="fig">[그림 2-11] 정사각형 탁자 네 변에 1명씩 4명 → 원탁에 4명이 앉는 것과 같음: $(4-1)!$.</p>
-<p class="fig">[그림 2-12] 직사각형 탁자에 6명(위 ②①, 왼쪽 ③, 오른쪽 ⑥, 아래 ④⑤). (a) ①A, ②B, ⑥C와 (b) ①A, ②B, ③C처럼 180° 회전시켜 겹치는 배치는 모양이 같다 → 대각선 기준 한쪽 부분에서 고정된 한 사람의 자리만 생각.</p>
+<figure class="fig"><svg width="360" height="195" viewBox="0 0 360 195" role="img" aria-label="정사각형 탁자 네 변에 4명이 앉는 것은 원탁에 4명이 앉는 것과 같음">
+<rect x="45" y="40" width="90" height="90" class="ln"/>
+<circle cx="90" cy="22" r="14" class="ln hl"/><text x="90" y="27" text-anchor="middle">A</text>
+<circle cx="153" cy="85" r="14" class="ln hl"/><text x="153" y="90" text-anchor="middle">B</text>
+<circle cx="90" cy="148" r="14" class="ln hl"/><text x="90" y="153" text-anchor="middle">C</text>
+<circle cx="27" cy="85" r="14" class="ln hl"/><text x="27" y="90" text-anchor="middle">D</text>
+<text x="180" y="91" text-anchor="middle" class="acc">=</text>
+<circle cx="270" cy="85" r="45" class="ln"/>
+<circle cx="270" cy="22" r="14" class="ln hl"/><text x="270" y="27" text-anchor="middle">A</text>
+<circle cx="333" cy="85" r="14" class="ln hl"/><text x="333" y="90" text-anchor="middle">B</text>
+<circle cx="270" cy="148" r="14" class="ln hl"/><text x="270" y="153" text-anchor="middle">C</text>
+<circle cx="207" cy="85" r="14" class="ln hl"/><text x="207" y="90" text-anchor="middle">D</text>
+<text x="90" y="188" text-anchor="middle" class="sm mu">정사각형 탁자</text>
+<text x="270" y="188" text-anchor="middle" class="sm mu">원탁 (4−1)!</text>
+</svg>
+<figcaption>[그림 2-11] 정사각형 탁자 네 변에 1명씩 4명 → 원탁에 4명이 앉는 것과 같음: $(4-1)!$.</figcaption></figure>
+<figure class="fig"><svg width="440" height="172" viewBox="0 0 440 172" role="img" aria-label="직사각형 탁자 6자리, 대각선 한쪽 부분과 두 가지 배치 (a), (b)">
+<polygon points="55,40 175,40 55,110" class="hl"/>
+<rect x="55" y="40" width="120" height="70" class="ln"/>
+<line x1="55" y1="110" x2="175" y2="40" class="lt"/>
+<circle cx="85" cy="24" r="12" class="hl2"/><circle cx="145" cy="24" r="12" class="hl2"/><circle cx="191" cy="75" r="12" class="hl2"/>
+<text x="85" y="29" text-anchor="middle">②</text><text x="145" y="29" text-anchor="middle">①</text>
+<text x="39" y="80" text-anchor="middle">③</text><text x="191" y="80" text-anchor="middle">⑥</text>
+<text x="85" y="131" text-anchor="middle">④</text><text x="145" y="131" text-anchor="middle">⑤</text>
+<text x="145" y="60" text-anchor="middle" class="acc">A</text><text x="85" y="60" text-anchor="middle" class="acc">B</text><text x="160" y="80" text-anchor="middle" class="acc">C</text>
+<text x="115" y="96" text-anchor="middle" class="sm mu">↻180°</text>
+<text x="115" y="162" text-anchor="middle" class="sm">(a) ①A, ②B, ⑥C</text>
+<polygon points="275,40 395,40 275,110" class="hl"/>
+<rect x="275" y="40" width="120" height="70" class="ln"/>
+<line x1="275" y1="110" x2="395" y2="40" class="lt"/>
+<circle cx="305" cy="24" r="12" class="hl2"/><circle cx="365" cy="24" r="12" class="hl2"/><circle cx="259" cy="75" r="12" class="hl2"/>
+<text x="305" y="29" text-anchor="middle">②</text><text x="365" y="29" text-anchor="middle">①</text>
+<text x="259" y="80" text-anchor="middle">③</text><text x="411" y="80" text-anchor="middle">⑥</text>
+<text x="305" y="131" text-anchor="middle">④</text><text x="365" y="131" text-anchor="middle">⑤</text>
+<text x="365" y="60" text-anchor="middle" class="acc">A</text><text x="305" y="60" text-anchor="middle" class="acc">B</text><text x="290" y="80" text-anchor="middle" class="acc">C</text>
+<text x="335" y="96" text-anchor="middle" class="sm mu">↻180°</text>
+<text x="335" y="162" text-anchor="middle" class="sm">(b) ①A, ②B, ③C</text>
+</svg>
+<figcaption>[그림 2-12] 직사각형 탁자에 6명(위 ②①, 왼쪽 ③, 오른쪽 ⑥, 아래 ④⑤). (a) ①A, ②B, ⑥C와 (b) ①A, ②B, ③C처럼 180° 회전시켜 겹치는 배치는 모양이 같다 → 대각선 기준 한쪽 부분에서 고정된 한 사람의 자리만 생각.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-10 · 대칭순열</div>
 다각형의 모양에 따라 대칭순열을 나타내면
 <ul><li>정사각형에 $n$명을 앉히는 방법의 수 $(n-1)!\times\dfrac{n}{4}$</li>

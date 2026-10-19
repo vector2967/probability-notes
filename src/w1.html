@@ -21,7 +21,17 @@ $$n(A\cup B\cup C) = n(A)+n(B)+n(C)-n(A\cap B)-n(B\cap C)-n(C\cap A)+n(A\cap B\c
 <details class="ex"><summary><span class="tag">예제 2-1</span> $n(A)=25$, $n(B)=19$, $n(A\cup B)=40$일 때, $n(A\cap B)$를 구하라.</summary>
 <div class="sol">
 <p>$n(A\cup B)=n(A)+n(B)-n(A\cap B)$이므로 $40=25+19-n(A\cap B)$ → $n(A\cap B)=4$.</p>
-<p class="fig">[벤 다이어그램] $A$만 21, $A\cap B$ 4, $B$만 15.</p>
+<figure class="fig"><svg width="360" height="190" viewBox="0 0 360 190" role="img" aria-label="두 원 A, B의 벤 다이어그램: A만 21, A∩B 4, B만 15">
+<defs><clipPath id="cp-w1-venn"><circle cx="140" cy="100" r="70"/></clipPath></defs>
+<circle class="hl" cx="220" cy="100" r="70" clip-path="url(#cp-w1-venn)"/>
+<circle class="ln" cx="140" cy="100" r="70"/><circle class="ln" cx="220" cy="100" r="70"/>
+<text x="90" y="24" text-anchor="middle">A</text><text x="270" y="24" text-anchor="middle">B</text>
+<text x="105" y="105" text-anchor="middle">21</text>
+<text x="180" y="105" text-anchor="middle" class="acc">4</text>
+<text x="180" y="124" text-anchor="middle" class="sm mu">A∩B</text>
+<text x="255" y="105" text-anchor="middle">15</text>
+</svg>
+<figcaption>[벤 다이어그램] $A$만 21, $A\cap B$ 4, $B$만 15.</figcaption></figure>
 <p class="ans">답: 4</p></div></details>
 
 <details class="ex"><summary><span class="tag">예제 2-2</span> 학생 60명에게 두 문제를 풀게 하였다. 1번 문제를 푼 학생은 35명이고, 2번 문제를 푼 학생은 28명, 두 문제를 모두 못 푼 학생은 5명이었다. (a) 두 문제를 모두 푼 학생은 몇 명인지 구하라. (b) 1번 문제만 푼 학생은 몇 명인지 구하라.</summary>
@@ -45,8 +55,39 @@ $n(A^c\cap B^c\cap C^c)=n(U)-n(A\cup B\cup C)=100-80=20$</p>
 
 <h3 id="s2-1-2">2.1.2 곱사건</h3>
 <p>$A$가 $m$가지, $B$가 $n$가지로 일어날 때 둘이 동시에(연속적으로) 일어나는 경우 = $m\times n$. 이를 곱사건 $A\cap B$라 하고 경우의 수를 $n(A\cap B)$로 쓴다.</p>
-<p class="fig">[그림 2-1] A→B 길 3개, B→C 길 2개 → A에서 B를 거쳐 C로 가는 방법 $3\times2=6$가지.</p>
-<p class="fig">[그림 2-2] 서울→부산(도보·자전거·승용차·기차 4가지), 부산→제주(군함·잠수함·비행기 3가지) → $4\times3=12$가지.</p>
+<figure class="fig"><svg width="400" height="135" viewBox="0 0 400 135" role="img" aria-label="A에서 B로 길 3개, B에서 C로 길 2개">
+<path class="ln" d="M50 80 Q125 40 200 80"/>
+<path class="ln" d="M50 80 Q125 80 200 80"/>
+<path class="ln" d="M50 80 Q125 120 200 80"/>
+<path class="ln" d="M200 80 Q275 60 350 80"/>
+<path class="ln" d="M200 80 Q275 100 350 80"/>
+<circle class="dot" cx="50" cy="80" r="5"/><circle class="dot" cx="200" cy="80" r="5"/><circle class="dot" cx="350" cy="80" r="5"/>
+<text x="32" y="85" text-anchor="middle">A</text><text x="200" y="110" text-anchor="middle">B</text><text x="368" y="85" text-anchor="middle">C</text>
+<text x="125" y="52" text-anchor="middle" class="sm acc">3가지</text><text x="275" y="62" text-anchor="middle" class="sm acc">2가지</text>
+<text x="200" y="130" text-anchor="middle" class="sm mu">3 × 2 = 6</text>
+</svg>
+<figcaption>[그림 2-1] A→B 길 3개, B→C 길 2개 → A에서 B를 거쳐 C로 가는 방법 $3\times2=6$가지.</figcaption></figure>
+<figure class="fig"><svg width="460" height="185" viewBox="0 0 460 185" role="img" aria-label="서울에서 부산 4가지, 부산에서 제주 3가지 교통수단">
+<path class="ln" d="M76 100 Q140 34 204 100"/>
+<path class="ln" d="M76 100 Q140 78 204 100"/>
+<path class="ln" d="M76 100 Q140 122 204 100"/>
+<path class="ln" d="M76 100 Q140 166 204 100"/>
+<path class="ln" d="M256 100 Q320 56 384 100"/>
+<path class="ln" d="M256 100 Q320 100 384 100"/>
+<path class="ln" d="M256 100 Q320 144 384 100"/>
+<rect class="ln" x="24" y="87" width="52" height="26" rx="6"/><rect class="ln" x="204" y="87" width="52" height="26" rx="6"/><rect class="ln" x="384" y="87" width="52" height="26" rx="6"/>
+<text x="50" y="105" text-anchor="middle">서울</text><text x="230" y="105" text-anchor="middle">부산</text><text x="410" y="105" text-anchor="middle">제주</text>
+<text x="140" y="63" text-anchor="middle" class="sm">도보</text>
+<text x="140" y="85" text-anchor="middle" class="sm">자전거</text>
+<text x="140" y="107" text-anchor="middle" class="sm">승용차</text>
+<text x="140" y="129" text-anchor="middle" class="sm">기차</text>
+<text x="320" y="74" text-anchor="middle" class="sm">군함</text>
+<text x="320" y="96" text-anchor="middle" class="sm">잠수함</text>
+<text x="320" y="118" text-anchor="middle" class="sm">비행기</text>
+<text x="140" y="160" text-anchor="middle" class="sm acc">4가지</text><text x="320" y="160" text-anchor="middle" class="sm acc">3가지</text>
+<text x="230" y="180" text-anchor="middle" class="sm mu">4 × 3 = 12</text>
+</svg>
+<figcaption>[그림 2-2] 서울→부산(도보·자전거·승용차·기차 4가지), 부산→제주(군함·잠수함·비행기 3가지) → $4\times3=12$가지.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-2 · 곱사건</div>
 두 사건을 $A$, $B$라고 할 때, 사건 $A$와 사건 $B$가 동시에 일어나는 경우의 수
 $$n(A\cap B) = n(A)\times n(B)$$
@@ -61,7 +102,28 @@ $$n(A\cap B) = n(A)\times n(B)$$
 
 <details class="ex"><summary><span class="tag">예제 2-5</span> A, B, C, D 네 지점 사이에 다음 그림과 같은 도로망이 있다. 같은 지점은 한 번 밖에 지나 갈 수 없다고 할 때, A에서 D를 다녀오는 경로의 수를 구하라.</summary>
 <div class="sol">
-<p class="fig">[그림] 도로 수: A–B 3개, A–C 4개, B–C 2개, B–D 2개, C–D 1개.</p>
+<figure class="fig"><svg width="420" height="235" viewBox="0 0 420 235" role="img" aria-label="도로망: A–B 3개, A–C 4개, B–C 2개, B–D 2개, C–D 1개">
+<path class="ln" d="M50 120 Q119 59 210 40"/>
+<path class="ln" d="M50 120 Q130 80 210 40"/>
+<path class="ln" d="M50 120 Q141 101 210 40"/>
+<path class="ln" d="M50 120 Q146 128 210 200"/>
+<path class="ln" d="M50 120 Q135 149 210 200"/>
+<path class="ln" d="M50 120 Q125 171 210 200"/>
+<path class="ln" d="M50 120 Q114 192 210 200"/>
+<path class="ln" d="M210 40 Q222 120 210 200"/>
+<path class="ln" d="M210 40 Q198 120 210 200"/>
+<path class="ln" d="M210 40 Q295 69 370 120"/>
+<path class="ln" d="M210 40 Q285 91 370 120"/>
+<path class="ln" d="M210 200 Q290 160 370 120"/>
+<circle class="dot" cx="50" cy="120" r="5"/><circle class="dot" cx="210" cy="40" r="5"/><circle class="dot" cx="210" cy="200" r="5"/><circle class="dot" cx="370" cy="120" r="5"/>
+<text x="32" y="125" text-anchor="middle">A</text><text x="210" y="26" text-anchor="middle">B</text><text x="210" y="224" text-anchor="middle">C</text><text x="388" y="125" text-anchor="middle">D</text>
+<text x="108" y="62" text-anchor="middle" class="sm acc">3개</text>
+<text x="100" y="196" text-anchor="middle" class="sm acc">4개</text>
+<text x="238" y="124" text-anchor="middle" class="sm acc">2개</text>
+<text x="308" y="66" text-anchor="middle" class="sm acc">2개</text>
+<text x="308" y="178" text-anchor="middle" class="sm acc">1개</text>
+</svg>
+<figcaption>[그림] 도로 수: A–B 3개, A–C 4개, B–C 2개, B–D 2개, C–D 1개.</figcaption></figure>
 <p>같은 지점을 다시 못 지나므로 갈 때와 올 때 다른 중간 지점을 써야 한다.</p>
 <p>i) A→B→D→C→A: $3\times2\times1\times4=24$<br>
 ii) A→C→D→B→A: $4\times1\times2\times3=24$</p>
@@ -88,7 +150,15 @@ ii) A→C→D→B→A: $4\times1\times2\times3=24$</p>
 전체 사건 $U$에서 사건 $A$가 일어나지 않는 사건
 $$A^c = U - A$$
 </div>
-<p class="fig">[그림 2-3] 직사각형 $U$ 안의 원 $A$, 원 바깥(음영)이 $A^c$.</p>
+<figure class="fig"><svg width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="전체집합 U 안의 원 A, 원 바깥의 음영 영역이 Aᶜ">
+<path class="hl" fill-rule="evenodd" d="M20 20h300v160h-300z M225 100a55 55 0 1 0 -110 0a55 55 0 1 0 110 0z"/>
+<rect class="ln" x="20" y="20" width="300" height="160"/>
+<circle class="ln" cx="170" cy="100" r="55"/>
+<text x="36" y="42" text-anchor="middle">U</text>
+<text x="170" y="105" text-anchor="middle">A</text>
+<text x="280" y="164" text-anchor="middle" class="acc">Aᶜ</text>
+</svg>
+<figcaption>[그림 2-3] 직사각형 $U$ 안의 원 $A$, 원 바깥(음영)이 $A^c$.</figcaption></figure>
 <p><b>'적어도'</b> 문제 = 전체 − (그 일이 전혀 안 일어나는 경우). 예) 남 3, 여 3 중 2명 뽑기에서 적어도 여학생 1명:</p>
 <ul>
 <li>직접: 여 1명 $3\times3=9$ + 여 2명 3 = 12 ([그림 2-4])</li>

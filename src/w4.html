@@ -14,11 +14,42 @@
 <li>공사건 : 절대로 일어나지 않는 사건</li>
 </ul></div>
 <p><b>합사건</b> $A\cup B$ : $A$ 또는(or) $B$가 일어나는 사건. <b>곱사건</b> $A\cap B$ : $A$ 그리고(and) $B$가 동시에 일어나는 사건.</p>
-<p class="fig">[그림 3-1] 합사건과 곱사건 — (a) 표본공간 $S$ 안 두 원 전체 음영($A\cup B$), (b) 두 원이 겹친 부분만 음영($A\cap B$).</p>
+<figure class="fig"><svg width="440" height="180" viewBox="0 0 440 180" role="img" aria-label="(a) 두 원 전체가 색칠된 합사건, (b) 두 원이 겹친 부분만 색칠된 곱사건">
+<g><rect class="ln" x="10" y="10" width="200" height="140"/>
+<path class="hl" d="M110,42.58 A45,45 0 1 0 110,117.42 A45,45 0 1 0 110,42.58 Z"/>
+<circle class="ln" cx="85" cy="80" r="45"/><circle class="ln" cx="135" cy="80" r="45"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="70" y="85" text-anchor="middle">A</text><text x="150" y="85" text-anchor="middle">B</text>
+<text x="110" y="172" text-anchor="middle">(a) A∪B</text></g>
+<g transform="translate(220,0)"><rect class="ln" x="10" y="10" width="200" height="140"/>
+<path class="hl" d="M110,42.58 A45,45 0 0 1 110,117.42 A45,45 0 0 1 110,42.58 Z"/>
+<circle class="ln" cx="85" cy="80" r="45"/><circle class="ln" cx="135" cy="80" r="45"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="70" y="85" text-anchor="middle">A</text><text x="150" y="85" text-anchor="middle">B</text>
+<text x="110" y="172" text-anchor="middle">(b) A∩B</text></g></svg>
+<figcaption>[그림 3-1] 합사건과 곱사건 — (a) 표본공간 $S$ 안 두 원 전체 음영($A\cup B$), (b) 두 원이 겹친 부분만 음영($A\cap B$).</figcaption></figure>
 <p>$A\cap B=\phi$이면 $A$, $B$는 서로 <b>배반사건</b>(한쪽이 일어나면 다른 쪽은 일어날 수 없음). 예: 주사위의 홀수 눈 사건과 짝수 눈 사건. $A$가 일어나지 않는 사건이 <b>여사건</b> $A^c$이며, $A$와 $A^c$는 항상 서로 배반.</p>
-<p class="fig">[그림 3-2] 배반사건과 여사건 — (a) $S$ 안에 겹치지 않는 두 원 $A$, $B$, (b) 원 $A$ 바깥 영역 $A^c$ 음영.</p>
+<figure class="fig"><svg width="440" height="180" viewBox="0 0 440 180" role="img" aria-label="(a) 겹치지 않는 두 원 A, B, (b) 원 A 바깥 영역이 색칠된 여사건">
+<g><rect class="ln" x="10" y="10" width="200" height="140"/>
+<circle class="ln" cx="65" cy="80" r="38"/><circle class="ln" cx="155" cy="80" r="38"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="65" y="85" text-anchor="middle">A</text><text x="155" y="85" text-anchor="middle">B</text>
+<text x="110" y="172" text-anchor="middle">(a) A∩B=∅</text></g>
+<g transform="translate(220,0)">
+<path class="hl" fill-rule="evenodd" d="M10,10 H210 V150 H10 Z M155,80 A45,45 0 1 0 65,80 A45,45 0 1 0 155,80 Z"/>
+<rect class="ln" x="10" y="10" width="200" height="140"/><circle class="ln" cx="110" cy="80" r="45"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="110" y="85" text-anchor="middle">A</text><text x="180" y="138" text-anchor="middle" class="acc">Aᶜ</text>
+<text x="110" y="172" text-anchor="middle">(b) Aᶜ</text></g></svg>
+<figcaption>[그림 3-2] 배반사건과 여사건 — (a) $S$ 안에 겹치지 않는 두 원 $A$, $B$, (b) 원 $A$ 바깥 영역 $A^c$ 음영.</figcaption></figure>
 <p>예: 주사위에서 홀수 사건 $A=\{1,3,5\}$, 소수 사건 $B=\{2,3,5\}$ → $A\cup B=\{1,2,3,5\}$, $A\cap B=\{3,5\}$, $A^c=\{2,4,6\}$.</p>
-<p class="fig">[그림 3-3] 주사위에서 홀수와 소수가 나오는 사건 — 벤 다이어그램: $A$에만 1, 겹친 부분 3, 5, $B$에만 2, 바깥($S$)에 4, 6.</p>
+<figure class="fig"><svg width="300" height="180" viewBox="0 0 300 180" role="img" aria-label="벤 다이어그램: A에만 1, 겹친 부분 3과 5, B에만 2, 바깥에 4와 6">
+<rect class="ln" x="10" y="10" width="280" height="160"/>
+<path class="hl" d="M150,47.6 A55,55 0 0 1 150,132.4 A55,55 0 0 1 150,47.6 Z"/>
+<circle class="ln" cx="115" cy="90" r="55"/><circle class="ln" cx="185" cy="90" r="55"/>
+<text x="26" y="30" text-anchor="middle">S</text>
+<text x="72" y="42" text-anchor="middle" class="acc">A</text><text x="228" y="42" text-anchor="middle" class="acc">B</text>
+<text x="92" y="95" text-anchor="middle">1</text>
+<text x="150" y="82" text-anchor="middle">3</text><text x="150" y="110" text-anchor="middle">5</text>
+<text x="208" y="95" text-anchor="middle">2</text>
+<text x="34" y="158" text-anchor="middle">4</text><text x="266" y="158" text-anchor="middle">6</text></svg>
+<figcaption>[그림 3-3] 주사위에서 홀수와 소수가 나오는 사건 — 벤 다이어그램: $A$에만 1, 겹친 부분 3, 5, $B$에만 2, 바깥($S$)에 4, 6.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 3-2 · 사건</div>
 두 사건 $A$, $B$에 대하여
 <ul>
@@ -142,19 +173,45 @@ $$\frac{81895}{98554}\approx0.83$$
 $$P(A)=\frac{A\text{가 일어날 수 있는 영역의 크기}}{\text{일어날 수 있는 전체 영역의 크기}}$$
 (영역의 크기 = 길이, 넓이 등)</div>
 <p>예: 반지름 2인 원을 $y=x$로 자르면 한쪽 넓이 $2\pi$, 전체 $4\pi$ → $\frac{2\pi}{4\pi}=\frac12$.</p>
-<p class="fig">[그림 3-4] 전체 원에서 반원이 차지하는 영역 — 원점 중심 반지름 2인 원, 직선 $y=x$가 원을 이등분하고 한쪽 반원이 색칠됨.</p>
+<figure class="fig"><svg width="300" height="240" viewBox="0 0 300 240" role="img" aria-label="원점 중심 반지름 2인 원을 직선 y=x가 이등분하고 위쪽 반원이 색칠됨">
+<path class="hl" d="M206.57,63.43 A80,80 0 0 0 93.43,176.57 Z"/>
+<line class="lt" x1="40" y1="120" x2="265" y2="120"/><line class="lt" x1="150" y1="230" x2="150" y2="12"/>
+<circle class="ln" cx="150" cy="120" r="80"/>
+<line class="ln" x1="60" y1="210" x2="240" y2="30"/>
+<text x="272" y="124" class="mu sm">x</text><text x="150" y="10" text-anchor="middle" class="mu sm">y</text>
+<text x="142" y="134" text-anchor="middle" class="sm">O</text>
+<text x="238" y="134" text-anchor="middle" class="sm">2</text><text x="60" y="134" text-anchor="middle" class="sm">−2</text>
+<text x="160" y="36" text-anchor="middle" class="sm">2</text><text x="162" y="214" text-anchor="middle" class="sm">−2</text>
+<text x="256" y="34" text-anchor="middle" class="acc">y=x</text></svg>
+<figcaption>[그림 3-4] 전체 원에서 반원이 차지하는 영역 — 원점 중심 반지름 2인 원, 직선 $y=x$가 원을 이등분하고 한쪽 반원이 색칠됨.</figcaption></figure>
 <div class="box tip"><div class="lbl">핵심</div>
 "임의의 점/값" 문제 → 조건을 만족하는 영역을 그림으로 그리고 크기의 비를 구한다. 1변수면 수직선 위 길이의 비, 2변수(점 두 개)면 좌표평면 넓이의 비. 지름 위 원주각 = 직각 → 반원 안은 둔각, 밖은 예각.</div>
 
 <details class="ex"><summary><span class="tag">예제 3-12</span> 한 변의 길이가 10인 정사각형 ABCD가 있다. □ABCD 내부에 한 점 P를 잡을 때, △PBC가 둔각삼각형이 될 확률을 구하라.</summary>
-<div class="sol"><p class="fig">[그림] 정사각형 ABCD(위 A–D, 아래 B–C), 변 BC를 지름으로 하는 반원이 정사각형 내부에 그려짐.</p>
+<div class="sol"><figure class="fig"><svg width="280" height="250" viewBox="0 0 280 250" role="img" aria-label="정사각형 ABCD 안에 변 BC를 지름으로 하는 반원이 색칠됨">
+<path class="hl" d="M40,220 A100,100 0 0 1 240,220 Z"/>
+<rect class="ln" x="40" y="20" width="200" height="200"/>
+<path class="ln" d="M40,220 A100,100 0 0 1 240,220"/>
+<line class="lt" x1="40" y1="220" x2="120" y2="170"/><line class="lt" x1="240" y1="220" x2="120" y2="170"/>
+<circle class="dot" cx="120" cy="170" r="3"/><text x="120" y="162" text-anchor="middle" class="sm">P</text>
+<text x="28" y="18" text-anchor="middle">A</text><text x="252" y="18" text-anchor="middle">D</text>
+<text x="28" y="236" text-anchor="middle">B</text><text x="252" y="236" text-anchor="middle">C</text>
+<text x="140" y="240" text-anchor="middle" class="sm">10</text><text x="256" y="124" text-anchor="middle" class="sm">10</text></svg>
+<figcaption>[그림] 정사각형 ABCD(위 A–D, 아래 B–C), 변 BC를 지름으로 하는 반원이 정사각형 내부에 그려짐.</figcaption></figure>
 <p>P가 $\overline{BC}$를 지름으로 하는 반원 위에 있으면 $\angle BPC=90^\circ$ (직각삼각형). 반원 내부에 있으면 $\angle BPC&gt;90^\circ$ → 둔각삼각형. (반원 밖이면 $\angle P$가 예각이고, $\angle B,\angle C$도 정사각형 내부라 예각.)</p>
 $$\frac{\text{반원의 넓이}}{\square\text{ABCD의 넓이}}=\frac{\frac12\times\pi\times5^2}{10\times10}=\frac{\pi}{8}$$
 <p class="ans">답: $\frac{\pi}{8}$</p></div></details>
 
 <details class="ex"><summary><span class="tag">예제 3-13</span> 한 변의 길이가 2인 정사각형 ABCD가 있다. 정사각형 내부에 한 점 P를 잡을 때, P에서 가장 가까운 꼭짓점까지의 거리가 1 이하일 확률을 구하라.</summary>
 <div class="sol"><p>P가 어느 한 꼭짓점에서 거리 1 이하인 영역에 있으면 된다.</p>
-<p class="fig">[그림] 한 변 2인 정사각형, 네 꼭짓점을 중심으로 반지름 1인 사분원 4개 색칠, 가운데 별 모양이 흰색으로 남음.</p>
+<figure class="fig"><svg width="280" height="250" viewBox="0 0 280 250" role="img" aria-label="한 변 2인 정사각형의 네 꼭짓점에 반지름 1인 사분원 4개가 색칠되고 가운데 별 모양이 남음">
+<path class="ln hl" d="M40,20 H140 A100,100 0 0 1 40,120 Z M240,20 V120 A100,100 0 0 1 140,20 Z M240,220 H140 A100,100 0 0 1 240,120 Z M40,220 V120 A100,100 0 0 1 140,220 Z"/>
+<rect class="ln" x="40" y="20" width="200" height="200"/>
+<text x="28" y="18" text-anchor="middle">A</text><text x="252" y="18" text-anchor="middle">D</text>
+<text x="28" y="236" text-anchor="middle">B</text><text x="252" y="236" text-anchor="middle">C</text>
+<text x="140" y="240" text-anchor="middle" class="sm">2</text>
+<text x="90" y="34" text-anchor="middle" class="sm">1</text><text x="190" y="34" text-anchor="middle" class="sm">1</text></svg>
+<figcaption>[그림] 한 변 2인 정사각형, 네 꼭짓점을 중심으로 반지름 1인 사분원 4개 색칠, 가운데 별 모양이 흰색으로 남음.</figcaption></figure>
 <p>사분원 4개(서로 겹치지 않음) = 반지름 1인 원 하나.</p>
 $$\frac{\pi\times1^2}{2\times2}=\frac{\pi}{4}$$
 <p class="ans">답: $\frac{\pi}{4}$</p></div></details>
@@ -163,12 +220,28 @@ $$\frac{\pi\times1^2}{2\times2}=\frac{\pi}{4}$$
 <div class="sol"><p>실근 조건: 판별식 $D=b^2-4ac\ge0$.</p>
 $$D=(4m)^2-4\times4\times m=16m^2-16m\ge0$$
 $$m(m-1)\ge0\ \Rightarrow\ m\le0\ \text{또는}\ m\ge1$$
-<p class="fig">[그림] 수직선 위 0, 1, 3 표시. 범위 $[0,3]$ 중 조건을 만족하는 부분은 $m=0$(한 점, 길이 0)과 $[1,3]$(길이 2).</p>
+<figure class="fig"><svg width="360" height="100" viewBox="0 0 360 100" role="img" aria-label="수직선 위 0부터 3까지 중 m=0 한 점과 1부터 3까지 구간이 색칠됨">
+<line class="lt" x1="60" y1="22" x2="300" y2="22"/><line class="lt" x1="60" y1="16" x2="60" y2="28"/><line class="lt" x1="300" y1="16" x2="300" y2="28"/>
+<text x="180" y="16" text-anchor="middle" class="mu sm">전체 [0, 3] 길이 3</text>
+<rect class="hl" x="140" y="44" width="160" height="12"/>
+<line class="ln" x1="25" y1="50" x2="335" y2="50"/>
+<line class="ln" x1="60" y1="44" x2="60" y2="56"/><line class="ln" x1="140" y1="44" x2="140" y2="56"/><line class="ln" x1="220" y1="44" x2="220" y2="56"/><line class="ln" x1="300" y1="44" x2="300" y2="56"/>
+<circle class="dot" cx="60" cy="50" r="4"/><circle class="dot" cx="140" cy="50" r="4"/><circle class="dot" cx="300" cy="50" r="4"/>
+<text x="60" y="74" text-anchor="middle">0</text><text x="140" y="74" text-anchor="middle">1</text><text x="220" y="74" text-anchor="middle" class="mu">2</text><text x="300" y="74" text-anchor="middle">3</text>
+<text x="345" y="54" class="mu sm">m</text>
+<text x="220" y="94" text-anchor="middle" class="acc">길이 2</text><text x="60" y="94" text-anchor="middle" class="sm mu">한 점(길이 0)</text></svg>
+<figcaption>[그림] 수직선 위 0, 1, 3 표시. 범위 $[0,3]$ 중 조건을 만족하는 부분은 $m=0$(한 점, 길이 0)과 $[1,3]$(길이 2).</figcaption></figure>
 $$\frac{\text{실근을 가지는 영역}}{\text{주어진 영역}}=\frac{2}{3}$$
 <p class="ans">답: $\frac23$</p></div></details>
 
 <details class="ex"><summary><span class="tag">예제 3-15</span> 반지름이 10인 원판이 있다. 이 원판 위에 임의의 점 P를 잡을 때, 원판의 중심과 P점 사이의 거리가 $4\le\overline{OP}\le6$이 될 확률을 구하라.</summary>
-<div class="sol"><p class="fig">[그림] 반지름 4, 6, 10인 동심원, 반지름 4와 6 사이 고리 영역 색칠.</p>
+<div class="sol"><figure class="fig"><svg width="260" height="240" viewBox="0 0 260 240" role="img" aria-label="반지름 4, 6, 10인 동심원에서 반지름 4와 6 사이 고리가 색칠됨">
+<path class="hl" fill-rule="evenodd" d="M190,120 A60,60 0 1 0 70,120 A60,60 0 1 0 190,120 Z M170,120 A40,40 0 1 0 90,120 A40,40 0 1 0 170,120 Z"/>
+<circle class="ln" cx="130" cy="120" r="100"/><circle class="ln" cx="130" cy="120" r="60"/><circle class="ln" cx="130" cy="120" r="40"/>
+<line class="lt" x1="130" y1="120" x2="230" y2="120"/>
+<circle class="dot" cx="130" cy="120" r="3"/><text x="122" y="136" text-anchor="middle" class="sm">O</text>
+<text x="167" y="114" text-anchor="middle" class="sm">4</text><text x="187" y="114" text-anchor="middle" class="sm">6</text><text x="222" y="114" text-anchor="middle" class="sm">10</text></svg>
+<figcaption>[그림] 반지름 4, 6, 10인 동심원, 반지름 4와 6 사이 고리 영역 색칠.</figcaption></figure>
 $$\frac{\pi\times6^2-\pi\times4^2}{\pi\times10^2}=\frac{(36-16)\pi}{100\pi}=\frac15$$
 <p class="ans">답: $\frac15$</p></div></details>
 

@@ -52,7 +52,17 @@ $$n(A\cup B\cup C) = n(A)+n(B)+n(C)-n(A\cap B)-n(B\cap C)-n(C\cap A)+n(A\cap B\c
 <details class="ex"><summary><span class="tag">예제 2-1</span> $n(A)=25$, $n(B)=19$, $n(A\cup B)=40$일 때, $n(A\cap B)$를 구하라.</summary>
 <div class="sol">
 <p>$n(A\cup B)=n(A)+n(B)-n(A\cap B)$이므로 $40=25+19-n(A\cap B)$ → $n(A\cap B)=4$.</p>
-<p class="fig">[벤 다이어그램] $A$만 21, $A\cap B$ 4, $B$만 15.</p>
+<figure class="fig"><svg width="360" height="190" viewBox="0 0 360 190" role="img" aria-label="두 원 A, B의 벤 다이어그램: A만 21, A∩B 4, B만 15">
+<defs><clipPath id="cp-w1-venn"><circle cx="140" cy="100" r="70"/></clipPath></defs>
+<circle class="hl" cx="220" cy="100" r="70" clip-path="url(#cp-w1-venn)"/>
+<circle class="ln" cx="140" cy="100" r="70"/><circle class="ln" cx="220" cy="100" r="70"/>
+<text x="90" y="24" text-anchor="middle">A</text><text x="270" y="24" text-anchor="middle">B</text>
+<text x="105" y="105" text-anchor="middle">21</text>
+<text x="180" y="105" text-anchor="middle" class="acc">4</text>
+<text x="180" y="124" text-anchor="middle" class="sm mu">A∩B</text>
+<text x="255" y="105" text-anchor="middle">15</text>
+</svg>
+<figcaption>[벤 다이어그램] $A$만 21, $A\cap B$ 4, $B$만 15.</figcaption></figure>
 <p class="ans">답: 4</p></div></details>
 
 <details class="ex"><summary><span class="tag">예제 2-2</span> 학생 60명에게 두 문제를 풀게 하였다. 1번 문제를 푼 학생은 35명이고, 2번 문제를 푼 학생은 28명, 두 문제를 모두 못 푼 학생은 5명이었다. (a) 두 문제를 모두 푼 학생은 몇 명인지 구하라. (b) 1번 문제만 푼 학생은 몇 명인지 구하라.</summary>
@@ -76,8 +86,39 @@ $n(A^c\cap B^c\cap C^c)=n(U)-n(A\cup B\cup C)=100-80=20$</p>
 
 <h3 id="s2-1-2">2.1.2 곱사건</h3>
 <p>$A$가 $m$가지, $B$가 $n$가지로 일어날 때 둘이 동시에(연속적으로) 일어나는 경우 = $m\times n$. 이를 곱사건 $A\cap B$라 하고 경우의 수를 $n(A\cap B)$로 쓴다.</p>
-<p class="fig">[그림 2-1] A→B 길 3개, B→C 길 2개 → A에서 B를 거쳐 C로 가는 방법 $3\times2=6$가지.</p>
-<p class="fig">[그림 2-2] 서울→부산(도보·자전거·승용차·기차 4가지), 부산→제주(군함·잠수함·비행기 3가지) → $4\times3=12$가지.</p>
+<figure class="fig"><svg width="400" height="135" viewBox="0 0 400 135" role="img" aria-label="A에서 B로 길 3개, B에서 C로 길 2개">
+<path class="ln" d="M50 80 Q125 40 200 80"/>
+<path class="ln" d="M50 80 Q125 80 200 80"/>
+<path class="ln" d="M50 80 Q125 120 200 80"/>
+<path class="ln" d="M200 80 Q275 60 350 80"/>
+<path class="ln" d="M200 80 Q275 100 350 80"/>
+<circle class="dot" cx="50" cy="80" r="5"/><circle class="dot" cx="200" cy="80" r="5"/><circle class="dot" cx="350" cy="80" r="5"/>
+<text x="32" y="85" text-anchor="middle">A</text><text x="200" y="110" text-anchor="middle">B</text><text x="368" y="85" text-anchor="middle">C</text>
+<text x="125" y="52" text-anchor="middle" class="sm acc">3가지</text><text x="275" y="62" text-anchor="middle" class="sm acc">2가지</text>
+<text x="200" y="130" text-anchor="middle" class="sm mu">3 × 2 = 6</text>
+</svg>
+<figcaption>[그림 2-1] A→B 길 3개, B→C 길 2개 → A에서 B를 거쳐 C로 가는 방법 $3\times2=6$가지.</figcaption></figure>
+<figure class="fig"><svg width="460" height="185" viewBox="0 0 460 185" role="img" aria-label="서울에서 부산 4가지, 부산에서 제주 3가지 교통수단">
+<path class="ln" d="M76 100 Q140 34 204 100"/>
+<path class="ln" d="M76 100 Q140 78 204 100"/>
+<path class="ln" d="M76 100 Q140 122 204 100"/>
+<path class="ln" d="M76 100 Q140 166 204 100"/>
+<path class="ln" d="M256 100 Q320 56 384 100"/>
+<path class="ln" d="M256 100 Q320 100 384 100"/>
+<path class="ln" d="M256 100 Q320 144 384 100"/>
+<rect class="ln" x="24" y="87" width="52" height="26" rx="6"/><rect class="ln" x="204" y="87" width="52" height="26" rx="6"/><rect class="ln" x="384" y="87" width="52" height="26" rx="6"/>
+<text x="50" y="105" text-anchor="middle">서울</text><text x="230" y="105" text-anchor="middle">부산</text><text x="410" y="105" text-anchor="middle">제주</text>
+<text x="140" y="63" text-anchor="middle" class="sm">도보</text>
+<text x="140" y="85" text-anchor="middle" class="sm">자전거</text>
+<text x="140" y="107" text-anchor="middle" class="sm">승용차</text>
+<text x="140" y="129" text-anchor="middle" class="sm">기차</text>
+<text x="320" y="74" text-anchor="middle" class="sm">군함</text>
+<text x="320" y="96" text-anchor="middle" class="sm">잠수함</text>
+<text x="320" y="118" text-anchor="middle" class="sm">비행기</text>
+<text x="140" y="160" text-anchor="middle" class="sm acc">4가지</text><text x="320" y="160" text-anchor="middle" class="sm acc">3가지</text>
+<text x="230" y="180" text-anchor="middle" class="sm mu">4 × 3 = 12</text>
+</svg>
+<figcaption>[그림 2-2] 서울→부산(도보·자전거·승용차·기차 4가지), 부산→제주(군함·잠수함·비행기 3가지) → $4\times3=12$가지.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-2 · 곱사건</div>
 두 사건을 $A$, $B$라고 할 때, 사건 $A$와 사건 $B$가 동시에 일어나는 경우의 수
 $$n(A\cap B) = n(A)\times n(B)$$
@@ -92,7 +133,28 @@ $$n(A\cap B) = n(A)\times n(B)$$
 
 <details class="ex"><summary><span class="tag">예제 2-5</span> A, B, C, D 네 지점 사이에 다음 그림과 같은 도로망이 있다. 같은 지점은 한 번 밖에 지나 갈 수 없다고 할 때, A에서 D를 다녀오는 경로의 수를 구하라.</summary>
 <div class="sol">
-<p class="fig">[그림] 도로 수: A–B 3개, A–C 4개, B–C 2개, B–D 2개, C–D 1개.</p>
+<figure class="fig"><svg width="420" height="235" viewBox="0 0 420 235" role="img" aria-label="도로망: A–B 3개, A–C 4개, B–C 2개, B–D 2개, C–D 1개">
+<path class="ln" d="M50 120 Q119 59 210 40"/>
+<path class="ln" d="M50 120 Q130 80 210 40"/>
+<path class="ln" d="M50 120 Q141 101 210 40"/>
+<path class="ln" d="M50 120 Q146 128 210 200"/>
+<path class="ln" d="M50 120 Q135 149 210 200"/>
+<path class="ln" d="M50 120 Q125 171 210 200"/>
+<path class="ln" d="M50 120 Q114 192 210 200"/>
+<path class="ln" d="M210 40 Q222 120 210 200"/>
+<path class="ln" d="M210 40 Q198 120 210 200"/>
+<path class="ln" d="M210 40 Q295 69 370 120"/>
+<path class="ln" d="M210 40 Q285 91 370 120"/>
+<path class="ln" d="M210 200 Q290 160 370 120"/>
+<circle class="dot" cx="50" cy="120" r="5"/><circle class="dot" cx="210" cy="40" r="5"/><circle class="dot" cx="210" cy="200" r="5"/><circle class="dot" cx="370" cy="120" r="5"/>
+<text x="32" y="125" text-anchor="middle">A</text><text x="210" y="26" text-anchor="middle">B</text><text x="210" y="224" text-anchor="middle">C</text><text x="388" y="125" text-anchor="middle">D</text>
+<text x="108" y="62" text-anchor="middle" class="sm acc">3개</text>
+<text x="100" y="196" text-anchor="middle" class="sm acc">4개</text>
+<text x="238" y="124" text-anchor="middle" class="sm acc">2개</text>
+<text x="308" y="66" text-anchor="middle" class="sm acc">2개</text>
+<text x="308" y="178" text-anchor="middle" class="sm acc">1개</text>
+</svg>
+<figcaption>[그림] 도로 수: A–B 3개, A–C 4개, B–C 2개, B–D 2개, C–D 1개.</figcaption></figure>
 <p>같은 지점을 다시 못 지나므로 갈 때와 올 때 다른 중간 지점을 써야 한다.</p>
 <p>i) A→B→D→C→A: $3\times2\times1\times4=24$<br>
 ii) A→C→D→B→A: $4\times1\times2\times3=24$</p>
@@ -119,7 +181,15 @@ ii) A→C→D→B→A: $4\times1\times2\times3=24$</p>
 전체 사건 $U$에서 사건 $A$가 일어나지 않는 사건
 $$A^c = U - A$$
 </div>
-<p class="fig">[그림 2-3] 직사각형 $U$ 안의 원 $A$, 원 바깥(음영)이 $A^c$.</p>
+<figure class="fig"><svg width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="전체집합 U 안의 원 A, 원 바깥의 음영 영역이 Aᶜ">
+<path class="hl" fill-rule="evenodd" d="M20 20h300v160h-300z M225 100a55 55 0 1 0 -110 0a55 55 0 1 0 110 0z"/>
+<rect class="ln" x="20" y="20" width="300" height="160"/>
+<circle class="ln" cx="170" cy="100" r="55"/>
+<text x="36" y="42" text-anchor="middle">U</text>
+<text x="170" y="105" text-anchor="middle">A</text>
+<text x="280" y="164" text-anchor="middle" class="acc">Aᶜ</text>
+</svg>
+<figcaption>[그림 2-3] 직사각형 $U$ 안의 원 $A$, 원 바깥(음영)이 $A^c$.</figcaption></figure>
 <p><b>'적어도'</b> 문제 = 전체 − (그 일이 전혀 안 일어나는 경우). 예) 남 3, 여 3 중 2명 뽑기에서 적어도 여학생 1명:</p>
 <ul>
 <li>직접: 여 1명 $3\times3=9$ + 여 2명 3 = 12 ([그림 2-4])</li>
@@ -321,9 +391,36 @@ $${}_nP_r = n(n-1)(n-2)\cdots(n-r+1) = \frac{n!}{(n-r)!}\quad (\text{단, } n\ge
 <li>${}_nP_r = n\times {}_{n-1}P_{r-1}$</li></ul>
 </div>
 <p><b>이웃하는 경우</b>: 이웃할 것들을 한 묶음(원소 1개)으로 보고 나열 × 묶음 안에서 나열.</p>
-<p class="fig">[그림 2-6] 남 3 + 여 3을 일렬로, 여자 3명이 이웃: (남,남,남,여자묶음) 나열 $4!$ × 묶음 안 여자 나열 $3!$ → $4!\times3!=144$가지.</p>
+<figure class="fig"><svg width="400" height="120" viewBox="0 0 400 120" role="img" aria-label="여자 3명을 한 묶음으로 보고 남자 3명과 함께 4개를 나열">
+<text x="250" y="20" text-anchor="middle" class="sm acc">묶음 안 나열 3!</text>
+<rect x="186" y="30" width="128" height="50" rx="10" class="ln hl"/>
+<circle cx="40" cy="55" r="17" class="ln"/><text x="40" y="60" text-anchor="middle">남</text>
+<circle cx="90" cy="55" r="17" class="ln"/><text x="90" y="60" text-anchor="middle">남</text>
+<circle cx="140" cy="55" r="17" class="ln"/><text x="140" y="60" text-anchor="middle">남</text>
+<circle cx="210" cy="55" r="17" class="ln"/><text x="210" y="60" text-anchor="middle">여</text>
+<circle cx="250" cy="55" r="17" class="ln"/><text x="250" y="60" text-anchor="middle">여</text>
+<circle cx="290" cy="55" r="17" class="ln"/><text x="290" y="60" text-anchor="middle">여</text>
+<path d="M23,88 v8 H314 v-8" class="ln"/>
+<text x="168" y="114" text-anchor="middle" class="sm">(남, 남, 남, 여자묶음) 4개 나열 4!</text>
+<text x="360" y="50" text-anchor="middle" class="acc">4!×3!</text>
+<text x="360" y="70" text-anchor="middle" class="acc">= 144</text>
+</svg>
+<figcaption>[그림 2-6] 남 3 + 여 3을 일렬로, 여자 3명이 이웃: (남,남,남,여자묶음) 나열 $4!$ × 묶음 안 여자 나열 $3!$ → $4!\times3!=144$가지.</figcaption></figure>
 <p><b>이웃하지 않는 경우</b>: 이웃해도 되는 것을 먼저 나열하고, 그 사이·양끝 빈자리에 이웃하면 안 되는 것을 배열.</p>
-<p class="fig">[그림 2-7] _ 남 _ 남 _ 남 _ : 남자 나열 $3!$, 빈자리 4곳 중 3곳에 여자 배열 ${}_4P_3=24$ → $3!\times{}_4P_3=144$가지.</p>
+<figure class="fig"><svg width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="남자 3명을 세우고 사이와 양끝 빈자리 4곳 중 3곳에 여자 배열">
+<text x="180" y="20" text-anchor="middle" class="sm">남자 나열 3!</text>
+<rect x="14" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="30" y="60" text-anchor="middle" class="sm mu">1</text>
+<circle cx="80" cy="55" r="17" class="ln"/><text x="80" y="60" text-anchor="middle">남</text>
+<rect x="114" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="130" y="60" text-anchor="middle" class="sm mu">2</text>
+<circle cx="180" cy="55" r="17" class="ln"/><text x="180" y="60" text-anchor="middle">남</text>
+<rect x="214" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="230" y="60" text-anchor="middle" class="sm mu">3</text>
+<circle cx="280" cy="55" r="17" class="ln"/><text x="280" y="60" text-anchor="middle">남</text>
+<rect x="314" y="38" width="32" height="34" rx="4" class="lt hl2"/><text x="330" y="60" text-anchor="middle" class="sm mu">4</text>
+<text x="180" y="104" text-anchor="middle" class="sm acc">빈자리 4곳 중 3곳에 여자 배열 → ₄P₃ = 24</text>
+<text x="385" y="50" text-anchor="middle" class="acc">3!×₄P₃</text>
+<text x="385" y="70" text-anchor="middle" class="acc">= 144</text>
+</svg>
+<figcaption>[그림 2-7] _ 남 _ 남 _ 남 _ : 남자 나열 $3!$, 빈자리 4곳 중 3곳에 여자 배열 ${}_4P_3=24$ → $3!\times{}_4P_3=144$가지.</figcaption></figure>
 <div class="box tip"><div class="lbl">핵심</div>이웃 → <b>묶어서</b> (묶음 수)! × (묶음 내부)!. 이웃 X → <b>먼저 세우고 사이에 끼우기</b>: $k$명 세우면 빈자리 $k+1$개.</div>
 
 <details class="ex"><summary><span class="tag">예제 2-11</span> ${}_nP_2 = 90$일 때, 양수 $n$의 값을 구하라.</summary>
@@ -348,7 +445,24 @@ $4!\times{}_5P_3=24\times60=1440$
 
 <h3 id="s2-2-2">2.2.2 중복순열</h3>
 <p>$\{1,2,3,4\}$에서 2개 배열: 순열 ${}_4P_2=12$ + 중복 허락 $\{1,1\},\{2,2\},\{3,3\},\{4,4\}$ = 16 → <b>중복순열</b> ${}_n\Pi_r$.</p>
-<p class="fig">[그림 2-8] 빵 4개(선택 대상, $r$)를 바구니 3개(중복 대상, $n$)에 나누어 담기 — 한 바구니에 4개 모두, 2·1·1개 등. 경우의 수 ${}_3\Pi_4=81$.</p>
+<figure class="fig"><svg width="400" height="210" viewBox="0 0 400 210" role="img" aria-label="빵 4개가 각각 바구니 3개 중 하나를 고르는 그림">
+<g class="lt">
+<path d="M125,46 L100,118 M125,46 L200,118 M125,46 L300,118"/>
+<path d="M175,46 L100,118 M175,46 L200,118 M175,46 L300,118"/>
+<path d="M225,46 L100,118 M225,46 L200,118 M225,46 L300,118"/>
+<path d="M275,46 L100,118 M275,46 L200,118 M275,46 L300,118"/>
+</g>
+<circle cx="125" cy="32" r="14" class="ln hl2"/><text x="125" y="37" text-anchor="middle" class="sm">빵1</text>
+<circle cx="175" cy="32" r="14" class="ln hl2"/><text x="175" y="37" text-anchor="middle" class="sm">빵2</text>
+<circle cx="225" cy="32" r="14" class="ln hl2"/><text x="225" y="37" text-anchor="middle" class="sm">빵3</text>
+<circle cx="275" cy="32" r="14" class="ln hl2"/><text x="275" y="37" text-anchor="middle" class="sm">빵4</text>
+<path d="M64,120 H136 L128,155 H72 Z" class="ln"/><text x="100" y="143" text-anchor="middle" class="sm">바구니1</text>
+<path d="M164,120 H236 L228,155 H172 Z" class="ln"/><text x="200" y="143" text-anchor="middle" class="sm">바구니2</text>
+<path d="M264,120 H336 L328,155 H272 Z" class="ln"/><text x="300" y="143" text-anchor="middle" class="sm">바구니3</text>
+<text x="200" y="180" text-anchor="middle" class="sm">빵 4개(r)가 각각 바구니 3개(n) 중 하나를 고름</text>
+<text x="200" y="200" text-anchor="middle" class="sm acc">3×3×3×3 = ₃Π₄ = 81</text>
+</svg>
+<figcaption>[그림 2-8] 빵 4개(선택 대상, $r$)를 바구니 3개(중복 대상, $n$)에 나누어 담기 — 한 바구니에 4개 모두, 2·1·1개 등. 경우의 수 ${}_3\Pi_4=81$.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-6 · 중복순열</div>
 서로 다른 $n$개에서 중복을 허락하여 $r$개를 선택하여 배열하는 방법의 수
 $${}_n\Pi_r = n^r$$
@@ -369,13 +483,46 @@ ${}_5\Pi_4=5\times5\times5\times5=5^4=625$
 <p class="ans">답: 625</p></div></details>
 
 <div class="box tip"><div class="lbl">Check it up! · 일대일함수의 개수</div>
-일대일함수는 정의역 원소끼리 함숫값이 겹치면 안 됨(중복 X) → $A$($r$개)에서 $B$($n$개)로의 일대일함수 수 $={}_nP_r$.<br>
-<span class="fig">[그림 2-9] $A=\{1,2,3\}$, $B=\{a,b,c,d\}$, $1\to a,\ 2\to b,\ 3\to c$</span> → ${}_4P_3=4\times3\times2=24$.<br>
+일대일함수는 정의역 원소끼리 함숫값이 겹치면 안 됨(중복 X) → $A$($r$개)에서 $B$($n$개)로의 일대일함수 수 $={}_nP_r$.
+<figure class="fig"><svg width="320" height="200" viewBox="0 0 320 200" role="img" aria-label="집합 A의 1, 2, 3이 집합 B의 a, b, c로 대응하는 일대일함수">
+<defs><marker id="ar-w2-9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="dot"/></marker></defs>
+<text x="80" y="25" text-anchor="middle" class="acc">A</text>
+<ellipse cx="80" cy="105" rx="42" ry="70" class="ln"/>
+<text x="240" y="18" text-anchor="middle" class="acc">B</text>
+<ellipse cx="240" cy="105" rx="42" ry="80" class="ln"/>
+<circle cx="95" cy="65" r="3" class="dot"/><text x="75" y="70" text-anchor="middle">1</text>
+<circle cx="95" cy="105" r="3" class="dot"/><text x="75" y="110" text-anchor="middle">2</text>
+<circle cx="95" cy="145" r="3" class="dot"/><text x="75" y="150" text-anchor="middle">3</text>
+<circle cx="225" cy="50" r="3" class="dot"/><text x="248" y="55" text-anchor="middle">a</text>
+<circle cx="225" cy="85" r="3" class="dot"/><text x="248" y="90" text-anchor="middle">b</text>
+<circle cx="225" cy="120" r="3" class="dot"/><text x="248" y="125" text-anchor="middle">c</text>
+<circle cx="225" cy="155" r="3" class="dot"/><text x="248" y="160" text-anchor="middle">d</text>
+<line x1="99" y1="65" x2="219" y2="50" class="ln" marker-end="url(#ar-w2-9)"/>
+<line x1="99" y1="105" x2="219" y2="85" class="ln" marker-end="url(#ar-w2-9)"/>
+<line x1="99" y1="145" x2="219" y2="120" class="ln" marker-end="url(#ar-w2-9)"/>
+</svg>
+<figcaption>[그림 2-9] $A=\{1,2,3\}$, $B=\{a,b,c,d\}$, $1\to a,\ 2\to b,\ 3\to c$</figcaption></figure>
+1, 2, 3이 서로 다른 원소로 대응하는 방법 → ${}_4P_3=4\times3\times2=24$.<br>
 함수 전체 수 $=n^r$ (중복순열) vs 일대일함수 수 $={}_nP_r$ (순열).</div>
 
 <h3 id="s2-2-3">2.2.3 같은 것이 있는 순열</h3>
 <p>같은 것이 섞여 있으면 구별해서 센 뒤, 같은 것끼리의 자리 바꿈 수로 나눈다.</p>
-<p class="fig">[그림 2-10] $a,a,b$ 나열: $a_1,a_2$로 구별하면 $3!=6$가지. $a_1a_2b, a_2a_1b\to aab$ / $a_1ba_2, a_2ba_1\to aba$ / $ba_1a_2, ba_2a_1\to baa$ → 3가지 $=\dfrac{3!}{2!\times1!}$. <span class="fix">※ 책 오탈자 수정: 그림 셋째 줄 원문 "aba"</span></p>
+<figure class="fig"><svg width="320" height="205" viewBox="0 0 320 205" role="img" aria-label="a1, a2를 구별한 6가지가 2개씩 같아져 aab, aba, baa 3가지">
+<defs><marker id="ar-w2-10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" class="dot"/></marker></defs>
+<text x="60" y="16" text-anchor="middle" class="sm mu">구별하면 3! = 6</text>
+<text x="245" y="16" text-anchor="middle" class="sm mu">같게 보면 3</text>
+<text x="60" y="45" text-anchor="middle">a₁a₂b</text><text x="60" y="68" text-anchor="middle">a₂a₁b</text>
+<text x="60" y="108" text-anchor="middle">a₁ba₂</text><text x="60" y="131" text-anchor="middle">a₂ba₁</text>
+<text x="60" y="171" text-anchor="middle">ba₁a₂</text><text x="60" y="194" text-anchor="middle">ba₂a₁</text>
+<path d="M100,32 h8 v40 h-8 M100,95 h8 v40 h-8 M100,158 h8 v40 h-8" class="ln"/>
+<line x1="112" y1="52" x2="205" y2="52" class="ln" marker-end="url(#ar-w2-10)"/>
+<line x1="112" y1="115" x2="205" y2="115" class="ln" marker-end="url(#ar-w2-10)"/>
+<line x1="112" y1="178" x2="205" y2="178" class="ln" marker-end="url(#ar-w2-10)"/>
+<text x="245" y="57" text-anchor="middle" class="acc">aab</text>
+<text x="245" y="120" text-anchor="middle" class="acc">aba</text>
+<text x="245" y="183" text-anchor="middle" class="acc">baa</text>
+</svg>
+<figcaption>[그림 2-10] $a,a,b$ 나열: $a_1,a_2$로 구별하면 $3!=6$가지. $a_1a_2b, a_2a_1b\to aab$ / $a_1ba_2, a_2ba_1\to aba$ / $ba_1a_2, ba_2a_1\to baa$ → 3가지 $=\dfrac{3!}{2!\times1!}$. <span class="fix">※ 책 오탈자 수정: 그림 셋째 줄 원문 "aba"</span></figcaption></figure>
 <p>예) $a,a,a,b,b,c$ ($n=3+2+1=6$): $\dfrac{6!}{3!\times2!\times1!}=\dfrac{6\times5\times4\times3\times2\times1}{3\times2\times1\times2\times1\times1}=60$가지.</p>
 <div class="box def"><div class="lbl">정리 2-7 · 같은 것이 있는 순열</div>
 $n$개 중에서 같은 것이 $p$개, $q$개, $r$개, $\cdots$, $s$개가 있을 때, $n$개를 모두 선택하여 일렬로 배열하는 순열의 수
@@ -405,7 +552,22 @@ $$\frac{11!}{2!\times3!\times2!}=\frac{39916800}{24}=1663200$$
 <tr><th>순열</th><td>ABC</td><td>CAB</td><td>BCA</td><td>ACB</td><td>CBA</td><td>BAC</td></tr>
 <tr><th>원순열</th><td colspan="3">회전하면 모두 같음 (1가지)</td><td colspan="3">회전하면 모두 같음 (1가지)</td></tr>
 </table>
-<p class="fig">[표 2-1] 순열과 원순열의 비교 — 일렬 6가지가 원형에서는 회전 방향별로 3개씩 같아져 $3!\times\frac13=2!$ 가지.</p>
+<figure class="fig"><svg width="440" height="210" viewBox="0 0 440 210" role="img" aria-label="일렬 배열 3개씩이 원형에서 같은 배열 하나가 됨">
+<path d="M50,30 L104,58 M110,30 L110,58 M170,30 L116,58 M270,30 L324,58 M330,30 L330,58 M390,30 L336,58 M220,15 V200" class="lt"/>
+<text x="50" y="22" text-anchor="middle">ABC</text><text x="110" y="22" text-anchor="middle">CAB</text><text x="170" y="22" text-anchor="middle">BCA</text>
+<text x="270" y="22" text-anchor="middle">ACB</text><text x="330" y="22" text-anchor="middle">CBA</text><text x="390" y="22" text-anchor="middle">BAC</text>
+<circle cx="110" cy="120" r="45" class="ln"/><text x="110" y="125" text-anchor="middle" class="mu">↻</text>
+<circle cx="110" cy="75" r="14" class="ln hl"/><text x="110" y="80" text-anchor="middle">A</text>
+<circle cx="149" cy="142" r="14" class="ln hl"/><text x="149" y="147" text-anchor="middle">B</text>
+<circle cx="71" cy="142" r="14" class="ln hl"/><text x="71" y="147" text-anchor="middle">C</text>
+<circle cx="330" cy="120" r="45" class="ln"/><text x="330" y="125" text-anchor="middle" class="mu">↻</text>
+<circle cx="330" cy="75" r="14" class="ln hl"/><text x="330" y="80" text-anchor="middle">A</text>
+<circle cx="369" cy="142" r="14" class="ln hl"/><text x="369" y="147" text-anchor="middle">C</text>
+<circle cx="291" cy="142" r="14" class="ln hl"/><text x="291" y="147" text-anchor="middle">B</text>
+<text x="110" y="198" text-anchor="middle" class="sm acc">원형 1가지</text>
+<text x="330" y="198" text-anchor="middle" class="sm acc">원형 1가지</text>
+</svg>
+<figcaption>[표 2-1] 순열과 원순열의 비교 — 일렬 6가지가 원형에서는 회전 방향별로 3개씩 같아져 $3!\times\frac13=2!$ 가지.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-8 · 원순열</div>
 서로 다른 $n$개를 원형으로 배열하는 순열의 수
 $$n!\times\frac{1}{n}=(n-1)!$$
@@ -436,8 +598,45 @@ $$\frac{(n-1)!}{2}$$
 
 <h3 id="s2-2-5">2.2.5 대칭순열</h3>
 <p>서로 다른 $n$개를 원형이 아닌 <b>다각형</b>(정사각형, 직사각형, 정삼각형 등)에 배열 = <b>대칭순열</b>.</p>
-<p class="fig">[그림 2-11] 정사각형 탁자 네 변에 1명씩 4명 → 원탁에 4명이 앉는 것과 같음: $(4-1)!$.</p>
-<p class="fig">[그림 2-12] 직사각형 탁자에 6명(위 ②①, 왼쪽 ③, 오른쪽 ⑥, 아래 ④⑤). (a) ①A, ②B, ⑥C와 (b) ①A, ②B, ③C처럼 180° 회전시켜 겹치는 배치는 모양이 같다 → 대각선 기준 한쪽 부분에서 고정된 한 사람의 자리만 생각.</p>
+<figure class="fig"><svg width="360" height="195" viewBox="0 0 360 195" role="img" aria-label="정사각형 탁자 네 변에 4명이 앉는 것은 원탁에 4명이 앉는 것과 같음">
+<rect x="45" y="40" width="90" height="90" class="ln"/>
+<circle cx="90" cy="22" r="14" class="ln hl"/><text x="90" y="27" text-anchor="middle">A</text>
+<circle cx="153" cy="85" r="14" class="ln hl"/><text x="153" y="90" text-anchor="middle">B</text>
+<circle cx="90" cy="148" r="14" class="ln hl"/><text x="90" y="153" text-anchor="middle">C</text>
+<circle cx="27" cy="85" r="14" class="ln hl"/><text x="27" y="90" text-anchor="middle">D</text>
+<text x="180" y="91" text-anchor="middle" class="acc">=</text>
+<circle cx="270" cy="85" r="45" class="ln"/>
+<circle cx="270" cy="22" r="14" class="ln hl"/><text x="270" y="27" text-anchor="middle">A</text>
+<circle cx="333" cy="85" r="14" class="ln hl"/><text x="333" y="90" text-anchor="middle">B</text>
+<circle cx="270" cy="148" r="14" class="ln hl"/><text x="270" y="153" text-anchor="middle">C</text>
+<circle cx="207" cy="85" r="14" class="ln hl"/><text x="207" y="90" text-anchor="middle">D</text>
+<text x="90" y="188" text-anchor="middle" class="sm mu">정사각형 탁자</text>
+<text x="270" y="188" text-anchor="middle" class="sm mu">원탁 (4−1)!</text>
+</svg>
+<figcaption>[그림 2-11] 정사각형 탁자 네 변에 1명씩 4명 → 원탁에 4명이 앉는 것과 같음: $(4-1)!$.</figcaption></figure>
+<figure class="fig"><svg width="440" height="172" viewBox="0 0 440 172" role="img" aria-label="직사각형 탁자 6자리, 대각선 한쪽 부분과 두 가지 배치 (a), (b)">
+<polygon points="55,40 175,40 55,110" class="hl"/>
+<rect x="55" y="40" width="120" height="70" class="ln"/>
+<line x1="55" y1="110" x2="175" y2="40" class="lt"/>
+<circle cx="85" cy="24" r="12" class="hl2"/><circle cx="145" cy="24" r="12" class="hl2"/><circle cx="191" cy="75" r="12" class="hl2"/>
+<text x="85" y="29" text-anchor="middle">②</text><text x="145" y="29" text-anchor="middle">①</text>
+<text x="39" y="80" text-anchor="middle">③</text><text x="191" y="80" text-anchor="middle">⑥</text>
+<text x="85" y="131" text-anchor="middle">④</text><text x="145" y="131" text-anchor="middle">⑤</text>
+<text x="145" y="60" text-anchor="middle" class="acc">A</text><text x="85" y="60" text-anchor="middle" class="acc">B</text><text x="160" y="80" text-anchor="middle" class="acc">C</text>
+<text x="115" y="96" text-anchor="middle" class="sm mu">↻180°</text>
+<text x="115" y="162" text-anchor="middle" class="sm">(a) ①A, ②B, ⑥C</text>
+<polygon points="275,40 395,40 275,110" class="hl"/>
+<rect x="275" y="40" width="120" height="70" class="ln"/>
+<line x1="275" y1="110" x2="395" y2="40" class="lt"/>
+<circle cx="305" cy="24" r="12" class="hl2"/><circle cx="365" cy="24" r="12" class="hl2"/><circle cx="259" cy="75" r="12" class="hl2"/>
+<text x="305" y="29" text-anchor="middle">②</text><text x="365" y="29" text-anchor="middle">①</text>
+<text x="259" y="80" text-anchor="middle">③</text><text x="411" y="80" text-anchor="middle">⑥</text>
+<text x="305" y="131" text-anchor="middle">④</text><text x="365" y="131" text-anchor="middle">⑤</text>
+<text x="365" y="60" text-anchor="middle" class="acc">A</text><text x="305" y="60" text-anchor="middle" class="acc">B</text><text x="290" y="80" text-anchor="middle" class="acc">C</text>
+<text x="335" y="96" text-anchor="middle" class="sm mu">↻180°</text>
+<text x="335" y="162" text-anchor="middle" class="sm">(b) ①A, ②B, ③C</text>
+</svg>
+<figcaption>[그림 2-12] 직사각형 탁자에 6명(위 ②①, 왼쪽 ③, 오른쪽 ⑥, 아래 ④⑤). (a) ①A, ②B, ⑥C와 (b) ①A, ②B, ③C처럼 180° 회전시켜 겹치는 배치는 모양이 같다 → 대각선 기준 한쪽 부분에서 고정된 한 사람의 자리만 생각.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 2-10 · 대칭순열</div>
 다각형의 모양에 따라 대칭순열을 나타내면
 <ul><li>정사각형에 $n$명을 앉히는 방법의 수 $(n-1)!\times\dfrac{n}{4}$</li>
@@ -644,7 +843,8 @@ $\dfrac{3!}{2!\times1!}=3$
 
 <h3 id="s2-3-1">2.3.1 조합</h3>
 <p>서로 다른 $n$개에서 중복 없이 $r$개를 순서 무시하고 고르는 것 → ${}_nC_r$. 예: 1, 2, 3, 4에서 2개를 고르면 순열은 ${}_4P_2=12$가지지만 (1,2)와 (2,1)을 같은 것으로 보면 조합은 $12\div 2!=6$가지.</p>
-<p class="fig">[그림 2-13] 조합의 정의: 순열 12쌍 (1,2)(1,3)(1,4)(2,1)(2,3)(2,4)(3,1)(3,2)(3,4)(4,1)(4,2)(4,3) 가운데, 순서만 다른 쌍을 하나로 묶으면 조합 6개 (1,2)(1,3)(1,4)(2,3)(2,4)(3,4)가 남는다. ${}_4C_2=\dfrac{{}_4P_2}{2!}=6$</p>
+<figure class="fig"><svg width="440" height="262" viewBox="0 0 440 262" role="img" aria-label="순열 12쌍을 순서만 다른 두 쌍씩 묶어 조합 6개로 줄이는 그림"><defs><marker id="ar-w3-13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="dot" d="M0 0L10 5L0 10z"/></marker></defs><text x="120" y="24" text-anchor="middle" class="acc">순열 ₄P₂ = 12쌍</text><text x="330" y="24" text-anchor="middle" class="acc">조합 ₄C₂ = 6개</text><rect class="ln hl" x="45" y="40" width="150" height="26" rx="6"/><text x="85" y="58" text-anchor="middle">(1,2)</text><text x="155" y="58" text-anchor="middle">(2,1)</text><line class="ln" x1="205" y1="53" x2="285" y2="53" marker-end="url(#ar-w3-13)"/><text x="330" y="58" text-anchor="middle">(1,2)</text><rect class="ln hl" x="45" y="72" width="150" height="26" rx="6"/><text x="85" y="90" text-anchor="middle">(1,3)</text><text x="155" y="90" text-anchor="middle">(3,1)</text><line class="ln" x1="205" y1="85" x2="285" y2="85" marker-end="url(#ar-w3-13)"/><text x="330" y="90" text-anchor="middle">(1,3)</text><rect class="ln hl" x="45" y="104" width="150" height="26" rx="6"/><text x="85" y="122" text-anchor="middle">(1,4)</text><text x="155" y="122" text-anchor="middle">(4,1)</text><line class="ln" x1="205" y1="117" x2="285" y2="117" marker-end="url(#ar-w3-13)"/><text x="330" y="122" text-anchor="middle">(1,4)</text><rect class="ln hl" x="45" y="136" width="150" height="26" rx="6"/><text x="85" y="154" text-anchor="middle">(2,3)</text><text x="155" y="154" text-anchor="middle">(3,2)</text><line class="ln" x1="205" y1="149" x2="285" y2="149" marker-end="url(#ar-w3-13)"/><text x="330" y="154" text-anchor="middle">(2,3)</text><rect class="ln hl" x="45" y="168" width="150" height="26" rx="6"/><text x="85" y="186" text-anchor="middle">(2,4)</text><text x="155" y="186" text-anchor="middle">(4,2)</text><line class="ln" x1="205" y1="181" x2="285" y2="181" marker-end="url(#ar-w3-13)"/><text x="330" y="186" text-anchor="middle">(2,4)</text><rect class="ln hl" x="45" y="200" width="150" height="26" rx="6"/><text x="85" y="218" text-anchor="middle">(3,4)</text><text x="155" y="218" text-anchor="middle">(4,3)</text><line class="ln" x1="205" y1="213" x2="285" y2="213" marker-end="url(#ar-w3-13)"/><text x="330" y="218" text-anchor="middle">(3,4)</text><text x="220" y="250" text-anchor="middle">₄C₂ = ₄P₂ ÷ 2! = 12 ÷ 2 = 6</text></svg>
+<figcaption>[그림 2-13] 조합의 정의: 순열 12쌍 (1,2)(1,3)(1,4)(2,1)(2,3)(2,4)(3,1)(3,2)(3,4)(4,1)(4,2)(4,3) 가운데, 순서만 다른 쌍을 하나로 묶으면 조합 6개 (1,2)(1,3)(1,4)(2,3)(2,4)(3,4)가 남는다. ${}_4C_2=\dfrac{{}_4P_2}{2!}=6$</figcaption></figure>
 
 <div class="box def"><div class="lbl">정리 2-11 · 조합</div>
 서로 다른 $n$개에서 중복되지 않게 $r$개를 선택하는 경우의 수
@@ -800,7 +1000,8 @@ $${}_{15}C_5\times{}_{10}C_5\times{}_5C_5\times\frac{1}{3!}\times3!=126126\times
 
 <h3 id="s2-4">2.4 이항정리</h3>
 <p>다항식 거듭제곱의 계수에 관한 정리. $(a+b)^n$을 전개했을 때 나오는 계수는 파스칼의 삼각형의 $n$번째 줄과 같다. 예: $(a+b)^2=a^2+2ab+b^2$의 계수 1, 2, 1.</p>
-<p class="fig">[그림 2-14] 파스칼의 삼각형: 1 1 / 1 2 1 / 1 3 3 1 / 1 4 6 4 1 … 이 수들은 각각 ${}_1C_0\ {}_1C_1$ / ${}_2C_0\ {}_2C_1\ {}_2C_2$ / … 와 같고, 위 두 수의 합이 아래 수가 된다: ${}_nC_r={}_{n-1}C_{r-1}+{}_{n-1}C_r$.</p>
+<figure class="fig"><svg width="440" height="262" viewBox="0 0 440 262" role="img" aria-label="파스칼의 삼각형 1행부터 4행, 위 두 수의 합이 아래 수가 됨"><line class="lt" x1="212" y1="41" x2="184" y2="61"/><line class="lt" x1="212" y1="41" x2="240" y2="61"/><line class="lt" x1="268" y1="41" x2="240" y2="61"/><line class="lt" x1="268" y1="41" x2="296" y2="61"/><line class="lt" x1="184" y1="87" x2="156" y2="107"/><line class="lt" x1="184" y1="87" x2="212" y2="107"/><line class="lt" x1="240" y1="87" x2="212" y2="107"/><line class="lt" x1="240" y1="87" x2="268" y2="107"/><line class="lt" x1="296" y1="87" x2="268" y2="107"/><line class="lt" x1="296" y1="87" x2="324" y2="107"/><line class="lt" x1="156" y1="133" x2="128" y2="153"/><line class="lt" x1="156" y1="133" x2="184" y2="153"/><line class="lt" x1="212" y1="133" x2="184" y2="153"/><line class="ln" x1="212" y1="133" x2="240" y2="153"/><line class="ln" x1="268" y1="133" x2="240" y2="153"/><line class="lt" x1="268" y1="133" x2="296" y2="153"/><line class="lt" x1="324" y1="133" x2="296" y2="153"/><line class="lt" x1="324" y1="133" x2="352" y2="153"/><text x="212" y="37" text-anchor="middle">1</text><text x="268" y="37" text-anchor="middle">1</text><text x="184" y="83" text-anchor="middle">1</text><text x="240" y="83" text-anchor="middle">2</text><text x="296" y="83" text-anchor="middle">1</text><text x="156" y="129" text-anchor="middle">1</text><rect class="hl" x="190" y="109" width="44" height="26" rx="6"/><text x="212" y="129" text-anchor="middle">3</text><rect class="hl" x="246" y="109" width="44" height="26" rx="6"/><text x="268" y="129" text-anchor="middle">3</text><text x="324" y="129" text-anchor="middle">1</text><text x="128" y="175" text-anchor="middle">1</text><text x="184" y="175" text-anchor="middle">4</text><rect class="hl" x="218" y="155" width="44" height="26" rx="6"/><text x="240" y="175" text-anchor="middle">6</text><text x="296" y="175" text-anchor="middle">4</text><text x="352" y="175" text-anchor="middle">1</text><text x="28" y="37" text-anchor="start" class="mu sm">n=1</text><text x="28" y="83" text-anchor="start" class="mu sm">n=2</text><text x="28" y="129" text-anchor="start" class="mu sm">n=3</text><text x="28" y="175" text-anchor="start" class="mu sm">n=4</text><text x="240" y="212" text-anchor="middle" class="mu">⋮</text><text x="330" y="210" text-anchor="start" class="acc sm">3 + 3 = 6</text><text x="240" y="246" text-anchor="middle">ₙCᵣ = ₙ₋₁Cᵣ₋₁ + ₙ₋₁Cᵣ</text></svg>
+<figcaption>[그림 2-14] 파스칼의 삼각형: 1 1 / 1 2 1 / 1 3 3 1 / 1 4 6 4 1 … 이 수들은 각각 ${}_1C_0\ {}_1C_1$ / ${}_2C_0\ {}_2C_1\ {}_2C_2$ / … 와 같고, 위 두 수의 합이 아래 수가 된다: ${}_nC_r={}_{n-1}C_{r-1}+{}_{n-1}C_r$.</figcaption></figure>
 <p>$(a+b)^2=a^2b^0+2a^1b^1+a^0b^2$<br>
 $(a+b)^3=a^3b^0+3a^2b^1+3a^1b^2+a^0b^3$<br>
 $(a+b)^4=a^4b^0+4a^3b^1+6a^2b^2+4a^1b^3+a^0b^4$<br>
@@ -858,7 +1059,8 @@ $${}_4C_1\,2^3(-3)^1=4\times8\times(-3)=-96$$
 
 <details class="ex"><summary><span class="tag">예제 2-40</span> 파스칼의 삼각형을 이용하여 ${}_3C_2+{}_4C_2+{}_5C_2+{}_6C_2$의 값을 구하라.</summary>
 <div class="sol">
-<p class="fig">[그림] 조합 기호로 쓴 파스칼의 삼각형 (${}_1C_0\ {}_1C_1$ / ${}_2C_0\ {}_2C_1\ {}_2C_2$ / … / ${}_4C_0 \cdots {}_4C_4$), 위 두 항이 선으로 아래 항에 연결됨.</p>
+<figure class="fig"><svg width="460" height="204" viewBox="0 0 460 204" role="img" aria-label="조합 기호로 쓴 파스칼의 삼각형, 위 두 항이 선으로 아래 항에 연결됨"><line class="ln" x1="195" y1="39" x2="230" y2="63"/><line class="ln" x1="265" y1="39" x2="230" y2="63"/><line class="ln" x1="160" y1="89" x2="195" y2="113"/><line class="ln" x1="230" y1="89" x2="195" y2="113"/><line class="ln" x1="230" y1="89" x2="265" y2="113"/><line class="ln" x1="300" y1="89" x2="265" y2="113"/><line class="ln" x1="125" y1="139" x2="160" y2="163"/><line class="ln" x1="195" y1="139" x2="160" y2="163"/><line class="ln" x1="195" y1="139" x2="230" y2="163"/><line class="ln" x1="265" y1="139" x2="230" y2="163"/><line class="ln" x1="265" y1="139" x2="300" y2="163"/><line class="ln" x1="335" y1="139" x2="300" y2="163"/><text x="195" y="35" text-anchor="middle">₁C₀</text><text x="265" y="35" text-anchor="middle">₁C₁</text><text x="160" y="85" text-anchor="middle">₂C₀</text><text x="230" y="85" text-anchor="middle">₂C₁</text><text x="300" y="85" text-anchor="middle">₂C₂</text><text x="125" y="135" text-anchor="middle">₃C₀</text><text x="195" y="135" text-anchor="middle">₃C₁</text><rect class="hl" x="243" y="115" width="44" height="26" rx="6"/><text x="265" y="135" text-anchor="middle">₃C₂</text><rect class="hl" x="313" y="115" width="44" height="26" rx="6"/><text x="335" y="135" text-anchor="middle">₃C₃</text><text x="90" y="185" text-anchor="middle">₄C₀</text><text x="160" y="185" text-anchor="middle">₄C₁</text><text x="230" y="185" text-anchor="middle">₄C₂</text><rect class="hl" x="278" y="165" width="44" height="26" rx="6"/><text x="300" y="185" text-anchor="middle">₄C₃</text><text x="370" y="185" text-anchor="middle">₄C₄</text></svg>
+<figcaption>[그림] 조합 기호로 쓴 파스칼의 삼각형 (${}_1C_0\ {}_1C_1$ / ${}_2C_0\ {}_2C_1\ {}_2C_2$ / … / ${}_4C_0 \cdots {}_4C_4$), 위 두 항이 선으로 아래 항에 연결됨.</figcaption></figure>
 <p>${}_{n}C_2+{}_{n}C_3={}_{n+1}C_3$를 차례로 쓰면</p>
 $${}_3C_2+{}_3C_3={}_4C_3,\quad {}_4C_2+{}_4C_3={}_5C_3,\quad {}_5C_2+{}_5C_3={}_6C_3,\quad {}_6C_2+{}_6C_3={}_7C_3$$
 <p>모든 식을 더하면 양변의 ${}_4C_3, {}_5C_3, {}_6C_3$이 지워져 ${}_3C_2+{}_4C_2+{}_5C_2+{}_6C_2+{}_3C_3={}_7C_3$. 따라서</p>
@@ -1040,11 +1242,42 @@ $$(1+i)^{16}={}_{16}C_0i^0+{}_{16}C_1i^1+{}_{16}C_2i^2+\cdots+{}_{16}C_{16}i^{16
 <li>공사건 : 절대로 일어나지 않는 사건</li>
 </ul></div>
 <p><b>합사건</b> $A\cup B$ : $A$ 또는(or) $B$가 일어나는 사건. <b>곱사건</b> $A\cap B$ : $A$ 그리고(and) $B$가 동시에 일어나는 사건.</p>
-<p class="fig">[그림 3-1] 합사건과 곱사건 — (a) 표본공간 $S$ 안 두 원 전체 음영($A\cup B$), (b) 두 원이 겹친 부분만 음영($A\cap B$).</p>
+<figure class="fig"><svg width="440" height="180" viewBox="0 0 440 180" role="img" aria-label="(a) 두 원 전체가 색칠된 합사건, (b) 두 원이 겹친 부분만 색칠된 곱사건">
+<g><rect class="ln" x="10" y="10" width="200" height="140"/>
+<path class="hl" d="M110,42.58 A45,45 0 1 0 110,117.42 A45,45 0 1 0 110,42.58 Z"/>
+<circle class="ln" cx="85" cy="80" r="45"/><circle class="ln" cx="135" cy="80" r="45"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="70" y="85" text-anchor="middle">A</text><text x="150" y="85" text-anchor="middle">B</text>
+<text x="110" y="172" text-anchor="middle">(a) A∪B</text></g>
+<g transform="translate(220,0)"><rect class="ln" x="10" y="10" width="200" height="140"/>
+<path class="hl" d="M110,42.58 A45,45 0 0 1 110,117.42 A45,45 0 0 1 110,42.58 Z"/>
+<circle class="ln" cx="85" cy="80" r="45"/><circle class="ln" cx="135" cy="80" r="45"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="70" y="85" text-anchor="middle">A</text><text x="150" y="85" text-anchor="middle">B</text>
+<text x="110" y="172" text-anchor="middle">(b) A∩B</text></g></svg>
+<figcaption>[그림 3-1] 합사건과 곱사건 — (a) 표본공간 $S$ 안 두 원 전체 음영($A\cup B$), (b) 두 원이 겹친 부분만 음영($A\cap B$).</figcaption></figure>
 <p>$A\cap B=\phi$이면 $A$, $B$는 서로 <b>배반사건</b>(한쪽이 일어나면 다른 쪽은 일어날 수 없음). 예: 주사위의 홀수 눈 사건과 짝수 눈 사건. $A$가 일어나지 않는 사건이 <b>여사건</b> $A^c$이며, $A$와 $A^c$는 항상 서로 배반.</p>
-<p class="fig">[그림 3-2] 배반사건과 여사건 — (a) $S$ 안에 겹치지 않는 두 원 $A$, $B$, (b) 원 $A$ 바깥 영역 $A^c$ 음영.</p>
+<figure class="fig"><svg width="440" height="180" viewBox="0 0 440 180" role="img" aria-label="(a) 겹치지 않는 두 원 A, B, (b) 원 A 바깥 영역이 색칠된 여사건">
+<g><rect class="ln" x="10" y="10" width="200" height="140"/>
+<circle class="ln" cx="65" cy="80" r="38"/><circle class="ln" cx="155" cy="80" r="38"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="65" y="85" text-anchor="middle">A</text><text x="155" y="85" text-anchor="middle">B</text>
+<text x="110" y="172" text-anchor="middle">(a) A∩B=∅</text></g>
+<g transform="translate(220,0)">
+<path class="hl" fill-rule="evenodd" d="M10,10 H210 V150 H10 Z M155,80 A45,45 0 1 0 65,80 A45,45 0 1 0 155,80 Z"/>
+<rect class="ln" x="10" y="10" width="200" height="140"/><circle class="ln" cx="110" cy="80" r="45"/>
+<text x="24" y="30" text-anchor="middle">S</text><text x="110" y="85" text-anchor="middle">A</text><text x="180" y="138" text-anchor="middle" class="acc">Aᶜ</text>
+<text x="110" y="172" text-anchor="middle">(b) Aᶜ</text></g></svg>
+<figcaption>[그림 3-2] 배반사건과 여사건 — (a) $S$ 안에 겹치지 않는 두 원 $A$, $B$, (b) 원 $A$ 바깥 영역 $A^c$ 음영.</figcaption></figure>
 <p>예: 주사위에서 홀수 사건 $A=\{1,3,5\}$, 소수 사건 $B=\{2,3,5\}$ → $A\cup B=\{1,2,3,5\}$, $A\cap B=\{3,5\}$, $A^c=\{2,4,6\}$.</p>
-<p class="fig">[그림 3-3] 주사위에서 홀수와 소수가 나오는 사건 — 벤 다이어그램: $A$에만 1, 겹친 부분 3, 5, $B$에만 2, 바깥($S$)에 4, 6.</p>
+<figure class="fig"><svg width="300" height="180" viewBox="0 0 300 180" role="img" aria-label="벤 다이어그램: A에만 1, 겹친 부분 3과 5, B에만 2, 바깥에 4와 6">
+<rect class="ln" x="10" y="10" width="280" height="160"/>
+<path class="hl" d="M150,47.6 A55,55 0 0 1 150,132.4 A55,55 0 0 1 150,47.6 Z"/>
+<circle class="ln" cx="115" cy="90" r="55"/><circle class="ln" cx="185" cy="90" r="55"/>
+<text x="26" y="30" text-anchor="middle">S</text>
+<text x="72" y="42" text-anchor="middle" class="acc">A</text><text x="228" y="42" text-anchor="middle" class="acc">B</text>
+<text x="92" y="95" text-anchor="middle">1</text>
+<text x="150" y="82" text-anchor="middle">3</text><text x="150" y="110" text-anchor="middle">5</text>
+<text x="208" y="95" text-anchor="middle">2</text>
+<text x="34" y="158" text-anchor="middle">4</text><text x="266" y="158" text-anchor="middle">6</text></svg>
+<figcaption>[그림 3-3] 주사위에서 홀수와 소수가 나오는 사건 — 벤 다이어그램: $A$에만 1, 겹친 부분 3, 5, $B$에만 2, 바깥($S$)에 4, 6.</figcaption></figure>
 <div class="box def"><div class="lbl">정리 3-2 · 사건</div>
 두 사건 $A$, $B$에 대하여
 <ul>
@@ -1168,19 +1401,45 @@ $$\frac{81895}{98554}\approx0.83$$
 $$P(A)=\frac{A\text{가 일어날 수 있는 영역의 크기}}{\text{일어날 수 있는 전체 영역의 크기}}$$
 (영역의 크기 = 길이, 넓이 등)</div>
 <p>예: 반지름 2인 원을 $y=x$로 자르면 한쪽 넓이 $2\pi$, 전체 $4\pi$ → $\frac{2\pi}{4\pi}=\frac12$.</p>
-<p class="fig">[그림 3-4] 전체 원에서 반원이 차지하는 영역 — 원점 중심 반지름 2인 원, 직선 $y=x$가 원을 이등분하고 한쪽 반원이 색칠됨.</p>
+<figure class="fig"><svg width="300" height="240" viewBox="0 0 300 240" role="img" aria-label="원점 중심 반지름 2인 원을 직선 y=x가 이등분하고 위쪽 반원이 색칠됨">
+<path class="hl" d="M206.57,63.43 A80,80 0 0 0 93.43,176.57 Z"/>
+<line class="lt" x1="40" y1="120" x2="265" y2="120"/><line class="lt" x1="150" y1="230" x2="150" y2="12"/>
+<circle class="ln" cx="150" cy="120" r="80"/>
+<line class="ln" x1="60" y1="210" x2="240" y2="30"/>
+<text x="272" y="124" class="mu sm">x</text><text x="150" y="10" text-anchor="middle" class="mu sm">y</text>
+<text x="142" y="134" text-anchor="middle" class="sm">O</text>
+<text x="238" y="134" text-anchor="middle" class="sm">2</text><text x="60" y="134" text-anchor="middle" class="sm">−2</text>
+<text x="160" y="36" text-anchor="middle" class="sm">2</text><text x="162" y="214" text-anchor="middle" class="sm">−2</text>
+<text x="256" y="34" text-anchor="middle" class="acc">y=x</text></svg>
+<figcaption>[그림 3-4] 전체 원에서 반원이 차지하는 영역 — 원점 중심 반지름 2인 원, 직선 $y=x$가 원을 이등분하고 한쪽 반원이 색칠됨.</figcaption></figure>
 <div class="box tip"><div class="lbl">핵심</div>
 "임의의 점/값" 문제 → 조건을 만족하는 영역을 그림으로 그리고 크기의 비를 구한다. 1변수면 수직선 위 길이의 비, 2변수(점 두 개)면 좌표평면 넓이의 비. 지름 위 원주각 = 직각 → 반원 안은 둔각, 밖은 예각.</div>
 
 <details class="ex"><summary><span class="tag">예제 3-12</span> 한 변의 길이가 10인 정사각형 ABCD가 있다. □ABCD 내부에 한 점 P를 잡을 때, △PBC가 둔각삼각형이 될 확률을 구하라.</summary>
-<div class="sol"><p class="fig">[그림] 정사각형 ABCD(위 A–D, 아래 B–C), 변 BC를 지름으로 하는 반원이 정사각형 내부에 그려짐.</p>
+<div class="sol"><figure class="fig"><svg width="280" height="250" viewBox="0 0 280 250" role="img" aria-label="정사각형 ABCD 안에 변 BC를 지름으로 하는 반원이 색칠됨">
+<path class="hl" d="M40,220 A100,100 0 0 1 240,220 Z"/>
+<rect class="ln" x="40" y="20" width="200" height="200"/>
+<path class="ln" d="M40,220 A100,100 0 0 1 240,220"/>
+<line class="lt" x1="40" y1="220" x2="120" y2="170"/><line class="lt" x1="240" y1="220" x2="120" y2="170"/>
+<circle class="dot" cx="120" cy="170" r="3"/><text x="120" y="162" text-anchor="middle" class="sm">P</text>
+<text x="28" y="18" text-anchor="middle">A</text><text x="252" y="18" text-anchor="middle">D</text>
+<text x="28" y="236" text-anchor="middle">B</text><text x="252" y="236" text-anchor="middle">C</text>
+<text x="140" y="240" text-anchor="middle" class="sm">10</text><text x="256" y="124" text-anchor="middle" class="sm">10</text></svg>
+<figcaption>[그림] 정사각형 ABCD(위 A–D, 아래 B–C), 변 BC를 지름으로 하는 반원이 정사각형 내부에 그려짐.</figcaption></figure>
 <p>P가 $\overline{BC}$를 지름으로 하는 반원 위에 있으면 $\angle BPC=90^\circ$ (직각삼각형). 반원 내부에 있으면 $\angle BPC&gt;90^\circ$ → 둔각삼각형. (반원 밖이면 $\angle P$가 예각이고, $\angle B,\angle C$도 정사각형 내부라 예각.)</p>
 $$\frac{\text{반원의 넓이}}{\square\text{ABCD의 넓이}}=\frac{\frac12\times\pi\times5^2}{10\times10}=\frac{\pi}{8}$$
 <p class="ans">답: $\frac{\pi}{8}$</p></div></details>
 
 <details class="ex"><summary><span class="tag">예제 3-13</span> 한 변의 길이가 2인 정사각형 ABCD가 있다. 정사각형 내부에 한 점 P를 잡을 때, P에서 가장 가까운 꼭짓점까지의 거리가 1 이하일 확률을 구하라.</summary>
 <div class="sol"><p>P가 어느 한 꼭짓점에서 거리 1 이하인 영역에 있으면 된다.</p>
-<p class="fig">[그림] 한 변 2인 정사각형, 네 꼭짓점을 중심으로 반지름 1인 사분원 4개 색칠, 가운데 별 모양이 흰색으로 남음.</p>
+<figure class="fig"><svg width="280" height="250" viewBox="0 0 280 250" role="img" aria-label="한 변 2인 정사각형의 네 꼭짓점에 반지름 1인 사분원 4개가 색칠되고 가운데 별 모양이 남음">
+<path class="ln hl" d="M40,20 H140 A100,100 0 0 1 40,120 Z M240,20 V120 A100,100 0 0 1 140,20 Z M240,220 H140 A100,100 0 0 1 240,120 Z M40,220 V120 A100,100 0 0 1 140,220 Z"/>
+<rect class="ln" x="40" y="20" width="200" height="200"/>
+<text x="28" y="18" text-anchor="middle">A</text><text x="252" y="18" text-anchor="middle">D</text>
+<text x="28" y="236" text-anchor="middle">B</text><text x="252" y="236" text-anchor="middle">C</text>
+<text x="140" y="240" text-anchor="middle" class="sm">2</text>
+<text x="90" y="34" text-anchor="middle" class="sm">1</text><text x="190" y="34" text-anchor="middle" class="sm">1</text></svg>
+<figcaption>[그림] 한 변 2인 정사각형, 네 꼭짓점을 중심으로 반지름 1인 사분원 4개 색칠, 가운데 별 모양이 흰색으로 남음.</figcaption></figure>
 <p>사분원 4개(서로 겹치지 않음) = 반지름 1인 원 하나.</p>
 $$\frac{\pi\times1^2}{2\times2}=\frac{\pi}{4}$$
 <p class="ans">답: $\frac{\pi}{4}$</p></div></details>
@@ -1189,12 +1448,28 @@ $$\frac{\pi\times1^2}{2\times2}=\frac{\pi}{4}$$
 <div class="sol"><p>실근 조건: 판별식 $D=b^2-4ac\ge0$.</p>
 $$D=(4m)^2-4\times4\times m=16m^2-16m\ge0$$
 $$m(m-1)\ge0\ \Rightarrow\ m\le0\ \text{또는}\ m\ge1$$
-<p class="fig">[그림] 수직선 위 0, 1, 3 표시. 범위 $[0,3]$ 중 조건을 만족하는 부분은 $m=0$(한 점, 길이 0)과 $[1,3]$(길이 2).</p>
+<figure class="fig"><svg width="360" height="100" viewBox="0 0 360 100" role="img" aria-label="수직선 위 0부터 3까지 중 m=0 한 점과 1부터 3까지 구간이 색칠됨">
+<line class="lt" x1="60" y1="22" x2="300" y2="22"/><line class="lt" x1="60" y1="16" x2="60" y2="28"/><line class="lt" x1="300" y1="16" x2="300" y2="28"/>
+<text x="180" y="16" text-anchor="middle" class="mu sm">전체 [0, 3] 길이 3</text>
+<rect class="hl" x="140" y="44" width="160" height="12"/>
+<line class="ln" x1="25" y1="50" x2="335" y2="50"/>
+<line class="ln" x1="60" y1="44" x2="60" y2="56"/><line class="ln" x1="140" y1="44" x2="140" y2="56"/><line class="ln" x1="220" y1="44" x2="220" y2="56"/><line class="ln" x1="300" y1="44" x2="300" y2="56"/>
+<circle class="dot" cx="60" cy="50" r="4"/><circle class="dot" cx="140" cy="50" r="4"/><circle class="dot" cx="300" cy="50" r="4"/>
+<text x="60" y="74" text-anchor="middle">0</text><text x="140" y="74" text-anchor="middle">1</text><text x="220" y="74" text-anchor="middle" class="mu">2</text><text x="300" y="74" text-anchor="middle">3</text>
+<text x="345" y="54" class="mu sm">m</text>
+<text x="220" y="94" text-anchor="middle" class="acc">길이 2</text><text x="60" y="94" text-anchor="middle" class="sm mu">한 점(길이 0)</text></svg>
+<figcaption>[그림] 수직선 위 0, 1, 3 표시. 범위 $[0,3]$ 중 조건을 만족하는 부분은 $m=0$(한 점, 길이 0)과 $[1,3]$(길이 2).</figcaption></figure>
 $$\frac{\text{실근을 가지는 영역}}{\text{주어진 영역}}=\frac{2}{3}$$
 <p class="ans">답: $\frac23$</p></div></details>
 
 <details class="ex"><summary><span class="tag">예제 3-15</span> 반지름이 10인 원판이 있다. 이 원판 위에 임의의 점 P를 잡을 때, 원판의 중심과 P점 사이의 거리가 $4\le\overline{OP}\le6$이 될 확률을 구하라.</summary>
-<div class="sol"><p class="fig">[그림] 반지름 4, 6, 10인 동심원, 반지름 4와 6 사이 고리 영역 색칠.</p>
+<div class="sol"><figure class="fig"><svg width="260" height="240" viewBox="0 0 260 240" role="img" aria-label="반지름 4, 6, 10인 동심원에서 반지름 4와 6 사이 고리가 색칠됨">
+<path class="hl" fill-rule="evenodd" d="M190,120 A60,60 0 1 0 70,120 A60,60 0 1 0 190,120 Z M170,120 A40,40 0 1 0 90,120 A40,40 0 1 0 170,120 Z"/>
+<circle class="ln" cx="130" cy="120" r="100"/><circle class="ln" cx="130" cy="120" r="60"/><circle class="ln" cx="130" cy="120" r="40"/>
+<line class="lt" x1="130" y1="120" x2="230" y2="120"/>
+<circle class="dot" cx="130" cy="120" r="3"/><text x="122" y="136" text-anchor="middle" class="sm">O</text>
+<text x="167" y="114" text-anchor="middle" class="sm">4</text><text x="187" y="114" text-anchor="middle" class="sm">6</text><text x="222" y="114" text-anchor="middle" class="sm">10</text></svg>
+<figcaption>[그림] 반지름 4, 6, 10인 동심원, 반지름 4와 6 사이 고리 영역 색칠.</figcaption></figure>
 $$\frac{\pi\times6^2-\pi\times4^2}{\pi\times10^2}=\frac{(36-16)\pi}{100\pi}=\frac15$$
 <p class="ans">답: $\frac15$</p></div></details>
 
@@ -1313,10 +1588,12 @@ $$\frac{\frac12a^2}{a\times a}=\frac12$$
 <h3 id="s3-2-1">3.2.1 합사건의 확률</h3>
 <p>사건 $A$ 또는 $B$가 일어날 확률 = 합사건의 확률 $P(A\cup B)$ (= $A$, $B$ 중 적어도 하나가 일어날 확률). 각각 더한 뒤 두 번 더해진 교집합 $P(A\cap B)$를 한 번 빼면 된다.</p>
 <p><b>예 1 (교집합 있음)</b> $S=\{x\mid x$는 15 이하의 자연수$\}$, $A$: 2의 배수 $=\{2,4,6,8,10,12,14\}$, $B$: 10의 약수 $=\{1,2,5,10\}$, $A\cap B=\{2,10\}$.</p>
-<p class="fig">[그림 3-5] 2의 배수와 10의 약수 — 벤다이어그램: $A$만 4, 6, 8, 12, 14 / $A\cap B$ 2, 10 / $B$만 1, 5 / 바깥 3, 7, 9, 11, 13, 15</p>
+<figure class="fig"><svg width="420" height="260" viewBox="0 0 420 260" role="img" aria-label="2의 배수 A와 10의 약수 B의 벤다이어그램, 교집합은 2와 10"><defs><clipPath id="cp-w5-35"><circle cx="165" cy="135" r="90"/></clipPath></defs><rect class="ln" x="10" y="10" width="400" height="240" rx="4"/><circle class="hl" cx="265" cy="135" r="72" clip-path="url(#cp-w5-35)"/><circle class="ln" cx="165" cy="135" r="90"/><circle class="ln" cx="265" cy="135" r="72"/><text x="22" y="30" text-anchor="start" class="acc">S</text><text x="150" y="72" text-anchor="middle" class="acc">A</text><text x="300" y="88" text-anchor="middle" class="acc">B</text><text x="120" y="100" text-anchor="middle">4</text><text x="160" y="100" text-anchor="middle">6</text><text x="105" y="142" text-anchor="middle">8</text><text x="145" y="142" text-anchor="middle">12</text><text x="125" y="185" text-anchor="middle">14</text><text x="224" y="120" text-anchor="middle">2</text><text x="224" y="162" text-anchor="middle">10</text><text x="295" y="120" text-anchor="middle">1</text><text x="295" y="162" text-anchor="middle">5</text><text x="38" y="62" text-anchor="middle">3</text><text x="38" y="140" text-anchor="middle">7</text><text x="38" y="218" text-anchor="middle">9</text><text x="385" y="62" text-anchor="middle">11</text><text x="385" y="140" text-anchor="middle">13</text><text x="385" y="218" text-anchor="middle">15</text></svg>
+<figcaption>[그림 3-5] 2의 배수와 10의 약수 — 벤다이어그램: $A$만 4, 6, 8, 12, 14 / $A\cap B$ 2, 10 / $B$만 1, 5 / 바깥 3, 7, 9, 11, 13, 15</figcaption></figure>
 <p>$$P(A\cup B)=\frac{7}{15}+\frac{4}{15}-\frac{2}{15}=\frac{9}{15}$$ 실제로 $A\cup B=\{1,2,4,5,6,8,10,12,14\}$, 9개로 확인.</p>
 <p><b>예 2 (배반사건)</b> 같은 $S$에서 $A$: 7의 배수 $=\{7,14\}$, $B$: 3의 배수 $=\{3,6,9,12,15\}$ → $A\cap B=\varnothing$이므로 그냥 더한다.</p>
-<p class="fig">[그림 3-6] 7의 배수와 3의 배수 — $S$ 안에 떨어진 두 원 $A$(7, 14), $B$(3, 6, 9, 12, 15), 바깥 1, 2, 4, 5, 8, 10, 11, 13</p>
+<figure class="fig"><svg width="420" height="240" viewBox="0 0 420 240" role="img" aria-label="7의 배수 A와 3의 배수 B가 겹치지 않는 두 원으로 그려진 벤다이어그램"><rect class="ln" x="10" y="10" width="400" height="220" rx="4"/><circle class="ln hl" cx="120" cy="120" r="55"/><circle class="ln hl2" cx="280" cy="120" r="80"/><text x="22" y="30" text-anchor="start" class="acc">S</text><text x="120" y="90" text-anchor="middle" class="acc">A</text><text x="280" y="72" text-anchor="middle" class="acc">B</text><text x="103" y="128" text-anchor="middle">7</text><text x="140" y="128" text-anchor="middle">14</text><text x="248" y="110" text-anchor="middle">3</text><text x="280" y="110" text-anchor="middle">6</text><text x="312" y="110" text-anchor="middle">9</text><text x="264" y="150" text-anchor="middle">12</text><text x="296" y="150" text-anchor="middle">15</text><text x="34" y="62" text-anchor="middle">1</text><text x="34" y="125" text-anchor="middle">2</text><text x="34" y="188" text-anchor="middle">4</text><text x="120" y="215" text-anchor="middle">5</text><text x="200" y="215" text-anchor="middle">8</text><text x="388" y="62" text-anchor="middle">10</text><text x="388" y="125" text-anchor="middle">11</text><text x="388" y="188" text-anchor="middle">13</text></svg>
+<figcaption>[그림 3-6] 7의 배수와 3의 배수 — $S$ 안에 떨어진 두 원 $A$(7, 14), $B$(3, 6, 9, 12, 15), 바깥 1, 2, 4, 5, 8, 10, 11, 13</figcaption></figure>
 <p>$P(A)=\frac{2}{15}$, 3의 배수일 확률 $P(B)=\frac{5}{15}$, $P(A\cap B)=0$ → $$P(A\cup B)=\frac{2}{15}+\frac{5}{15}=\frac{7}{15}$$ ($A\cup B=\{3,6,7,9,12,14,15\}$) <span class="fix">※ 책 오탈자 수정: 원문 "10의 소수인 확률", "7의 배수이자 10의 소수인 확률 $P(A\cap B)=\phi$" → 3의 배수, 그리고 확률은 공집합 기호가 아니라 0</span></p>
 
 <div class="box def"><div class="lbl">정리 3-4 · 덧셈정리</div>
@@ -1374,7 +1651,8 @@ $$P(A^c)=1-P(A)$$</div>
 <p><b>예</b> 제비 10개 중 당첨 3개, 2개 뽑기. 둘 다 당첨($A$): $P(A)=\frac{{}_3C_2}{{}_{10}C_2}=\frac{1}{15}$ → 둘 다 당첨 아님: $P(A^c)=1-\frac{1}{15}=\frac{14}{15}$.</p>
 <p><b>'적어도'</b>가 나오면 여사건으로: (적어도 하나) = 1 − (하나도 없음).</p>
 <p><b>예</b> 안경 쓴 사람 4명, 안 쓴 사람 3명 중 2명 선택. '적어도 1명 안경'을 직접 세면 (2명 모두 안경)+(1명만 안경)으로 번거로움. 2명 모두 안경을 안 쓴 사건을 $A$라 하면</p>
-<p class="fig">[그림 3-7] '적어도' 안경을 쓴 사람이 1명인 경우 — 안경 쓴 사람 A, B, C, D / 안 쓴 사람 E, F, G. 2명 모두 안경을 안 쓴 경우 $A$: (E,F), (E,G), (F,G) 3가지, 나머지가 '적어도 1명은 안경을 쓴 경우' <span class="fix">※ 책 오탈자 수정: 그림 원문 안경 안 쓴 사람 "E, F, D" → E, F, G</span></p>
+<figure class="fig"><svg width="440" height="222" viewBox="0 0 440 222" role="img" aria-label="안경 쓴 사람 A, B, C, D와 안 쓴 사람 E, F, G, 2명 모두 안 쓴 경우 3가지"><text x="120" y="24" text-anchor="middle" class="acc">안경 쓴 사람 (4명)</text><text x="330" y="24" text-anchor="middle" class="acc">안경 안 쓴 사람 (3명)</text><rect class="ln" x="20" y="36" width="200" height="56" rx="8"/><rect class="ln" x="240" y="36" width="180" height="56" rx="8"/><circle class="ln" cx="45" cy="64" r="16"/><text x="45" y="69" text-anchor="middle">A</text><circle class="ln" cx="95" cy="64" r="16"/><text x="95" y="69" text-anchor="middle">B</text><circle class="ln" cx="145" cy="64" r="16"/><text x="145" y="69" text-anchor="middle">C</text><circle class="ln" cx="195" cy="64" r="16"/><text x="195" y="69" text-anchor="middle">D</text><circle class="ln hl2" cx="270" cy="64" r="16"/><text x="270" y="69" text-anchor="middle">E</text><circle class="ln hl2" cx="330" cy="64" r="16"/><text x="330" y="69" text-anchor="middle">F</text><circle class="ln hl2" cx="390" cy="64" r="16"/><text x="390" y="69" text-anchor="middle">G</text><line class="lt" x1="330" y1="92" x2="330" y2="112"/><rect class="ln hl" x="240" y="112" width="180" height="36" rx="8"/><text x="330" y="135" text-anchor="middle">(E,F)  (E,G)  (F,G)</text><text x="228" y="128" text-anchor="end" class="sm">2명 모두 안경을 안 쓴 경우</text><text x="228" y="144" text-anchor="end" class="sm">(사건 A) : ₃C₂ = 3가지</text><text x="220" y="186" text-anchor="middle">적어도 1명은 안경을 쓴 경우 = 나머지</text><text x="220" y="208" text-anchor="middle" class="mu sm">₇C₂ − ₃C₂ = 21 − 3 = 18가지</text></svg>
+<figcaption>[그림 3-7] '적어도' 안경을 쓴 사람이 1명인 경우 — 안경 쓴 사람 A, B, C, D / 안 쓴 사람 E, F, G. 2명 모두 안경을 안 쓴 경우 $A$: (E,F), (E,G), (F,G) 3가지, 나머지가 '적어도 1명은 안경을 쓴 경우' <span class="fix">※ 책 오탈자 수정: 그림 원문 안경 안 쓴 사람 "E, F, D" → E, F, G</span></figcaption></figure>
 <p>$$P(A)=\frac{{}_3C_2}{{}_7C_2}=\frac{1}{7},\qquad P(A^c)=1-\frac{1}{7}=\frac{6}{7}$$</p>
 <div class="box tip"><div class="lbl">핵심</div>
 <ul>
