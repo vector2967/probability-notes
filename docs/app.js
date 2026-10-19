@@ -135,7 +135,7 @@ function renderCard() {
     <div class="card" tabindex="0" role="button" aria-label="카드 뒤집기">
       <div class="card-in">
         <div class="face front"><span class="k">${c.w}주차 · ${esc(c.kind || '')}${known[c.id] ? ' · ✓' : ''}</span><div>${c.q}</div></div>
-        <div class="face back"><span class="k">정답</span><div>${c.a}</div></div>
+        <div class="face back"><span class="k">정답</span><div>${c.a}${c.fig ? `<figure class="fig">${c.fig}</figure>` : ''}</div></div>
       </div>
     </div>
     <div class="card-btns">
